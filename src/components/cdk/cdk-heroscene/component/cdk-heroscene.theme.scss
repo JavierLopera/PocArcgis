@@ -1,0 +1,6 @@
+:host {
+	--_cdk-heroscene-background-color: 				var(--cdk-heroscene-background-color, darkblue);
+	--_cdk-heroscene-text-color: 							var(--cdk-heroscene-text-color, white);
+	--_cdk-heroscene-background-color-end: 		var(--cdk-heroscene-background-color-end, white);
+	--_cdk-heroscene-content-max-width: 			var(--cdk-heroscene-content-max-width, 22em);
+}

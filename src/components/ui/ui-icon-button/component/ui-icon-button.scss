@@ -1,0 +1,15 @@
+@import "@material/fab/mdc-fab";
+
+.mdc-fab {
+  @include mdc-fab-container-color(var(--_ui-floating-icon-button-bg-color));
+  @include mdc-fab-ink-color(var(--_ui-floating-icon-button-icon-bg-color));
+  border: 1px solid var(--_ui-floating-icon-button-icon-border-color);
+  &:hover {
+    @include mdc-fab-container-color(var(--_ui-floating-icon-button-bg-color-hover));
+  }
+  &:disabled {
+    @include mdc-fab-container-color(var(--_ui-floating-icon-button-bg-color-disabled));
+    @include mdc-fab-ink-color(var(--_ui-floating-icon-button-icon-bg-color-disabled));
+    border: 1px solid var(--_ui-floating-icon-button-icon-border-color-disabled);
+  }
+}

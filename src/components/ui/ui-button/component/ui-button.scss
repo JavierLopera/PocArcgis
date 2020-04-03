@@ -1,46 +1,32 @@
 @import "@material/button/mdc-button";
 
-:host {
-  --ui-button-font-family: sans-serif;
-  --ui-button-min-width: 12rem;
-  --ui-button-border-radius: 8px;
-
-  --ui-button-bg-color: magenta;
-  --ui-button-bg-color-disabled: gray;
-  --ui-button-bg-color-hover: green;
-  --ui-button-text-color: white;
-
-  --ui-button-border-color: transparent;
-  --ui-button-border-color-disabled: none;
-  --ui-button-border: transparent;
-  --ui-button-text-color-hover: red;
-}
-
 .mdc-button {
-  font-family: var(--ui-button-font-family);
+  font-family: var(--_ui-button-font-family);
   font-weight: 400;
-  // min-width: var(--ui-button-min-width); // Rompe el grid en el tracking-card
-  font-size: 1rem; // TODO: Deeberiamos manejar el tamaño en funcion de desktop/mobile --> manejandolo desde el padre??
+  font-size: 1rem;
   height: 3.5rem;
-  border: var(--ui-button-border, var(--ui-button-border-default));
+  @include only-mobile {
+    height: 3rem;
+  }
+  border: var(--_ui-button-border);
 
-  @include mdc-button-outline-color(var(--ui-button-border-color));
-  @include mdc-button-shape-radius(var(--ui-button-border-radius));
-  @include mdc-button-container-fill-color(var(--ui-button-bg-color));
+  @include mdc-button-outline-color(var(--_ui-button-border-color));
+  @include mdc-button-shape-radius(var(--_ui-button-border-radius));
+  @include mdc-button-container-fill-color(var(--_ui-button-bg-color));
   @include mdc-button-horizontal-padding(1.5rem);
 
   &:hover {
-    background: var(--ui-button-bg-color-hover);
+    background: var(--_ui-button-bg-color-hover);
     border-color: transparent;
   }
 
   &:disabled {
-    background-color: var(--ui-button-bg-color-disabled);
-    border: var(--ui-button-border-color-disabled);
+    background-color: var(--_ui-button-bg-color-disabled);
+    border: solid 1px var(--_ui-button-border-color-disabled);
   }
 
   &:not(:disabled) {
-    color: var(--ui-button-text-color);
+    color: var(--_ui-button-text-color);
   }
 
   .mdc-button__ripple {
@@ -49,17 +35,9 @@
       background-color: white;
     }
   }
+
 }
 
-:host([link]) {
-  .mdc-button {
-    @include mdc-button-horizontal-padding(0);
-    justify-content: start;
-    &:hover {
-      color: var(--ui-button-text-color-hover);
-    }
-  }
-}
 
 ::slotted([slot="icon-left"]) {
   margin-right: 1rem;
@@ -67,4 +45,38 @@
 
 ::slotted([slot="icon-right"]) {
   margin-left: 1rem;
+}
+
+:host([variant="link"]) {
+  .mdc-button {
+    font-weight: bold;
+    @include mdc-button-horizontal-padding(0);
+    justify-content: start;
+    &:hover {
+      color: var(--_ui-button-text-color-hover);
+    }
+
+    &__label {
+      text-align: initial;
+    }
+  }
+  .mdc-button__ripple { opacity: 0 }
+}
+
+:host([variant="tiny"]) {
+  .mdc-button {
+    @include mdc-button-horizontal-padding(1rem);
+  }
+  ::slotted([slot="icon-left"]) {
+    margin-right: 0rem;
+  }
+  .mdc-button__label {
+    display: none;
+  }
+}
+
+:host([variant="no-icons"]) {
+  ::slotted([slot="icon-left"]) {
+    display: none;
+  }
 }

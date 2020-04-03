@@ -1,20 +1,6 @@
-@mixin tablet {
-	@media (min-width: #{map-get($layout-breakpoints, md)}) {
-		@content;
-	}
-}
-
-@mixin desktop {
-	@media (min-width: #{map-get($layout-breakpoints, lg)}) {
-		@content;
-	}
-}
-
-@mixin only-mobile {
-	@media (max-width: #{map-get($layout-breakpoints, md)} - 1) {
-		@content;
-	}
-}
+@import "sass-rem/rem";
+@import "force-reset";
+@import "breakpoints";
 
 @mixin u-transition($properties, $duration, $easing, $delay) {
   will-change: $properties;
@@ -22,4 +8,12 @@
   transition-delay: $delay;
   transition-duration: $duration;
   transition-timing-function: $easing;
+}
+
+@mixin u-focus-background() {
+  transition: background-color .15s linear;
+  outline: none;
+  &:focus {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
 }

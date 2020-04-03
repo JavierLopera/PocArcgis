@@ -1,0 +1,55 @@
+
+.cdk-root {
+  width: 100%;
+  display: block;
+  @include tablet {
+    display: flex;
+  }
+}
+
+.cdk-img {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  z-index: 1;
+  flex: 1 1 50%;
+}
+
+.cdk-content {
+  flex: 1 1 50%;
+  @include tablet {
+    padding-bottom: 5rem;
+  }
+}
+
+.cdk-textblock {
+  width: 100%;
+  height: 100%;
+  padding-left: $layout-grid-gap-outside;
+  padding-right: $layout-grid-gap-outside;
+  @include tablet {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    max-width: calc(var(--_wrapper) / 2 + 3rem - 24px); 
+    border-radius: 8px;
+    box-shadow: var(--_box-shadow);
+    z-index: 1;
+    position: relative;
+    background-color: var(--_background-color); 
+    left: -3rem;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+  }
+  @include desktop {
+    max-width: calc(var(--_wrapper) / 2 + 6rem - 24px); 
+    left: -6rem;
+  }
+}
+
+::slotted([slot="textblock"]) {
+  max-width: 40rem;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}

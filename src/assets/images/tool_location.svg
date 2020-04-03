@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>atoms/ico/tools/2</title>
+    <desc>Created with Sketch.</desc>
+    <g id="UI-KIT" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Correos_web_UIkit_05" transform="translate(-224.000000, -872.000000)">
+            <g id="atoms/ico/tools/2" transform="translate(224.000000, 872.000000)">
+                <g id="Group-6">
+                    <polygon id="Fill-1469" fill="#FFCD00" points="40 16 8 16 8 20 40 20"></polygon>
+                    <polygon id="Fill-1470" fill="#FFCD00" points="40 8 8 8 8 12 40 12"></polygon>
+                    <polygon id="Fill-1471" fill="#FFCD00" points="40 0 8 0 8 4 40 4"></polygon>
+                    <path d="M17,17 C13.685,17 11,19.685 11,23 C11,26.315 13.685,29 17,29 C20.315,29 23,26.315 23,23 C23,19.685 20.315,17 17,17 Z M30.8163636,21.4545455 C30.1054545,15.01 24.99,9.89454545 18.5454545,9.18363636 L18.5454545,6 L15.4545455,6 L15.4545455,9.18363636 C9.01,9.89454545 3.89454545,15.01 3.18363636,21.4545455 L0,21.4545455 L0,24.5454545 L3.18363636,24.5454545 C3.89454545,30.99 9.01,36.1054545 15.4545455,36.8163636 L15.4545455,40 L18.5454545,40 L18.5454545,36.8163636 C24.99,36.1054545 30.1054545,30.99 30.8163636,24.5454545 L34,24.5454545 L34,21.4545455 L30.8163636,21.4545455 Z M17,33 C11.4714286,33 7,28.5285714 7,23 C7,17.4714286 11.4714286,13 17,13 C22.5285714,13 27,17.4714286 27,23 C27,28.5285714 22.5285714,33 17,33 Z" id="Shape" fill="#002453"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

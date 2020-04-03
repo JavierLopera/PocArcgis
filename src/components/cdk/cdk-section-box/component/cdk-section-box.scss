@@ -1,0 +1,70 @@
+$bottom-spacing: 1.5rem;
+
+:host {
+  background-color: var(--_background-color);
+  display: block;
+  position: relative;
+
+  .cdk-content {
+    overflow: hidden;
+    padding-top: 3rem;
+    // padding-bottom: 1.5rem;
+    @include tablet {
+      padding-top: 4rem;
+      // padding-bottom: 3rem;
+    }
+    @include desktop{
+      padding-top: 5rem;
+      // padding-bottom: 5rem;
+    }
+    position: relative;
+    z-index: 1;
+    background-image: var(--_background-image);
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  &::after {
+    content: "";
+    width: 100%;
+    height: $bottom-spacing;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--_background-color-end);
+    position: absolute;
+    z-index: 0;
+  }
+
+  .cdk-content-start {
+    position: absolute;
+    z-index: 0;
+    left: 0%;
+    bottom: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    top: -1.5rem;
+    @include tablet {
+      top: -3.75rem;
+    }
+    @include desktop {
+      top: 0;
+    }
+    & > path { 
+      fill: var(--_background-color-start, rgb(255, 180, 236));
+    }
+  }
+
+  .cdk-content-end {
+    position: absolute;
+    z-index: 0;
+    bottom: $bottom-spacing;
+    left: 0%;
+    & > path { 
+      fill: var(--_background-color-end, rgb(99, 170, 218));
+    }
+
+  }
+
+}

@@ -1,0 +1,54 @@
+/* Settings */
+:root {
+  --theme-fontFamily-main: "Cartero", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  --theme-layout-wrapper: 85.375rem;
+
+  --theme-borderRadius-main: 6px;
+  --theme-borderRadius-card: 8px;
+
+  --theme-boxShadow-main: 0 10px 20px 0 rgba(0, 0, 0, 0.1);
+
+  --theme-color-yellow: #ffcd00;
+  --theme-color-blue: #000066;
+  --theme-color-hoverBlue: #000042;
+  --theme-color-iceBlue: #A5D7F0;
+  --theme-color-ashBlue: #c3e4eb;
+  --theme-color-coolGrey: #f3f2f2;
+  --theme-color-white: #ffffff;
+  --theme-color-green: #348f41;
+  --theme-color-red: #f32735;
+  --theme-color-lemonYellow: #f9e67e;
+  --theme-color-hoverYellow: #dbb000;
+  --theme-color-strongGrey: #333333;
+  --theme-color-lightGrey: #666666;
+  --theme-color-softGrey: #cbcbcb;
+  --theme-color-sendGrey: #949494;
+  --theme-color-buzones: #0d99ab;
+  --theme-color-citypaqGreen: #0d4542;
+  --theme-color-oficinas: #ffcd00;
+  --theme-color-manageBlue: #002453;
+  --theme-color-brown: #b38f00;
+  --theme-color-bigGrey: #979797;
+
+}
+/* Components ui */
+@import "ui/correos-ui-button";
+@import "ui/correos-ui-icon-button";
+@import "ui/correos-ui-card";
+@import "ui/correos-ui-card-large";
+@import "ui/correos-ui-input";
+@import "ui/correos-ui-tracking-stepper";
+
+/* Components cdk */
+@import "cdk/correos-cdk-core-header";
+@import "cdk/correos-cdk-tarificador";
+@import "cdk/correos-cdk-shipping-card"; 
+@import "cdk/correos-cdk-tracking-card"; 
+@import "cdk/correos-cdk-bgimagecard"; 
+@import "cdk/correos-cdk-heroscene"; 
+@import "cdk/correos-cdk-text-block"; 
+@import "cdk/correos-cdk-text-block-cta"; 
+@import "cdk/correos-cdk-core-footer";
+@import "cdk/correos-cdk-section-slider";
+@import "cdk/correos-cdk-section-log";

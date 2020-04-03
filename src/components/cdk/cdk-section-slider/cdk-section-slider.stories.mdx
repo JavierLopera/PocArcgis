@@ -1,0 +1,115 @@
+import { Story, Preview, Meta, Props } from '@storybook/addon-docs/blocks';
+import { html } from 'lit-html';
+
+import { customEventAction } from '../../../docs/utils/decorators.js';
+import { action, decorate } from '@storybook/addon-actions';
+import { text} from "@storybook/addon-knobs";
+
+# Storybook Docs for Section slider
+
+<Meta title="CDK/section-slider" />
+
+## Story definition
+
+Preview of default state.
+<Preview withToolbar>
+<Story name="Example slider card">
+  {() => {
+	return html`
+		<correos-cdk-section-slider>
+			<h1 slot="title">Accesos directos frecuentes</h1>
+			<correos-ui-card slot="slider" aria-hidden="true">
+				<i slot="icon" class="icon-almacen"></i>
+				<p slot="text">Quiero hacer una devolución</p>
+			</correos-ui-card>
+			<correos-ui-card slot="slider" aria-hidden="true">
+				<i slot="icon" class="icon-almacen"></i>
+				<p slot="text">Quiero hacer una devolución</p>
+			</correos-ui-card>
+			<correos-ui-card slot="slider" aria-hidden="true">
+				<i slot="icon" class="icon-almacen"></i>
+				<p slot="text">Quiero hacer una devolución</p>
+			</correos-ui-card>
+			<correos-ui-card slot="slider" aria-hidden="true">
+				<i slot="icon" class="icon-almacen"></i>
+				<p slot="text">Quiero hacer una devolución</p>
+			</correos-ui-card>
+			<correos-ui-card slot="slider" aria-hidden="true">
+				<i slot="icon" class="icon-almacen"></i>
+				<p slot="text">Quiero hacer una devolución</p>
+			</correos-ui-card>
+			<correos-ui-card slot="slider" aria-hidden="true">
+				<i slot="icon" class="icon-almacen"></i>
+				<p slot="text">Quiero hacer una devolución</p>
+			</correos-ui-card>
+			<correos-ui-card slot="slider" aria-hidden="true">
+				<i slot="icon" class="icon-almacen"></i>
+				<p slot="text">Quiero hacer una devolución</p>
+			</correos-ui-card>
+			<correos-ui-card slot="slider" aria-hidden="true">
+				<i slot="icon" class="icon-almacen"></i>
+				<p slot="text">Quiero hacer una devolución</p>
+			</correos-ui-card>
+			<correos-ui-card slot="slider" aria-hidden="true">
+				<i slot="icon" class="icon-almacen"></i>
+				<p slot="text">Quiero hacer una devolución</p>
+			</correos-ui-card>
+		</correos-cdk-section-slider>
+	`}
+  }
+</Story>
+</Preview>
+
+
+<Preview withToolbar>
+<Story name="Example slider card large">
+  	{() => {
+		return html`
+			<correos-cdk-section-slider item-mobile-slider=2 item-tablet-slider=2 item-desktop-slider=4 variant="true">
+				<h1 slot="title">Servicios más demandados</h1>
+				<correos-ui-card-large slot="slider" aria-hidden="true">
+					<h3 slot="title">Producto</h3>
+					<p slot="body-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. Lorem Ipsum has been the industrys standards. </p>
+				</correos-ui-card-large>
+				<correos-ui-card-large slot="slider" aria-hidden="true">
+					<h3 slot="title">Producto</h3>
+					<p slot="body-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. Lorem Ipsum has been the industrys standards</p>
+				</correos-ui-card-large>
+				<correos-ui-card-large slot="slider" aria-hidden="true">
+					<h3 slot="title">Producto</h3>
+					<p slot="body-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. Lorem Ipsum has been the industrys standards</p>
+				</correos-ui-card-large>
+				<correos-ui-card-large slot="slider" aria-hidden="true">
+					<h3 slot="title">Producto</h3>
+					<p slot="body-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. Lorem Ipsum has been the industrys standards</p>
+				</correos-ui-card-large>
+				<correos-ui-card-large slot="slider" aria-hidden="true">
+					<h3 slot="title">Producto</h3>
+					<p slot="body-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. Lorem Ipsum has been the industrys standards</p>
+				</correos-ui-card-large>
+				<correos-ui-card-large slot="slider" aria-hidden="true">
+					<h3 slot="title">Producto</h3>
+					<p slot="body-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. Lorem Ipsum has been the industrys standards</p>
+				</correos-ui-card-large>
+				<correos-ui-card-large slot="slider" aria-hidden="true">
+					<h3 slot="title">Producto</h3>
+					<p slot="body-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. Lorem Ipsum has been the industrys standards</p>
+				</correos-ui-card-large>
+				<correos-ui-card-large slot="slider" aria-hidden="true">
+					<h3 slot="title">Producto</h3>
+					<p slot="body-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. Lorem Ipsum has been the industrys standards</p>
+				</correos-ui-card-large>
+				<correos-ui-card-large slot="slider" aria-hidden="true">
+					<h3 slot="title">Producto</h3>
+					<p slot="body-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. Lorem Ipsum has been the industrys standards</p>
+				</correos-ui-card-large>
+			</correos-cdk-section-slider>
+		`}
+	}
+</Story>
+</Preview>
+
+## API
+
+<Props of="correos-cdk-section-slider" />
+

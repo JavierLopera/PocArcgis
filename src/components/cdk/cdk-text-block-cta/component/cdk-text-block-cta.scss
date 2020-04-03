@@ -1,0 +1,50 @@
+@import "force-reset.scss";
+
+/** Breakpoints */
+:host {
+  display: flex;
+  background: transparent;
+  width: 100%;
+  height: auto;
+  flex-direction: column;
+
+  ::slotted([slot="header"]) {
+    @include reset-text();
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: var(--_cdk-text-block-cta-text-color);
+    margin-bottom: 16px;
+  }
+
+  ::slotted([slot="title"]) {
+    @include reset-text();
+    font-size: 2rem;
+    font-weight: 300;
+    line-height: 1.13;
+    color: var(--_cdk-text-block-cta-text-color);
+    margin-bottom: 16px;
+  }
+
+  ::slotted([slot="text"]) {
+    @include reset-text();
+    font-size: 1rem;
+    font-weight: 300;
+    max-width: 28rem;
+    line-height: 1.5;
+    color: var(--_cdk-text-block-cta-text-color);
+    margin-bottom: 16px;
+  }
+
+  /** Mediano y grande */
+  &[size="md"],
+  &[size="lg"] {
+    ::slotted([slot="header"]) {
+      font-size: 1rem;
+    }
+
+    ::slotted([slot="title"]) {
+      font-size: 3rem;
+      line-height: 1.33;
+    }
+  }
+}

@@ -1,0 +1,526 @@
+import { Story, Preview, Meta, Props } from "@storybook/addon-docs/blocks";
+import { html } from "lit-html";
+
+import { text, color, number } from "@storybook/addon-knobs";
+
+https://www.correos.es/ Storybook Docs for Heroscene
+
+<Meta title="LAYOUTS/Homepage" />
+
+https://www.correos.es/https://www.correos.es/ Homepage
+
+Homepage
+
+<Preview withToolbar>
+	<Story name="Test A">
+		{() => {
+			const literals =[
+				{
+					title: 'Lorem ipsum dolor sit amet',
+					body: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.'
+				}, {
+					title: 'Lorem ipsum dolor sit amet',
+					body: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.'
+				}, {
+					title: 'Lorem ipsum dolor sit amet',
+					body: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.'
+				}, {
+					title: 'Lorem ipsum dolor sit amet',
+					body: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.'
+				}
+			]
+			return html`
+			<!-- Header -->
+			<correos-cdk-core-header
+				literals='{"txtMenuButton":"Menu","txtMenuButtonDesc":"Abrir o Cerrar el Menú","txtPrimaryButtonDesc":"Abrir o Cerrar elemento","txtPrimaryNavDesc":"Menu de primer nivel","txtSecondaryNavDesc":"Menu de segundo nivel","txtLangDesc":"Selección de idiomas","txtGoBack":"Volver","txtGoBackDesc":"Volver al menu principal"}'
+				navigation='[{"id":"particular","name":"Particular","children":[{"id":"recibir","name":"Recibir","icon":"icon-box_scan","href":"https://www.correos.es/recibir"},{"id":"enviar","name":"Enviar","icon":"icon-almacen","children":[{"id":"preparar-envio","name":"Preparar envío","href":"https://www.correos.es/preparar-envio"},{"id":"enviar-al-extranjero","name":"Enviar al extranjero","children":[{"id":"enviar-al-extranjero-paquetes","name":"Paquetes","href":"https://www.correos.es/enviar-al-extranjero-paquetes"},{"id":"enviar-al-extranjero-documentos","name":"Documentos","href":"https://www.correos.es/enviar-al-extranjero-documentos"}]},{"id":"envios-nacionales","name":"Envíos nacionales","children":[{"id":"envios-nacionales-paquetes","name":"Paquetes","href":"envios-nacionales-paquetes"},{"id":"envios-nacionales-documentos","name":"Documentos","href":"envios-nacionales-documentos"},{"id":"envios-nacionales-zonas-internacionales","name":"Zonas internacionales","href":"envios-nacionales-zonas-internacionales"},{"id":"envios-nacionales-gestion-aduanera","name":"Gestión aduanera y regulación","href":"envios-nacionales-gestion-aduanera"}]},{"id":"sellos-sobres-embalajes","name":"Sobres y embalajes","href":"https://www.correos.es/preparar-envio","children":[{"id":"sobres-y-embalajes","name":"Sobres y embalajes","href":"https://www.correos.es/sobres-y-embalajes"},{"id":"sellos","name":"Sellos","href":"https://www.correos.es/sellos"}]},{"id":"debes-saber-para-enviar","name":"Debes saber para enviar","href":"https://www.correos.es/preparar-envio","children":[{"id":"guia-de-peso-y-medidas","name":"Guía de peso y medidas","href":"https://www.correos.es/guia-de-peso-y-medidas"},{"id":"articulos-prohibidos","name":"Articulos prohibidos y mercancías peligrosas","href":"https://www.correos.es/articulos-prohibidos"},{"id":"consejos-para-un-buen-embajale","name":"Consejos para un buen embalaje","href":"https://www.correos.es/consejos-para-un-buen-embajale"},{"id":"guias-para-realizar-el-envío","name":"Consejos para un buen embalaje","href":"https://www.correos.es/guias-para-realizar-el-envío"}]},{"id":"debes-devolver-un-paquete","name":"Debes devolver un paquete","href":"https://www.correos.es/preparar-envio","children":[{"id":"como-devolver-un-pedido","name":"Cómo devolver un pedido","href":"https://www.correos.es/como-devolver-un-pedido"},{"id":"portal-de-devoluciones","name":"Portal de devoluciones","href":"https://www.correos.es/portal-de-devoluciones"}]}]},{"id":"dinero-compras","name":"Dinero y compras","icon":"icon-money","href":"https://www.correos.es/dinero-compras"},{"id":"ocio-mas","name":"Ocio y más","icon":"icon-hobby","href":"https://www.correos.es/ocio-mas"}]},{"id":"empresa","name":"Empresa","children":[{"id":"localizador-buzones","name":"Localizador de buzones","icon":"icon-pago_oficina","href":"https://www.correos.es/localizador-buzones"},{"id":"calculador-tarifas","name":"Calculadora de tarifas","icon":"icon-pago_card","href":"https://www.correos.es/calculador-tarifas"}]},{"id":"idiomas","name":"Idiomas","children":[{"id":"es","name":"Es","href":"https://www.correos.es/es"},{"id":"en","name":"En","href":"https://www.correos.es/en"},{"id":"ca","name":"Ca","href":"https://www.correos.es/ca"},{"id":"gl","name":"Gl","href":"https://www.correos.es/gl"},{"id":"eu","name":"Eu","href":"https://www.correos.es/va"}]},{"id":"comunes","name":"","children":[{"id":"tienda","icon":"icon-cart","name":"Tienda","href":"https://www.correos.es/tienda"},{"id":"herramientas","icon":"icon-tools","name":"Herramientas"}]},{"id":"accesos","name":"","children":[{"id":"busqueda","icon":"icon-search","name":"Búsqueda","href":"https://www.correos.es/busqueda"},{"id":"registro","icon":"icon-perfil","name":"Registro","href":"https://www.correos.es/registro"},{"id":"tienda","icon":"icon-cart","name":"Tienda","href":"https://www.correos.es/tienda"}]}]'
+				logo-src='/images/cornamusa.svg'
+				current-lang='es'
+				menu-lv-zero='particular'
+				fixed
+			>
+			</correos-cdk-core-header>
+			<!-- Hero -->
+			<correos-cdk-heroscene
+				after-bg-color='var(--theme-color-white)'
+				bg-image="/images/hero_img.jpg"
+				content-max-width="22em"
+			>
+				<p slot="pretext"> Nuevo Paq Business </p>
+				<h1 slot="title"> No es suerte llegar a Alaska</h1>
+				<p slot="description"> 
+					Todo lo que necesites para satisfacer a tus clientes y lo mejor para tu negocio. Cuenta con nosotros.
+				</p>
+				<correos-ui-button slot="button" variant="link" theme="primary" link="true">
+					<span slot="text">Ver más</span>
+					<i slot="icon-right" class="icon-go"></i>
+				</correos-ui-button>
+				<section slot="call-to-action"> 
+					<!-- Tracking card -->
+					<div class="row">
+						<correos-cdk-tracking-card class="col-12"
+						literals='{"buttonSubmitTxT":"Buscar","searchFieldLabel":"Número de envío"}'
+						theme='default'
+						url-form='https://correos-example.es/localizador'
+						>
+							<h1 slot="title">Sigue tu envío</h1>
+							<a slot="help-text" href="https://www.correos.es/">¿Dónde está mi número de envío?</a>
+							<section slot="tool-first">
+								<correos-ui-card tools>
+									<img slot="image" src="/images/tool_arrow.svg" alt="herramienta"/>
+									<p slot="text"> Localiza oficinas, buzones y Citypaq </p>
+								</correos-ui-card>
+							</section>
+							<section slot="tool-second">
+								<correos-ui-card tools>
+									<img slot="image" src="/images/tool_location.svg" alt="herramienta"/>
+									<p slot="text">Encuentra códigos postales </p>
+								</correos-ui-card>
+							</section>
+							<section slot="tool-third">
+								<correos-ui-card tools>
+									<img slot="image" src="/images/tool_calendar.svg" alt="herramienta"/>
+									<p slot="text"> Reserva cita en oficina </p>
+								</correos-ui-card>
+							</section>
+						</correos-cdk-tracking-card>
+						<!-- / -->
+						<!-- Tracking card -->
+						<correos-cdk-tarificador class="col-12" url-form="www.correos.es" literals='{"inputLabelOrigin":"Desde","inputLabelDestination":"Destino","inputLabelContent":"Qué","inputLabelQuantity":"Cuantos","buttonText":"CALCULA TU TARIFA"}'>
+            				<h3 slot="title"> Quiero enviar</h3>
+							<p slot="text"> A partir de: <strong>0.80€</strong></p>
+						</correos-cdk-tarificador>
+						<!-- / -->
+					</div>
+				</section>
+			</correos-cdk-heroscene>
+			<!-- Slider -->
+			<correos-cdk-section-box
+				after-bg-color='var(--theme-color-coolGrey)'
+				full-width
+			>
+				<section slot="block">
+					<correos-cdk-section-slider center-on-mobile>
+						<h1 slot="title">Accesos directos frecuentes</h1>
+						<correos-ui-card slot="slider" aria-hidden="true">
+							<i slot="icon" class="icon-almacen"></i>
+							<p slot="text">Quiero hacer una devolución</p>
+						</correos-ui-card>
+						<correos-ui-card slot="slider" aria-hidden="true">
+							<i slot="icon" class="icon-almacen"></i>
+							<p slot="text">Quiero hacer una devolución</p>
+						</correos-ui-card>
+						<correos-ui-card slot="slider" aria-hidden="true">
+							<i slot="icon" class="icon-almacen"></i>
+							<p slot="text">Quiero hacer una devolución</p>
+						</correos-ui-card>
+						<correos-ui-card slot="slider" aria-hidden="true">
+							<i slot="icon" class="icon-almacen"></i>
+							<p slot="text">Quiero hacer una devolución</p>
+						</correos-ui-card>
+						<correos-ui-card slot="slider" aria-hidden="true">
+							<i slot="icon" class="icon-almacen"></i>
+							<p slot="text">Quiero hacer una devolución</p>
+						</correos-ui-card>
+						<correos-ui-card slot="slider" aria-hidden="true">
+							<i slot="icon" class="icon-almacen"></i>
+							<p slot="text">Quiero hacer una devolución</p>
+						</correos-ui-card>
+					</correos-cdk-section-slider>
+				</section>
+			</correos-cdk-section-box>
+			<!-- Text box + Image section -->
+			<correos-cdk-section-box
+				bg-image="/images/bg-decoration-1.png"
+				bg-color='var(--theme-color-coolGrey)'
+				paddin-top-bottom="112px"
+			>
+				<section slot="block" class="row">
+					<div class="col-12 md:col-6 lg:col-offset-1">
+						<correos-cdk-text-block
+							literals='${JSON.stringify(literals)}'
+						>
+							<h2 slot="title">Lorem ipsum dolor sit amet consectetur adipiscing elit</h2>
+							<correos-ui-button
+								slot="link"
+								theme="secondary"
+								variant="link"
+								link="true"
+							>
+								<span slot="text">Lorem ipsum dolor</span>
+								<i slot="icon-right" class="icon-go"></i>
+							</correos-ui-button>
+						</correos-cdk-text-block>
+					</div>
+					<div class="sm:col-hide md:col-5">
+						<correos-cdk-imageblock  
+							url-image="/images/img-envios-camimo.svg"
+							alt-image="herramientas">
+						</correos-cdk-imageblock>
+					</div>
+				</section>
+			</correos-cdk-section-box>
+			<!-- Image bg + card -->
+			<correos-cdk-section-box
+				bg-image="/images/bg-decoration-2.png"
+				full-width
+				class="lg:pb-8x"
+				before-bg-color='var(--theme-color-coolGrey)'
+			>
+				<section slot="block">
+					<correos-cdk-section-bgimagecard bg-image="/images/section_img_1.png">
+						<correos-cdk-text-block
+							slot="textblock"
+							literals="${JSON.stringify(literals)}"
+						>
+							<h3 slot="title">Lorem ipsum dolor sit amet consectetur adipiscing elit</h3>
+							<correos-ui-button
+								slot="link"
+								theme="secondary"
+								variant="link"
+								link="true"
+							>
+								<span slot="text">Lorem ipsum dolor</span>
+								<i slot="icon-right" class="icon-go"></i>
+							</correos-ui-button>
+						</correos-cdk-text-block>
+					</correos-cdk-section-bgimagecard>
+				</section>
+			</correos-cdk-section-box>
+			<!-- Slider -->
+			<correos-cdk-section-box
+				after-bg-color='var(--theme-color-iceBlue)'
+				full-width
+			>
+				<section slot="block">
+					<correos-cdk-section-slider item-mobile-slider=2 item-tablet-slider=2 item-desktop-slider=4 variant="true">
+						<h2 slot="title">Servicios más demandados</h2>
+						<correos-ui-card-large slot="slider" aria-hidden="true">
+							<h3 slot="title">Producto</h3>
+							<p slot="body-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. Lorem Ipsum has been the industrys standards. </p>
+						</correos-ui-card-large>
+						<correos-ui-card-large slot="slider" aria-hidden="true">
+							<h3 slot="title">Producto</h3>
+							<p slot="body-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. Lorem Ipsum has been the industrys standards</p>
+						</correos-ui-card-large>
+						<correos-ui-card-large slot="slider" aria-hidden="true">
+							<h3 slot="title">Producto</h3>
+							<p slot="body-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. Lorem Ipsum has been the industrys standards</p>
+						</correos-ui-card-large>
+						<correos-ui-card-large slot="slider" aria-hidden="true">
+							<h3 slot="title">Producto</h3>
+							<p slot="body-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. Lorem Ipsum has been the industrys standards</p>
+						</correos-ui-card-large>
+					</correos-cdk-section-slider>
+				</section>
+			</correos-cdk-section-box>
+			<!-- Citipaq section -->
+			<correos-cdk-section-box
+				bg-color='var(--theme-color-iceBlue)'
+				after-bg-color='var(--theme-color-iceBlue)'
+				class="pb-6x lg:pb-8x"
+			>
+				<section slot="block" class="row">
+					<div class="col-12 md:col-6 lg:col-offset-1">
+						<correos-cdk-text-block-cta>
+							<p slot="header">CITYPAQ</p>
+							<h3 slot="title">¿Cunto tiempo hace que no charlas con el portero?</h3>
+							<p slot="text">¿O con la recepcionista? Ahora, con CITYPAQ, no te hará falta conversar sobre el tiempo</p>
+							<correos-ui-button
+								slot="link"
+								theme="secondary"
+								variant="link"
+								type='text'
+							>
+								<span slot="text">Lorem ipsum dolor</span>
+								<i slot="icon-right" class="icon-go"></i>
+							</correos-ui-button>
+						</correos-cdk-text-block-cta>
+					</div>
+					<div class="sm:col-hide md:col-5">
+						<correos-cdk-imageblock  
+							url-image="/images/img-envios-camimo.svg"
+							alt-image="herramientas">
+						</correos-cdk-imageblock>
+					</div>
+				</section>	
+			</correos-cdk-section-box>
+			<!-- Footer -->
+			<correos-cdk-core-footer>
+				<img slot="iconcorreos" src="/images/ico-splash.svg" alt="herramienta"/>
+				<div slot="social">
+					<i href="" class="icon-facebook"></i>
+					<i href="" class="icon-instagram"></i>
+					<i href="" class="icon-twitter"></i>
+					<i href="" class="icon-linkedin"></i>
+					<i href="" class="icon-youtube"></i>
+				</div>
+				<div slot="links">
+					<a href="https://www.correos.es/"> Política de cookies </a>
+					<a href="https://www.correos.es/"> Aviso legal </a>
+					<a href="https://www.correos.es/"> Política de protección de datos </a>
+					<a href="https://www.correos.es/"> Condiciones del servicio </a>
+				</div>
+				<p slot="footer"> SOCIEDAD ESTATAL DE CORREOS Y TELÉGRAFOS, S.A., S.M.E. Todos los derechos reservados </p>
+			</correos-cdk-core-footer>
+			`;
+		}}
+	</Story>
+</Preview>
+
+<Preview withToolbar>
+	<Story name="Test B">
+		{() => {
+			const literals =[
+				{
+					title: 'Lorem ipsum dolor sit amet',
+					body: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.'
+				}, {
+					title: 'Lorem ipsum dolor sit amet',
+					body: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.'
+				}, {
+					title: 'Lorem ipsum dolor sit amet',
+					body: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.'
+				}, {
+					title: 'Lorem ipsum dolor sit amet',
+					body: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.'
+				}
+			]
+			return html`
+			<!-- Header -->
+			<correos-cdk-core-header
+				literals='{"txtMenuButton":"Menu","txtMenuButtonDesc":"Abrir o Cerrar el Menú","txtPrimaryButtonDesc":"Abrir o Cerrar elemento","txtPrimaryNavDesc":"Menu de primer nivel","txtSecondaryNavDesc":"Menu de segundo nivel","txtLangDesc":"Selección de idiomas","txtGoBack":"Volver","txtGoBackDesc":"Volver al menu principal"}'
+				navigation='[{"id":"particular","name":"Particular","children":[{"id":"recibir","name":"Recibir","icon":"icon-box_scan","href":"https://www.correos.es/recibir"},{"id":"enviar","name":"Enviar","icon":"icon-almacen","children":[{"id":"preparar-envio","name":"Preparar envío","href":"https://www.correos.es/preparar-envio"},{"id":"enviar-al-extranjero","name":"Enviar al extranjero","children":[{"id":"enviar-al-extranjero-paquetes","name":"Paquetes","href":"https://www.correos.es/enviar-al-extranjero-paquetes"},{"id":"enviar-al-extranjero-documentos","name":"Documentos","href":"https://www.correos.es/enviar-al-extranjero-documentos"}]},{"id":"envios-nacionales","name":"Envíos nacionales","children":[{"id":"envios-nacionales-paquetes","name":"Paquetes","href":"envios-nacionales-paquetes"},{"id":"envios-nacionales-documentos","name":"Documentos","href":"envios-nacionales-documentos"},{"id":"envios-nacionales-zonas-internacionales","name":"Zonas internacionales","href":"envios-nacionales-zonas-internacionales"},{"id":"envios-nacionales-gestion-aduanera","name":"Gestión aduanera y regulación","href":"envios-nacionales-gestion-aduanera"}]},{"id":"sellos-sobres-embalajes","name":"Sobres y embalajes","href":"https://www.correos.es/preparar-envio","children":[{"id":"sobres-y-embalajes","name":"Sobres y embalajes","href":"https://www.correos.es/sobres-y-embalajes"},{"id":"sellos","name":"Sellos","href":"https://www.correos.es/sellos"}]},{"id":"debes-saber-para-enviar","name":"Debes saber para enviar","href":"https://www.correos.es/preparar-envio","children":[{"id":"guia-de-peso-y-medidas","name":"Guía de peso y medidas","href":"https://www.correos.es/guia-de-peso-y-medidas"},{"id":"articulos-prohibidos","name":"Articulos prohibidos y mercancías peligrosas","href":"https://www.correos.es/articulos-prohibidos"},{"id":"consejos-para-un-buen-embajale","name":"Consejos para un buen embalaje","href":"https://www.correos.es/consejos-para-un-buen-embajale"},{"id":"guias-para-realizar-el-envío","name":"Consejos para un buen embalaje","href":"https://www.correos.es/guias-para-realizar-el-envío"}]},{"id":"debes-devolver-un-paquete","name":"Debes devolver un paquete","href":"https://www.correos.es/preparar-envio","children":[{"id":"como-devolver-un-pedido","name":"Cómo devolver un pedido","href":"https://www.correos.es/como-devolver-un-pedido"},{"id":"portal-de-devoluciones","name":"Portal de devoluciones","href":"https://www.correos.es/portal-de-devoluciones"}]}]},{"id":"dinero-compras","name":"Dinero y compras","icon":"icon-money","href":"https://www.correos.es/dinero-compras"},{"id":"ocio-mas","name":"Ocio y más","icon":"icon-hobby","href":"https://www.correos.es/ocio-mas"}]},{"id":"empresa","name":"Empresa","children":[{"id":"localizador-buzones","name":"Localizador de buzones","icon":"icon-pago_oficina","href":"https://www.correos.es/localizador-buzones"},{"id":"calculador-tarifas","name":"Calculadora de tarifas","icon":"icon-pago_card","href":"https://www.correos.es/calculador-tarifas"}]},{"id":"idiomas","name":"Idiomas","children":[{"id":"es","name":"Es","href":"https://www.correos.es/es"},{"id":"en","name":"En","href":"https://www.correos.es/en"},{"id":"ca","name":"Ca","href":"https://www.correos.es/ca"},{"id":"gl","name":"Gl","href":"https://www.correos.es/gl"},{"id":"eu","name":"Eu","href":"https://www.correos.es/va"}]},{"id":"comunes","name":"","children":[{"id":"tienda","icon":"icon-cart","name":"Tienda","href":"https://www.correos.es/tienda"},{"id":"herramientas","icon":"icon-tools","name":"Herramientas"}]},{"id":"accesos","name":"","children":[{"id":"busqueda","icon":"icon-search","name":"Búsqueda","href":"https://www.correos.es/busqueda"},{"id":"registro","icon":"icon-perfil","name":"Registro","href":"https://www.correos.es/registro"},{"id":"tienda","icon":"icon-cart","name":"Tienda","href":"https://www.correos.es/tienda"}]}]'
+				logo-src='/images/cornamusa.svg'
+				current-lang='es'
+				menu-lv-zero='particular'
+				fixed
+			>
+			</correos-cdk-core-header>
+			<!-- Hero -->
+			<correos-cdk-heroscene
+				after-bg-color='var(--theme-color-white)'
+				bg-image="/images/hero_img.jpg"
+				content-max-width="22em"
+			>
+				<p slot="pretext"> Nuevo Paq Business </p>
+				<h1 slot="title"> No es suerte llegar a Alaska</h1>
+				<p slot="description"> 
+					Todo lo que necesites para satisfacer a tus clientes y lo mejor para tu negocio. Cuenta con nosotros.
+				</p>
+				<correos-ui-button slot="button" variant="link" theme="primary" link="true">
+					<span slot="text">Ver más</span>
+					<i slot="icon-right" class="icon-go"></i>
+				</correos-ui-button>
+				<section slot="call-to-action"> 
+					<!-- Tracking card -->
+					<div class="row">
+						<correos-cdk-tracking-card class="col-6"
+						literals='{"buttonSubmitTxT":"Buscar","searchFieldLabel":"Número de envío"}'
+						theme='default'
+						url-form='https://correos-example.es/localizador'
+						>
+							<h1 slot="title">Sigue tu envío</h1>
+							<a slot="help-text" href="https://www.correos.es/">¿Dónde está mi número de envío?</a>
+							<section slot="tool-first">
+								<correos-ui-card tools>
+									<img slot="image" src="/images/tool_arrow.svg" alt="herramienta"/>
+									<p slot="text"> Localiza oficinas, buzones y Citypaq </p>
+								</correos-ui-card>
+							</section>
+							<section slot="tool-second">
+								<correos-ui-card tools>
+									<img slot="image" src="/images/tool_location.svg" alt="herramienta"/>
+									<p slot="text">Encuentra códigos postales </p>
+								</correos-ui-card>
+							</section>
+							<section slot="tool-third">
+								<correos-ui-card tools>
+									<img slot="image" src="/images/tool_calendar.svg" alt="herramienta"/>
+									<p slot="text"> Reserva cita en oficina </p>
+								</correos-ui-card>
+							</section>
+						</correos-cdk-tracking-card>
+						<!-- / -->
+						<!-- Tracking card -->
+						<correos-cdk-tarificador class="col-6" url-form="www.correos.es" literals='{"inputLabelOrigin":"Desde","inputLabelDestination":"Destino","inputLabelContent":"Qué","inputLabelQuantity":"Cuantos","buttonText":"CALCULA TU TARIFA"}'>
+            				<h3 slot="title"> Quiero enviar</h3>
+							<p slot="text"> A partir de: <strong>0.80€</strong></p>
+						</correos-cdk-tarificador>
+						<!-- / -->
+					</div>
+				</section>
+			</correos-cdk-heroscene>
+			<!-- Slider -->
+			<correos-cdk-section-box
+				after-bg-color='var(--theme-color-coolGrey)'
+				full-width
+			>
+				<section slot="block">
+					<correos-cdk-section-slider center-on-mobile>
+						<h1 slot="title">Accesos directos frecuentes</h1>
+						<correos-ui-card slot="slider" aria-hidden="true">
+							<i slot="icon" class="icon-almacen"></i>
+							<p slot="text">Quiero hacer una devolución</p>
+						</correos-ui-card>
+						<correos-ui-card slot="slider" aria-hidden="true">
+							<i slot="icon" class="icon-almacen"></i>
+							<p slot="text">Quiero hacer una devolución</p>
+						</correos-ui-card>
+						<correos-ui-card slot="slider" aria-hidden="true">
+							<i slot="icon" class="icon-almacen"></i>
+							<p slot="text">Quiero hacer una devolución</p>
+						</correos-ui-card>
+						<correos-ui-card slot="slider" aria-hidden="true">
+							<i slot="icon" class="icon-almacen"></i>
+							<p slot="text">Quiero hacer una devolución</p>
+						</correos-ui-card>
+						<correos-ui-card slot="slider" aria-hidden="true">
+							<i slot="icon" class="icon-almacen"></i>
+							<p slot="text">Quiero hacer una devolución</p>
+						</correos-ui-card>
+						<correos-ui-card slot="slider" aria-hidden="true">
+							<i slot="icon" class="icon-almacen"></i>
+							<p slot="text">Quiero hacer una devolución</p>
+						</correos-ui-card>
+					</correos-cdk-section-slider>
+				</section>
+			</correos-cdk-section-box>
+			<!-- Text box + Image section -->
+			<correos-cdk-section-box
+				bg-image="/images/bg-decoration-1.png"
+				bg-color='var(--theme-color-coolGrey)'
+				paddin-top-bottom="112px"
+			>
+				<section slot="block" class="row">
+					<div class="col-12 md:col-6 lg:col-offset-1">
+						<correos-cdk-text-block
+							literals='${JSON.stringify(literals)}'
+						>
+							<h2 slot="title">Lorem ipsum dolor sit amet consectetur adipiscing elit</h2>
+							<correos-ui-button
+								slot="link"
+								theme="secondary"
+								variant="link"
+								link="true"
+							>
+								<span slot="text">Lorem ipsum dolor</span>
+								<i slot="icon-right" class="icon-go"></i>
+							</correos-ui-button>
+						</correos-cdk-text-block>
+					</div>
+					<div class="sm:col-hide md:col-5">
+						<correos-cdk-imageblock  
+							url-image="/images/img-envios-camimo.svg"
+							alt-image="herramientas">
+						</correos-cdk-imageblock>
+					</div>
+				</section>
+			</correos-cdk-section-box>
+			<!-- Image bg + card -->
+			<correos-cdk-section-box
+				bg-image="/images/bg-decoration-2.png"
+				full-width
+				class="lg:pb-8x"
+				before-bg-color='var(--theme-color-coolGrey)'
+			>
+				<section slot="block">
+					<correos-cdk-section-bgimagecard bg-image="/images/section_img_1.png">
+						<correos-cdk-text-block
+							slot="textblock"
+							literals="${JSON.stringify(literals)}"
+						>
+							<h3 slot="title">Lorem ipsum dolor sit amet consectetur adipiscing elit</h3>
+							<correos-ui-button
+								slot="link"
+								theme="secondary"
+								variant="link"
+								link="true"
+							>
+								<span slot="text">Lorem ipsum dolor</span>
+								<i slot="icon-right" class="icon-go"></i>
+							</correos-ui-button>
+						</correos-cdk-text-block>
+					</correos-cdk-section-bgimagecard>
+				</section>
+			</correos-cdk-section-box>
+			<!-- Slider -->
+			<correos-cdk-section-box
+				after-bg-color='var(--theme-color-iceBlue)'
+				full-width
+			>
+				<section slot="block">
+					<correos-cdk-section-slider item-mobile-slider=2 item-tablet-slider=2 item-desktop-slider=4 variant="true">
+						<h2 slot="title">Servicios más demandados</h2>
+						<correos-ui-card-large slot="slider" aria-hidden="true">
+							<h3 slot="title">Producto</h3>
+							<p slot="body-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. Lorem Ipsum has been the industrys standards. </p>
+						</correos-ui-card-large>
+						<correos-ui-card-large slot="slider" aria-hidden="true">
+							<h3 slot="title">Producto</h3>
+							<p slot="body-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. Lorem Ipsum has been the industrys standards</p>
+						</correos-ui-card-large>
+						<correos-ui-card-large slot="slider" aria-hidden="true">
+							<h3 slot="title">Producto</h3>
+							<p slot="body-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. Lorem Ipsum has been the industrys standards</p>
+						</correos-ui-card-large>
+						<correos-ui-card-large slot="slider" aria-hidden="true">
+							<h3 slot="title">Producto</h3>
+							<p slot="body-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. Lorem Ipsum has been the industrys standards</p>
+						</correos-ui-card-large>
+					</correos-cdk-section-slider>
+				</section>
+			</correos-cdk-section-box>
+			<!-- Citipaq section -->
+			<correos-cdk-section-box
+				bg-color='var(--theme-color-iceBlue)'
+				after-bg-color='var(--theme-color-iceBlue)'
+				class="pb-6x lg:pb-8x"
+			>
+				<section slot="block" class="row">
+					<div class="col-12 md:col-6 lg:col-offset-1">
+						<correos-cdk-text-block-cta>
+							<p slot="header">CITYPAQ</p>
+							<h3 slot="title">¿Cunto tiempo hace que no charlas con el portero?</h3>
+							<p slot="text">¿O con la recepcionista? Ahora, con CITYPAQ, no te hará falta conversar sobre el tiempo</p>
+							<correos-ui-button
+								slot="link"
+								theme="secondary"
+								variant="link"
+								type='text'
+							>
+								<span slot="text">Lorem ipsum dolor</span>
+								<i slot="icon-right" class="icon-go"></i>
+							</correos-ui-button>
+						</correos-cdk-text-block-cta>
+					</div>
+					<div class="sm:col-hide md:col-5">
+						<correos-cdk-imageblock  
+							url-image="/images/img-envios-camimo.svg"
+							alt-image="herramientas">
+						</correos-cdk-imageblock>
+					</div>
+				</section>	
+			</correos-cdk-section-box>
+			<!-- Footer -->
+			<correos-cdk-core-footer>
+				<img slot="iconcorreos" src="/images/ico-splash.svg" alt="herramienta"/>
+				<div slot="social">
+					<i href="" class="icon-facebook"></i>
+					<i href="" class="icon-instagram"></i>
+					<i href="" class="icon-twitter"></i>
+					<i href="" class="icon-linkedin"></i>
+					<i href="" class="icon-youtube"></i>
+				</div>
+				<div slot="links">
+					<a href="https://www.correos.es/"> Política de cookies </a>
+					<a href="https://www.correos.es/"> Aviso legal </a>
+					<a href="https://www.correos.es/"> Política de protección de datos </a>
+					<a href="https://www.correos.es/"> Condiciones del servicio </a>
+				</div>
+				<p slot="footer"> SOCIEDAD ESTATAL DE CORREOS Y TELÉGRAFOS, S.A., S.M.E. Todos los derechos reservados </p>
+			</correos-cdk-core-footer>
+			`;
+		}}
+	</Story>
+</Preview>

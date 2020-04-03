@@ -1,0 +1,339 @@
+:host {
+
+	.correos-ui-tracking-stepper__root {
+		display: flex;
+		align-items: center;
+		width: 100%;
+
+		&-graphic {
+			display: flex;
+		}
+
+		.correos-ui-tracking-stepper__container:last-child .correos-ui-tracking-stepper__parentcontainer .correos-ui-tracking-stepper__parentcontainer_stepbody {
+			.correos-ui-tracking-stepper__step.primary.null {
+				.step.done {
+					background-color: var(--_ui-tracking-stepper-dot-done-color);
+					i:before {
+						color: white;
+					}
+				}
+			}
+		}
+
+		.correos-ui-tracking-stepper__parentcontainer {
+			@include reset-button;
+			cursor: pointer;
+			width: 100%;
+			outline: none;
+			cursor: pointer;
+
+			display: flex;	
+			.correos-ui-tracking-stepper__step {		
+				position: relative;
+				display: flex;
+				width: 100%;
+				justify-content: center;		
+				width:40px;
+				height: 40px;
+				align-items: center;
+
+				&.prevDone:before, &.prevUndone:before, &.nextDone:after, &.nextUndone:after, &.prevError:before, &.nextError:after {
+					content:"";
+					position:absolute;
+					width:35%;
+					height:100%;
+					&.secondary {
+						width:15%;
+					}
+				}
+				&.prevDone:before {
+					background: linear-gradient(180deg, rgba(255,255,255,0) 47%, var(--_ui-tracking-stepper-line-done-color) 50%, rgba(255,255,255,0) 53%);
+					left:0;
+					top:0;
+				}
+				&.prevUndone:before {
+					left:0;
+					top:0;
+					background: linear-gradient(180deg, rgba(255,255,255,0) 47%, var(--_ui-tracking-stepper-line-undone-color) 50%, rgba(255,255,255,0) 53%);
+				}
+				&.nextDone:after {
+					right:0;
+					top:0;
+					background: linear-gradient(180deg, rgba(255,255,255,0) 47%, var(--_ui-tracking-stepper-line-done-color) 50%, rgba(255,255,255,0) 53%);
+				}
+				&.nextUndone:after {
+					right:0;
+					top:0;
+					background: linear-gradient(180deg, rgba(255,255,255,0) 47%, var(--_ui-tracking-stepper-line-undone-color) 50%, rgba(255,255,255,0) 53%);
+				}
+				&.nextError:after {
+					right:0;
+					top:0;
+					background: linear-gradient(180deg, rgba(255,255,255,0) 47%, var(--_ui-tracking-stepper-error) 50%, rgba(255,255,255,0) 53%);
+				}
+				&.nextError:after {
+					right:0;
+					top:0;
+					background: linear-gradient(180deg, rgba(255,255,255,0) 47%, var(--_ui-tracking-stepper-error) 50%, rgba(255,255,255,0) 53%);
+				}
+				
+				&.secondary .step {
+					border-radius: 12px; 
+					border: 0;       
+					&.done {
+						background-color: var(--_ui-tracking-stepper-dot-done-color);
+					}
+				}
+				&.primary, &.error {
+					.step {
+						width: 40px;
+						height: 40px;
+						border-radius: 20px; 
+						border: 0;  
+						display: flex;
+						align-items: center;
+						justify-content: center;  
+						&.done {
+							background-color: var(--_ui-tracking-stepper-dot-active-color);	
+						}
+						&.false {
+							background-color: var(--_ui-tracking-stepper-error);	
+							i:before {
+								color: white;
+							}
+						}
+					}	
+				}				
+
+				.step{
+					z-index: 1;
+					width: 8px;
+					height: 8px;
+					background-color: var(--_ui-tracking-stepper-dot-undone-color);
+					border-radius: 4px;
+					i:before {
+						color: var(--_ui-tracking-stepper-icon-active-color);
+						font-size: rem(24px);
+						width: 100%;
+						height: 100%;
+					}				   
+					&.done {
+						background-color: var(--_ui-tracking-stepper-dot-done-color);
+					}
+				}
+			}
+		}
+		.correos-ui-tracking-stepper__appendInfo {
+			display: flex;
+			flex-direction: column;
+			margin-left: 24px;
+			.correos-ui-tracking-stepper__title {
+				font-family: Cartero;
+				margin-bottom: 0.375rem;
+				font-size: rem(24px);
+				color: var(--_ui-tracking-stepper-font-color);
+			}
+			.correos-ui-tracking-stepper__desc {
+				font-family: Cartero;
+				font-size: rem(16px);
+				font-weight: 300;
+				line-height: 1.38;
+				color: var(--_ui-tracking-stepper-font-color);
+			}
+		}
+
+		&.vertical {	
+			.correos-ui-tracking-stepper__root-graphic {
+				display: flex;
+				flex-wrap: wrap;
+				flex-direction: column;
+				align-items: stretch;
+				width: 100%;
+			}
+
+			.correos-ui-tracking-stepper__container:last-child .correos-ui-tracking-stepper__step.primary .step.done {
+				background-color: var(--_ui-tracking-stepper-dot-done-color);
+				i:before {
+					color: white;
+				}
+			}
+
+			.correos-ui-tracking-stepper__parentcontainer {
+				border-bottom: 1px solid var(--_ui-tracking-stepper-dot-undone-color);
+				position: relative;			
+				display: flex;
+				justify-content: space-between;
+				.correos-ui-tracking-stepper__step {
+					height: auto;				
+					&.secondary .step, &:not(.primary) .step {
+						width: 24px;
+						height: 24px;
+						border: 0;
+						border-radius: 12px;
+						&.done i:before {
+							color: var(--_ui-tracking-stepper-icon-done-color);
+							background-color: white;
+						}
+					}
+					&.primary, &.error {
+						.step {
+							border: 0;
+							&.false {
+								background-color: var(--_ui-tracking-stepper-error);
+								border-color: var(--_ui-tracking-stepper-error);
+								i:before {
+									color: white;
+									font-size: 1rem;
+									line-height: 1.5;
+									text-align: center;
+								}
+							}
+						}
+					}
+					.step:not(.done) {
+						background-color: white;
+						border: 2px solid var(--_ui-tracking-stepper-dot-undone-color);
+						i:before {
+							color: var(--_ui-tracking-stepper-icon-active-color);
+							font-size: rem(24px);
+						}
+					}
+
+					
+
+					&.error .sc-correos-ui-tracking-stepper.step.false:not(.done) {
+						background-color: var(--_ui-tracking-stepper-error);
+					}
+
+					&.prevDone.secondary:before, &.prevUndone.secondary:before, &.nextDone.secondary:after, &.nextUndone.secondary:after {
+						height:30%;
+					}
+					&.prevError:before, &.prevError:before {
+						top: 0;
+						height: 42%;
+					}
+
+					&.prevDone:before {
+						width:100%;
+						height:35%;
+						background: linear-gradient(90deg, rgba(255,255,255,0) 47%, var(--_ui-tracking-stepper-line-done-color) 50%, rgba(255,255,255,0) 53%);
+					}
+					&.prevUndone:before {
+						width:100%;
+						height:35%;
+						background: linear-gradient(90deg, rgba(255,255,255,0) 47%, var(--_ui-tracking-stepper-line-undone-color) 50%, rgba(255,255,255,0) 53%);
+					}
+					&.nextDone:after {
+						bottom:0;
+						top: auto;
+						width:100%;
+						height:35%;
+						background: linear-gradient(90deg, rgba(255,255,255,0) 47%, var(--_ui-tracking-stepper-line-done-color) 50%, rgba(255,255,255,0) 53%);
+					}
+					&.nextUndone:after {
+						bottom:0;
+						top: auto;
+						width:100%;
+						height:35%;
+						background: linear-gradient(90deg, rgba(255,255,255,0) 47%, var(--_ui-tracking-stepper-line-undone-color) 50%, rgba(255,255,255,0) 53%);
+					}
+					&.prevError:before {
+						width:100%;
+						height:35%;
+						background: linear-gradient(90deg, rgba(255,255,255,0) 47%, var(--_ui-tracking-stepper-error) 50%, rgba(255,255,255,0) 53%);
+					}
+					&.nextError:after {
+						bottom:0;
+						top: auto;
+						width:100%;
+						height:35%;
+						background: linear-gradient(90deg, rgba(255,255,255,0) 47%, var(--_ui-tracking-stepper-error) 50%, rgba(255,255,255,0) 53%);
+					}
+				}
+			}			
+
+			.correos-ui-tracking-stepper__body {
+				display: flex;
+				flex-direction: column;
+				margin: 16px 0 16px 24px;
+				.correos-ui-tracking-stepper__title {
+					font-family: Cartero;
+					font-size: rem(24px);
+					color: var(--_ui-tracking-stepper-font-color);
+				}
+				.correos-ui-tracking-stepper__date {
+					font-family: Cartero;
+					font-size: rem(16px);
+					font-weight: 300;
+					line-height: 1.38;
+					color: var(--_ui-tracking-stepper-font-color);
+				}
+			}
+			
+			.correos-ui-tracking-stepper__parentcontainer_stepbody {
+				display: flex;
+			}
+			.correos-ui-tracking-stepper__childsbutton {
+
+				display: flex;
+				align-self: center;
+				padding-left: 24px;
+				padding-right: 24px;
+				@include reset-button;
+				@include u-focus-background;
+				outline: none;
+				border-radius: 50%;
+				i {
+					transition: transform .3s ease-in-out;
+				}
+
+				i.opened {
+					transform: rotate(180deg);
+				}
+			}
+				
+			.correos-ui-tracking-stepper__childcontainer {
+				overflow: hidden;
+
+				.correos-ui-tracking-stepper__childsbody {
+					opacity: 1;
+					transition: all .45s cubic-bezier(0.55, 0.05, 0.05, 0.96);
+					transition-property: opacity, transform;
+					box-shadow: inset 0 130px 130px -130px rgba(0, 0, 0, 0.20);
+
+					.correos-ui-tracking-stepper__title {
+						font-size: 1rem;
+						font-weight: bold;
+					}
+
+					&.closed {
+						opacity: 0;
+						visibility: hidden;
+						transform: translateY(-10px);
+    				height: 0;
+					}
+
+					.correos-ui-tracking-stepper__step {
+						&.prevDone:before, &.prevUndone:before, &.nextDone:after, &.nextUndone:after {
+							height:42%;
+						}
+						.step {
+							height: 8px;
+							width:8px;
+							&:not(.done) {
+								background-color: var(--_ui-tracking-stepper-line-undone-color);
+								border: 0;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+:host([size="sm"]) {
+	.correos-ui-tracking-stepper__root.horizontal {
+		flex-direction: column;
+	}
+}

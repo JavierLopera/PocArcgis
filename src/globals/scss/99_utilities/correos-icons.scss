@@ -1,0 +1,607 @@
+
+  $icon-add: "\ea01";
+
+  $icon-address: "\ea02";
+
+  $icon-adjunto: "\ea03";
+
+  $icon-almacen: "\ea04";
+
+  $icon-arrive: "\ea05";
+
+  $icon-arrow: "\ea06";
+
+  $icon-back: "\ea07";
+
+  $icon-box_scan: "\ea08";
+
+  $icon-burofax: "\ea09";
+
+  $icon-cart: "\ea0a";
+
+  $icon-chat: "\ea0b";
+
+  $icon-checkmark: "\ea0c";
+
+  $icon-clear: "\ea0d";
+
+  $icon-close: "\ea0e";
+
+  $icon-code: "\ea0f";
+
+  $icon-code_scan: "\ea10";
+
+  $icon-comentarios: "\ea11";
+
+  $icon-copy: "\ea12";
+
+  $icon-correos: "\ea13";
+
+  $icon-date: "\ea14";
+
+  $icon-delete_text: "\ea15";
+
+  $icon-direc_citypaq: "\ea16";
+
+  $icon-direc_entrega: "\ea17";
+
+  $icon-down_full: "\ea18";
+
+  $icon-download: "\ea19";
+
+  $icon-drop: "\ea1a";
+
+  $icon-edit: "\ea1b";
+
+  $icon-emial: "\ea1c";
+
+  $icon-entrega: "\ea1d";
+
+  $icon-error: "\ea1e";
+
+  $icon-error_clear: "\ea1f";
+
+  $icon-facebook: "\ea20";
+
+  $icon-favourite_off: "\ea21";
+
+  $icon-favourite_on: "\ea22";
+
+  $icon-filter: "\ea23";
+
+  $icon-go: "\ea24";
+
+  $icon-help: "\ea25";
+
+  $icon-hide: "\ea26";
+
+  $icon-hobby: "\ea27";
+
+  $icon-home: "\ea28";
+
+  $icon-info: "\ea29";
+
+  $icon-instagram: "\ea2a";
+
+  $icon-ko: "\ea2b";
+
+  $icon-language: "\ea2c";
+
+  $icon-legal: "\ea2d";
+
+  $icon-less: "\ea2e";
+
+  $icon-linkedin: "\ea2f";
+
+  $icon-location: "\ea30";
+
+  $icon-log_out: "\ea31";
+
+  $icon-map: "\ea32";
+
+  $icon-money: "\ea33";
+
+  $icon-more: "\ea34";
+
+  $icon-notif_info: "\ea35";
+
+  $icon-notif_ok: "\ea36";
+
+  $icon-notif_wrong: "\ea37";
+
+  $icon-ok: "\ea38";
+
+  $icon-options: "\ea39";
+
+  $icon-pago_card: "\ea3a";
+
+  $icon-pago_oficina: "\ea3b";
+
+  $icon-pago_paypal: "\ea3c";
+
+  $icon-pass_off: "\ea3d";
+
+  $icon-pass_on: "\ea3e";
+
+  $icon-pdf: "\ea3f";
+
+  $icon-pendiente: "\ea40";
+
+  $icon-perfil: "\ea41";
+
+  $icon-personal: "\ea42";
+
+  $icon-phone: "\ea43";
+
+  $icon-poi: "\ea44";
+
+  $icon-refresh: "\ea45";
+
+  $icon-remitente: "\ea46";
+
+  $icon-rubbish: "\ea47";
+
+  $icon-save: "\ea48";
+
+  $icon-saved: "\ea49";
+
+  $icon-search: "\ea4a";
+
+  $icon-share: "\ea4b";
+
+  $icon-show: "\ea4c";
+
+  $icon-tools: "\ea4d";
+
+  $icon-tosend_blue: "\ea4e";
+
+  $icon-tosend_card: "\ea4f";
+
+  $icon-turn: "\ea50";
+
+  $icon-twitter: "\ea51";
+
+  $icon-up_full: "\ea52";
+
+  $icon-youtube: "\ea53";
+
+
+@font-face {
+  font-family: "correos-icons";
+  font-style: normal;
+  font-weight: 400;
+  font-display: auto;
+  src: url("#{$font_path}/correos-icons.eot");
+  src: url("#{$font_path}/correos-icons.eot?#iefix") format("embedded-opentype"), url("#{$font_path}/correos-icons.woff2") format("woff2"), url("#{$font_path}/correos-icons.woff") format("woff"), url("#{$font_path}/correos-icons.ttf") format("truetype"), url("#{$font_path}/correos-icons.svg#correos-icons") format("svg");
+}
+
+%icon {
+display: inline-block;
+  font-family: "correos-icons";
+  font-weight: 400;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+.icon {
+  @extend %icon;
+}
+
+.icon-lg {
+  font-size: 1.33333em;
+  line-height: 0.75em;
+  vertical-align: -0.0667em;
+}
+
+.icon-xs {
+  font-size: 0.75em;
+}
+
+.icon-sm {
+  font-size: 0.875em;
+}
+
+.icon-1x {
+  font-size: 1em;
+}
+
+.icon-2x {
+  font-size: 2em;
+}
+
+.icon-3x {
+  font-size: 3em;
+}
+
+.icon-4x {
+  font-size: 4em;
+}
+
+.icon-5x {
+  font-size: 5em;
+}
+
+.icon-6x {
+  font-size: 6em;
+}
+
+.icon-7x {
+  font-size: 7em;
+}
+
+.icon-8x {
+  font-size: 8em;
+}
+
+.icon-9x {
+  font-size: 9em;
+}
+
+.icon-10x {
+  font-size: 10em;
+}
+
+.icon-fw {
+  text-align: center;
+  width: 1.25em;
+}
+
+.icon-border {
+  border: solid 0.08em #eee;
+  border-radius: 0.1em;
+  padding: 0.2em 0.25em 0.15em;
+}
+
+.icon-pull-left {
+  float: left;
+}
+
+.icon-pull-right {
+  float: right;
+}
+
+.icon.icon-pull-left {
+  margin-right: 0.3em;
+}
+
+.icon.icon-pull-right {
+  margin-left: 0.3em;
+}
+
+
+.icon-add::before {
+    content: "\ea01";
+}
+
+.icon-address::before {
+    content: "\ea02";
+}
+
+.icon-adjunto::before {
+    content: "\ea03";
+}
+
+.icon-almacen::before {
+    content: "\ea04";
+}
+
+.icon-arrive::before {
+    content: "\ea05";
+}
+
+.icon-arrow::before {
+    content: "\ea06";
+}
+
+.icon-back::before {
+    content: "\ea07";
+}
+
+.icon-box_scan::before {
+    content: "\ea08";
+}
+
+.icon-burofax::before {
+    content: "\ea09";
+}
+
+.icon-cart::before {
+    content: "\ea0a";
+}
+
+.icon-chat::before {
+    content: "\ea0b";
+}
+
+.icon-checkmark::before {
+    content: "\ea0c";
+}
+
+.icon-clear::before {
+    content: "\ea0d";
+}
+
+.icon-close::before {
+    content: "\ea0e";
+}
+
+.icon-code::before {
+    content: "\ea0f";
+}
+
+.icon-code_scan::before {
+    content: "\ea10";
+}
+
+.icon-comentarios::before {
+    content: "\ea11";
+}
+
+.icon-copy::before {
+    content: "\ea12";
+}
+
+.icon-correos::before {
+    content: "\ea13";
+}
+
+.icon-date::before {
+    content: "\ea14";
+}
+
+.icon-delete_text::before {
+    content: "\ea15";
+}
+
+.icon-direc_citypaq::before {
+    content: "\ea16";
+}
+
+.icon-direc_entrega::before {
+    content: "\ea17";
+}
+
+.icon-down_full::before {
+    content: "\ea18";
+}
+
+.icon-download::before {
+    content: "\ea19";
+}
+
+.icon-drop::before {
+    content: "\ea1a";
+}
+
+.icon-edit::before {
+    content: "\ea1b";
+}
+
+.icon-emial::before {
+    content: "\ea1c";
+}
+
+.icon-entrega::before {
+    content: "\ea1d";
+}
+
+.icon-error::before {
+    content: "\ea1e";
+}
+
+.icon-error_clear::before {
+    content: "\ea1f";
+}
+
+.icon-facebook::before {
+    content: "\ea20";
+}
+
+.icon-favourite_off::before {
+    content: "\ea21";
+}
+
+.icon-favourite_on::before {
+    content: "\ea22";
+}
+
+.icon-filter::before {
+    content: "\ea23";
+}
+
+.icon-go::before {
+    content: "\ea24";
+}
+
+.icon-help::before {
+    content: "\ea25";
+}
+
+.icon-hide::before {
+    content: "\ea26";
+}
+
+.icon-hobby::before {
+    content: "\ea27";
+}
+
+.icon-home::before {
+    content: "\ea28";
+}
+
+.icon-info::before {
+    content: "\ea29";
+}
+
+.icon-instagram::before {
+    content: "\ea2a";
+}
+
+.icon-ko::before {
+    content: "\ea2b";
+}
+
+.icon-language::before {
+    content: "\ea2c";
+}
+
+.icon-legal::before {
+    content: "\ea2d";
+}
+
+.icon-less::before {
+    content: "\ea2e";
+}
+
+.icon-linkedin::before {
+    content: "\ea2f";
+}
+
+.icon-location::before {
+    content: "\ea30";
+}
+
+.icon-log_out::before {
+    content: "\ea31";
+}
+
+.icon-map::before {
+    content: "\ea32";
+}
+
+.icon-money::before {
+    content: "\ea33";
+}
+
+.icon-more::before {
+    content: "\ea34";
+}
+
+.icon-notif_info::before {
+    content: "\ea35";
+}
+
+.icon-notif_ok::before {
+    content: "\ea36";
+}
+
+.icon-notif_wrong::before {
+    content: "\ea37";
+}
+
+.icon-ok::before {
+    content: "\ea38";
+}
+
+.icon-options::before {
+    content: "\ea39";
+}
+
+.icon-pago_card::before {
+    content: "\ea3a";
+}
+
+.icon-pago_oficina::before {
+    content: "\ea3b";
+}
+
+.icon-pago_paypal::before {
+    content: "\ea3c";
+}
+
+.icon-pass_off::before {
+    content: "\ea3d";
+}
+
+.icon-pass_on::before {
+    content: "\ea3e";
+}
+
+.icon-pdf::before {
+    content: "\ea3f";
+}
+
+.icon-pendiente::before {
+    content: "\ea40";
+}
+
+.icon-perfil::before {
+    content: "\ea41";
+}
+
+.icon-personal::before {
+    content: "\ea42";
+}
+
+.icon-phone::before {
+    content: "\ea43";
+}
+
+.icon-poi::before {
+    content: "\ea44";
+}
+
+.icon-refresh::before {
+    content: "\ea45";
+}
+
+.icon-remitente::before {
+    content: "\ea46";
+}
+
+.icon-rubbish::before {
+    content: "\ea47";
+}
+
+.icon-save::before {
+    content: "\ea48";
+}
+
+.icon-saved::before {
+    content: "\ea49";
+}
+
+.icon-search::before {
+    content: "\ea4a";
+}
+
+.icon-share::before {
+    content: "\ea4b";
+}
+
+.icon-show::before {
+    content: "\ea4c";
+}
+
+.icon-tools::before {
+    content: "\ea4d";
+}
+
+.icon-tosend_blue::before {
+    content: "\ea4e";
+}
+
+.icon-tosend_card::before {
+    content: "\ea4f";
+}
+
+.icon-turn::before {
+    content: "\ea50";
+}
+
+.icon-twitter::before {
+    content: "\ea51";
+}
+
+.icon-up_full::before {
+    content: "\ea52";
+}
+
+.icon-youtube::before {
+    content: "\ea53";
+}
+

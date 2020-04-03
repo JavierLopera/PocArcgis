@@ -1,43 +1,69 @@
 import ResizeObserver from "resize-observer-polyfill";
 import { getElement } from "@stencil/core";
+
+interface IElementSizeListenerConfig {
+	sm?: number;
+	md?: number;
+	lg?: number;
+}
+
+export enum IElementSizeListenerBreakpoint {
+	sm = 'sm',
+	md = 'md',
+	lg = 'lg'
+}
+
 /**
  * Resize element observer
+ * @param - breakpoints, default:
+ * sm:  640
+ * md: 1321
  */
-export function ElementSizeListener() {
+export function 
+ElementSizeListener(config?: IElementSizeListenerConfig) {	
+	/** Default config */
+	const br = {
+		sm: config?.sm || 640,
+		md: config?.md || 1321
+	}
 
-  return (proto: any, prop: string) => {
-    console.log(prop,proto);
-    const { componentDidLoad, componentDidUnload} = proto;
+	return (proto: any, _prop: string) => {
+		const { componentDidLoad } = proto;
+		proto.componentDidLoad = function () {
+			const elementRef: any = getElement(this);
+			const hasSize = _prop === 'size';
+			if (componentDidLoad && hasSize) {
+				this.__resizeObserver = new ResizeObserver(() => {
+					let newBreak: string;
+					if (elementRef.clientWidth <= br.sm) newBreak = 'sm';
+					else if (elementRef.clientWidth <= br.md) newBreak = 'md';
+					else newBreak = 'lg';
+					if (this.size !== newBreak) {
+						this.size = newBreak;
+						if (proto.componentDidResize) {
+							proto.componentDidResize.apply(this)
+						}
+					}
+				})
+					.observe(elementRef);
+				return componentDidLoad.apply(this);
+			}
+			else {
+				if (!componentDidLoad) console.error('ElementSizeListener error: Stencil "componentDidLoad" hook must be called in component', this);
+				if (!hasSize) console.error('ElementSizeListener error: @Prop() size must be declared in component', this);
+			}
 
-    proto.componentDidLoad = function() {
-      const elementRef: any = getElement(this);
-      if (componentDidLoad) {
-        this.__break = '';
-        this.__resizeObserver = new ResizeObserver(entries => {
-          let newBreak: string;
-          if (entries[0].contentRect.width <= 640 ) newBreak = 'sm';
-          else if (entries[0].contentRect.width <= 1312 ) newBreak = 'md';
-          else newBreak = 'lg';
-          if (this.__break !== newBreak) {
-            console.log('NEW SIZE:', this.__break);
-            this.__break = newBreak;
-            elementRef.setAttribute('size', this.__break)
-          }
-        })
-        .observe(elementRef);
+		};
 
-        return componentDidLoad.apply(this);
-      }
-
-    };
-
-    proto.componentDidUnload = function() {
-      if (componentDidUnload && this.__resizeObserver) {
-        console.log(this)
-        this.__resizeObserver.disconnect();
-        return componentDidUnload.apply(this);
-      }
-    }
-  };
+		// proto.componentDidUnload = function () {
+		// 	if (componentDidUnload && this.__resizeObserver) {
+		// 		this.__resizeObserver.disconnect();
+		// 		return componentDidUnload.apply(this);
+		// 	}
+		// 	else {
+		// 		console.error('ElementSizeListener error: Stencil "componentDidUnload" hook must be called in component', this)
+		// 	}
+		// }
+	};
 
 }

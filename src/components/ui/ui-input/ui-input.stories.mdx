@@ -1,0 +1,113 @@
+import { Story, Preview, Meta, Props } from '@storybook/addon-docs/blocks';
+import { html } from 'lit-html';
+
+import {customEventAction} from '../../../docs/utils/decorators.js';
+import { action, decorate } from '@storybook/addon-actions';
+import { text, boolean} from "@storybook/addon-knobs";
+
+# Storybook Docs for Input
+
+<Meta title="DESIGN SYSTEM/input" />
+
+<Story name="Develop" >
+  {() => {
+    return html`
+      <section style="max-width: 360px; margin-bottom: 2rem">
+        <correos-ui-input
+          value="${text('value', 'Prefilled value default', 'Value Properties')}"
+          label="${text('label', 'Nombre', 'Value Properties')}"
+          pattern="${text('pattern', '^[a-zA-Z]+$', 'Value Properties')}"
+          required="${boolean('required', false, 'Value Properties')}"
+          autofocus="${boolean('autofocus', true, 'Value Properties')}"
+          placeholder="${text('placeholder', 'Rellene con valor necesario', 'Value Properties')}"
+          minlength="${text('minlength', '8', 'Value Properties')}"
+          maxlength="${text('maxlength', '40', 'Value Properties')}"
+          @eventChange="${customEventAction('eventChange')}"
+        />
+        </correos-ui-input>
+      </section>
+    `;
+  }}
+</Story>
+
+## API
+
+You can show the api table of a web component at any point in your documentation.
+
+<Props of="correos-ui-input" />
+
+## Implementation details
+
+You can also wrap your live demos in a nice little wrapper.
+
+<Preview>
+  <Story name="wrapper" inline={false} >
+    {html`
+		  <correos-ui-input
+        value=""
+        label="Label"
+        required
+        placeholder="Text here"
+      >
+		  </correos-ui-input>
+		`}
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name="light wrapper" inline={false} >
+    {html`
+		  <correos-ui-input
+        value=""
+        label="Label"
+        theme="light"
+        required
+      >
+		  </correos-ui-input>
+		`}
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name="with autocomplete" inline={false} >
+    {html`
+		  <correos-ui-input
+        value="a"
+        label="Ciudad"
+        required
+        placeholder="Type here your country or choose one"
+        options="Valladolid,Madrid,Leon,Valencia"
+      >
+		  </correos-ui-input>
+		`}
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name="with max caracters" inline={false} >
+    {html`
+		  <correos-ui-input
+        value="a"
+        label="Ciudad"
+        required
+        placeholder="Type here your country or choose one"
+        maxlength=15
+      >
+		  </correos-ui-input>
+		`}
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name="number with pre-icon" inline={false} >
+    {html`
+		  <correos-ui-input
+        label="Telefono"
+        type="number"
+        placeholder="Type here your country or choose one"
+      >
+        <i slot="icon" class="icon-entrega" ></i>
+		  </correos-ui-input>
+		`}
+  </Story>
+</Preview>

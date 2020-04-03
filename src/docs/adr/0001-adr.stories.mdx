@@ -1,0 +1,23 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="ADR/1 - Scoped" />
+
+# 1. Record architecture decisions
+
+Date: 2020-03-02
+
+## Status
+
+Accepted
+
+## Context
+
+We need to disable the Shadow-DOM because we having some problems with the massive imports of the styles.
+
+## Decision
+
+We disabled Shadow-DOM encapsulation in favor of use 'scoped' option.
+
+## Consequences
+
+We give up total encapsulation, but we manage to prevent massive injection of styles. We must have more control over styles to prevent collisions.

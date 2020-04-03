@@ -1,0 +1,6 @@
+:host {
+  /** Las variables deberán ser mapeadas a una con el mismo nombre pero privada (_) */
+	--_background-color: 				var(--cdk-section-bgimagecard-background-color, white);
+	--_box-shadow: 				      var(--cdk-section-bg-imagecard-box-shadow);
+	--_wrapper: 				        var(--cdk-section-bgimagecard-wrapper, 1366);
+}

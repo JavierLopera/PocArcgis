@@ -1,0 +1,14 @@
+:host {
+  --_cdk-shipping-card-font-family: var(--cdk-shipping-card-font-family, "Courier New");
+  --_cdk-shipping-card-bg-color: var(--cdk-shipping-card-bg-color, magenta);
+  --_cdk-shipping-card-border-color: var(--cdk-shipping-card-border-color, green);
+  --_cdk-shipping-card-border-radius: var(--cdk-shipping-card-border-radius, 0px);
+  --_cdk-shipping-card-box-shadow: var(--cdk-shipping-card-box-shadow, 0 10px 20px 0 rgba(0, 0, 0, 0.1));
+  --_cdk-shipping-card-header-border-bottom: var(--cdk-shipping-card-header-border-bottom, yellow);
+  --_cdk-shipping-card-header-color-text-id: var(--cdk-shipping-card-header-color-text-id, black);
+  --_cdk-shipping-card-header-color-text-company: var(--cdk-shipping-card-header-color-text-company, red);
+  --_cdk-shipping-card-header-color-text-manage: var(--cdk-shipping-card-header-color-text-manage, magenta);
+  --_cdk-shipping-card-container-color-text-title: var(--cdk-shipping-card-container-color-text-title, green);
+  --_cdk-shipping-card-container-color-text-value: var(--cdk-shipping-card-container-color-text-value, magenta);
+  --_cdk-shipping-card-container-color-text-packages: var(--cdk-shipping-card-container-color-text-packages, yellow);
+}

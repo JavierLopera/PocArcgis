@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="2500px" height="784px" viewBox="0 0 2500 784" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>bg-decoration-1</title>
+    <desc>Created with Sketch.</desc>
+    <g id="bg-decoration-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle" fill-opacity="0" fill="#D8D9E3" x="0" y="0" width="1920" height="784"></rect>
+        <g id="mod_ilustración_D" transform="translate(321.000000, 200.000000)">
+            <g id="deco_02" transform="translate(1635.000000, 408.000000)" fill="#000066">
+                <rect id="Rectangle" x="0" y="48" width="384" height="32"></rect>
+                <rect id="Rectangle-Copy-9" x="0" y="0" width="384" height="32"></rect>
+                <rect id="Rectangle-Copy-10" x="0" y="96" width="384" height="32"></rect>
+            </g>
+            <g id="deco_01" fill="#FFCD00">
+                <polygon id="Fill-1-Copy-3" points="160 0 160 64 224 0.00186869498"></polygon>
+                <polygon id="Fill-1-Copy-5" points="80 0 80 64 144 0.00186869498"></polygon>
+                <polygon id="Fill-1-Copy-7" points="0 0 0 64 64 0.00186869498"></polygon>
+                <polygon id="Fill-1-Copy-4" points="160 80 160 144 224 80.0018687"></polygon>
+                <polygon id="Fill-1-Copy-6" points="80 80 80 144 144 80.0018687"></polygon>
+                <polygon id="Fill-1-Copy-8" points="0 80 0 144 64 80.0018687"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

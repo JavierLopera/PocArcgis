@@ -4,3 +4,16 @@
  * This is a place for hacky, nasty code that should be replaced
  * and moved to the correct partial. Ideally, this is empty.
  */
+
+
+// TODO Refactorizar 
+.correos-cdk-core-header--lock-scroll {
+  overflow: hidden;
+  position: static;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+

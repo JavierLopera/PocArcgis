@@ -1,0 +1,9 @@
+:host {
+    --_cdk-tarificador-bg-color: var(--cdk-tarificador-bg-color, magenta);
+    --_cdk-tarificador-border-color: var(--cdk-tarificador-border-color, yellow);
+    --_cdk-tarificador-border-color: var(--cdk-tarificador-border-color);
+    --_cdk-tarificador-text-color-title: var(--cdk-tarificador-text-color-title);
+    --_cdk-tarificador-text-color-text: var(--cdk-tarificador-text-color-text);
+    --_cdk-tarificador-box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.1);
+    --_cdk-tarificador-border-radius: var(--cdk-tarificador-border-radius);
+}

@@ -1,0 +1,81 @@
+import { Story, Preview, Meta, Props } from "@storybook/addon-docs/blocks";
+import { html } from "lit-html";
+
+import { text, object } from "@storybook/addon-knobs";
+import { action } from '@storybook/addon-actions';
+
+# Storybook Docs for Text block
+
+<Meta title="CDK/text-block" />
+
+## Story definition
+
+Preview of default state.
+
+<Story name="Develop">
+	{() => {
+		const knobs = {
+				literals: object('literals', [{
+					title: 'Lorem ipsum dolor sit amet',
+					body: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.'
+				}, {
+					title: 'Lorem ipsum dolor sit amet',
+					body: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.'
+				}, {
+					title: 'Lorem ipsum dolor sit amet',
+					body: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.'
+				}, {
+					title: 'Lorem ipsum dolor sit amet',
+					body: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.'
+				}
+				]),
+				title: text('[SLOT] title', 'Lorem ipsum dolor sit amet consectetur adipiscing elit'),
+				textButton: text('[SLOT] text Button', 'Lorem ipsum dolor')
+		}
+		return html`
+			<correos-cdk-text-block literals='${JSON.stringify(knobs.literals)}'>
+				<h3 slot="title">${knobs.title}</h3>
+				<correos-ui-button
+					slot="link"
+					theme="secondary"
+					variant="link"
+					link="true"
+					@click='${action('button-click')}'
+				>
+					<span slot="text">${knobs.textButton}</span>
+					<i slot="icon-right" class="icon-download"></i>
+				</correos-ui-button>
+			</correos-cdk-text-block>
+		`;
+	}}
+</Story>
+
+## API
+
+<Props of="correos-cdk-text-block" />
+
+## Examples
+
+Basic example
+
+<Preview withToolbar>
+	<Story name="Example">
+	{() => {
+		return html`
+			<correos-cdk-text-block
+				literals='[{"title": "Lorem ipsum dolor sit amet","body":"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium."},{"title": "Lorem ipsum dolor sit amet","body":"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium."},{"title": "Lorem ipsum dolor sit amet","body":"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium."},{"title": "Lorem ipsum dolor sit amet","body":"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium."}]'>
+				<h3 slot="title">Lorem ipsum dolor sit amet consectetur adipiscing elit</h3>
+				<correos-ui-button
+					slot="link"
+					theme="secondary"
+					variant="link"
+					link="true"
+				>
+					<span slot="text">Lorem ipsum dolor</span>
+					<i slot="icon-right" class="icon-download"></i>
+				</correos-ui-button>
+			</correos-cdk-text-block>
+		`;
+	}}
+</Story>
+</Preview>

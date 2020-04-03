@@ -119,9 +119,9 @@ describe('When the component is instantiated', () => {
 	});
 
 	it("and the left icon is added, it should be visible", async () => {
-		page.setContent('<correos-ui-button><i slot="icon-left" class="ico_download"></i></correos-ui-button>');
+		page.setContent('<correos-ui-button><i slot="icon-left" class="icon-download"></i></correos-ui-button>');
 		await page.waitForChanges();
-		expect(page.root.querySelector('.ico_download').className).toBe('ico_download');
+		expect(page.root.querySelector('.icon-download').className).toBe('icon-download');
 		expect(page.root).toEqualHtml(`
       <correos-ui-button>
         <mock:shadow-root>
@@ -136,14 +136,14 @@ describe('When the component is instantiated', () => {
             </button>
           </div>
         </mock:shadow-root>
-        <i class=\"ico_download\" slot=\"icon-left\"></i>
+        <i class=\"icon-download\" slot=\"icon-left\"></i>
       </correos-ui-button>`);
 	});
 
 	it("and the right icon is added, it should be visible", async () => {
-		page.setContent('<correos-ui-button><i slot="icon-right" class="ico_download"></i></correos-ui-button>');
+		page.setContent('<correos-ui-button><i slot="icon-right" class="icon-download"></i></correos-ui-button>');
 		await page.waitForChanges();
-		expect(page.root.querySelector('.ico_download').className).toBe('ico_download');
+		expect(page.root.querySelector('.icon-download').className).toBe('icon-download');
 		expect(page.root).toEqualHtml(`
     <correos-ui-button>
       <mock:shadow-root>
@@ -158,7 +158,7 @@ describe('When the component is instantiated', () => {
           </button>
         </div>
       </mock:shadow-root>
-      <i class=\"ico_download\" slot=\"icon-right\"></i>
+      <i class=\"icon-download\" slot=\"icon-right\"></i>
     </correos-ui-button>`);
 	});
 

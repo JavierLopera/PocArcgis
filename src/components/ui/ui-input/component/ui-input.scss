@@ -1,0 +1,70 @@
+@import '@material/textfield/mdc-text-field';
+@import '@material/textfield/helper-text/mdc-text-field-helper-text';
+
+.correos-ui-input_root {
+	display: flex;
+	flex-wrap: wrap;	
+	align-items: baseline;
+	&.light .mdc-text-field {
+		@include mdc-text-field-fill-color(var(--_ui-input-bg-light-color));
+	}
+	.mdc-text-field {
+		@include only-mobile {
+			height: 3rem;
+		}
+		width: 100%;
+		display: inline-block;	
+		@include mdc-text-field-ink-color(var(--_ui-input-field-color-empty));
+		@include mdc-text-field-shape-radius(var(--_ui-input-border-radius));
+		@include mdc-text-field-bottom-line-color(var(--_ui-input-line-color));
+		@include mdc-text-field-fill-color(var(--_ui-input-bg-color));
+		@include mdc-text-field-line-ripple-color(var(--_ui-input-line-color-ripple));
+		@include mdc-text-field-hover-bottom-line-color(var(--_ui-input-line-color));
+		border-top: 1px solid var(--_ui-input-border-color);
+		border-left: 1px solid var(--_ui-input-border-color);
+		border-right: 1px solid var(--_ui-input-border-color);
+		&.mdc-text-field--with-preppend-icon {
+			width: calc(100% - #{var(--_ui-input-icon-size)} - #{var(--_ui-input-icon-margin-right)});
+		}
+		&:hover input,&:focus input{
+			border-bottom: 2px solid;
+			padding-bottom: 5px;
+		}
+		&:hover:not(:focus):not(.mdc-text-field--focused):not(.mdc-text-field--invalid) {
+			@include mdc-text-field-label-color(var(--_ui-input-field-color));
+		}
+		&.mdc-text-field--focused {
+			@include mdc-text-field-label-color(var(--_ui-input-label-color));
+			@include mdc-text-field-ink-color(var(--_ui-input-field-color));
+		}
+		&.mdc-text-field--invalid {
+			.mdc-text-field__icon .trailing-icon { 
+				fill: var(--_ui-input-error-color);
+			}
+			@include mdc-text-field-label-color(var(--_ui-input-error-color));
+			@include mdc-text-field-bottom-line-color(var(--_ui-input-error-color));
+			@include mdc-text-field-line-ripple-color(var(--_ui-input-error-color));
+		}
+		&.mdc-text-field--filled:not(:hover):not(:focus):not(.mdc-text-field--focused):not(.mdc-text-field--invalid) {
+			@include mdc-text-field-label-color(var(--_ui-input-label-color));
+		}
+
+		.mdc-text-field__icon {
+			display: flex;
+		}
+	}
+
+	.mdc-floating-label {
+		@include only-mobile {
+			font-size: 0.875rem;
+	    bottom: 3px;
+		}
+	}
+	
+	.mdc-text-field-helper-line {
+		width: 100%;
+		.mdc-text-field--with-preppend-icon {
+			margin-left: calc(#{var(--_ui-input-icon-size)} + #{var(--_ui-input-icon-margin-right)});
+		}
+	}
+}

@@ -1,0 +1,13 @@
+:root {
+  --cdk-shipping-card-font-family: var(--theme-fontFamily-main);
+  --cdk-shipping-card-border-radius: var(--theme-borderRadius-card);
+  --cdk-shipping-card-bg-color: var(--theme-color-white);
+  --cdk-shipping-card-border-color: var(--theme-color-coolGrey);
+  --cdk-shipping-card-header-border-bottom: var(--theme-color-sendGrey);
+  --cdk-shipping-card-header-color-text-id: var(--theme-color-strongGrey);
+  --cdk-shipping-card-header-color-text-company: var(--theme-color-sendGrey);
+  --cdk-shipping-card-header-color-text-manage: var(--theme-color-manageBlue);
+  --cdk-shipping-card-container-color-text-title: var(--theme-color-strongGrey);
+  --cdk-shipping-card-container-color-text-value: var(--theme-color-strongGrey);
+  --cdk-shipping-card-container-color-text-packages: var(--theme-color-strongGrey);
+}

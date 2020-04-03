@@ -1,0 +1,30 @@
+import { Story, Preview, Meta, Props } from "@storybook/addon-docs/blocks";
+import { html } from "lit-html";
+
+import { customEventAction } from "../../../docs/utils/decorators.js";
+import { action, decorate } from "@storybook/addon-actions";
+import { text } from "@storybook/addon-knobs";
+
+# Storybook Docs for Section log
+
+<Meta title="CDK/section-log" />
+
+## Story definition
+
+Preview of default state.
+
+<Preview withToolbar>
+	<Story name="Example">
+		{html`
+			<correos-cdk-section-log>
+				<h2 slot="inf">Gestiona tus direcciones y envíos</h2>
+				<a slot="signup" href="">REGÍSTRATE AQUI</a>
+				<a slot="login" href="">YA TENGO CUENTA</a>
+			</correos-cdk-section-log>
+		`}
+	</Story>
+</Preview>
+
+## API
+
+<Props of="correos-cdk-section-log" />

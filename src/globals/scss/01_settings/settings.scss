@@ -1,8 +1,16 @@
-$layout-grid-gap: 32px;
+$layout-grid-gap: (
+	sm: 8px,
+	md: 16px,
+	lg: 32px
+);
+
+$layout-grid-gap-outside: 24px;
+
+$layout-wrapper: 85.375rem;
 
 $layout-breakpoints: (
 	md: 640px,
-	lg: 1024px,
+	lg: 1024px
 );
 
 $layout-spacing: (
@@ -15,3 +23,5 @@ $layout-spacing: (
 	7x: 64px,
 	8x: 80px,
 );
+
+$font_path: "{{ scssFontsPath }}assets/fonts";

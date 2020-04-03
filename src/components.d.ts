@@ -7,46 +7,238 @@
 
 
 import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
-
+import {
+  IElementSizeListenerBreakpoint,
+} from '@app/utils';
+import {
+  trackingPointsElement,
+} from 'src/components/ui/ui-tracking-stepper/models/ui-tracking-stepper.model';
+import {
+  CdkTrackingCardThemes,
+} from './components/cdk/cdk-tracking-card/models/cdk-tracking-card.model';
 
 export namespace Components {
-  interface CorreosCdkAlex {
+  interface CorreosCdkCoreFooter {
     /**
-    * The first name
+    * Escucha los cambios en el width/height del Host del Custom element y setea el atributo "size"
     */
-    'first': string;
-    /**
-    * The last name
-    */
-    'last': string;
+    'size': IElementSizeListenerBreakpoint;
   }
-  interface CorreosCdkTarificador {}
-  interface CorreosCdkTrackingCard {}
+  interface CorreosCdkCoreHeader {
+    /**
+    * Valor del idioma actual
+    */
+    'currentLang': string;
+    /**
+    * Establece el menu como "fixed"
+    */
+    'fixed': boolean;
+    /**
+    * Objeto de literales
+    * @type {[key:string] : string}
+    */
+    'literals': any;
+    /**
+    * Ruta del asset del logo
+    */
+    'logoSrc': string;
+    /**
+    * Establece como seleccionada la opción de primer nivel
+    */
+    'menuLvFirst': string;
+    /**
+    * Establece el menu de primer nivel a mostrar en el usuario
+    */
+    'menuLvZero': 'particular' | 'empresa';
+    /**
+    * Establece el menu en su estado abierto
+    */
+    'menuOpen': boolean;
+    /**
+    * Objeto de literales
+    * @type CDKCoreHeaderNavigation[]
+    */
+    'navigation': any;
+  }
+  interface CorreosCdkHeroscene {
+    /**
+    * Bg color for next section
+    */
+    'afterBgColor': string;
+    /**
+    * Image src url
+    */
+    'bgImage': string;
+    /**
+    * Max content width in EM units
+    */
+    'contentMaxWidth': string;
+  }
+  interface CorreosCdkImageblock {
+    'altImage': string;
+    'urlImage': string;
+  }
+  interface CorreosCdkSectionBgimagecard {
+    /**
+    * Image src url
+    */
+    'bgImage': string;
+  }
+  interface CorreosCdkSectionBox {
+    /**
+    * Bg color of global section
+    */
+    'BgColor': string;
+    /**
+    * Bg image for decorations
+    */
+    'BgImage': string;
+    /**
+    * Bg color of next section
+    */
+    'afterBgColor': string;
+    /**
+    * Bg color of back section
+    */
+    'beforeBgColor': string;
+    /**
+    * Section box without wrapperMain
+    */
+    'fullWidth': boolean;
+  }
+  interface CorreosCdkSectionLog {
+    /**
+    * Escucha los cambios en el width/height del Host del Custom element y setea el atributo "size"
+    */
+    'size': IElementSizeListenerBreakpoint;
+  }
+  interface CorreosCdkSectionSlider {
+    'autoplaySlider': boolean;
+    'centerOnMobile': boolean;
+    'itemDesktopSlider': number;
+    'itemMobileSlider': number;
+    'itemTabletSlider': number;
+    'loopSlider': boolean;
+    'speedSlider': number;
+    /**
+    * (opcional) Valor (opcional) estilo del title --> true: center; false: start
+    */
+    'variant': string;
+  }
+  interface CorreosCdkShippingCard {
+    /**
+    * Nombre de la compañia
+    */
+    'company_name': string;
+    /**
+    * Fecha de la entrega
+    */
+    'delivery_date': string;
+    'favourite': boolean;
+    /**
+    * Número de bultos que contiene el envio
+    */
+    'items': number;
+    'points': trackingPointsElement[] | string | any;
+    'size': IElementSizeListenerBreakpoint;
+    'track_number': string;
+  }
+  interface CorreosCdkTarificador {
+    /**
+    * Array de objetos con el siguiente tipado: {inputLabelOrigin: string; inputLabelDestination: string; inputLabelContent: string; inputLabelQuantity: string; buttontext: string;}
+    */
+    'literals': string;
+    'size': IElementSizeListenerBreakpoint;
+    'urlForm': string;
+  }
+  interface CorreosCdkTextBlock {
+    /**
+    * Array de objetos con el siguiente tipado: { title: string; body: string; }
+    */
+    'literals': string;
+    /**
+    * Escucha los cambios en el width/height del Host del Custom element y setea el atributo "size"
+    */
+    'size': IElementSizeListenerBreakpoint;
+  }
+  interface CorreosCdkTextBlockCta {
+    /**
+    * Escucha los cambios en el width/height del Host del Custom element y setea el atributo "size"
+    */
+    'size': IElementSizeListenerBreakpoint;
+  }
+  interface CorreosCdkTrackingCard {
+    /**
+    * Literals
+    */
+    'literals': string;
+    'size': IElementSizeListenerBreakpoint;
+    /**
+    * Component available themes. Posibles valores: primary, ghost & default
+    */
+    'theme': CdkTrackingCardThemes;
+    'urlForm': string;
+  }
+  interface CorreosUiBreadcrumb {
+    'literals': string;
+    /**
+    * Valor (opcional) Tema del breadrumb -- Variant="white"
+    */
+    'variant': string;
+  }
   interface CorreosUiButton {
+    /**
+    * Valor (obligatorio si la propiedad disabled se ha proporcionado) que permite indicar que el area del boton esta deshabilitada
+    */
+    'ariaDisabled'?: boolean;
     /**
     * Valor (opcional) que permite habilitar o deshablitar el boton
     */
-    'disabled': boolean;
+    'disabled'?: boolean;
     /**
-    * Valor (opcional) que permite asignar un formulario al que se hará submit
+    * Valor (opcional) que indica la url de enlace
     */
-    'form': string;
+    'hrefLink'?: string;
+    /**
+    * Valor (opcional) estilo del botón, Posibles valores: primary, secondary, default & ghost
+    */
+    'theme'?: string;
     /**
     * Valor (opcional) que permite indicar el tipo de boton
     */
-    'type': string;
+    'type'?: string;
+    /**
+    * Valor (opcional) Tema del botón. Posibles valores: tiny o link
+    */
+    'variant': string;
   }
   interface CorreosUiCard {
     /**
     * Valor (opcional) que permite habilitar o deshablitar el boton
     */
     'disabled': boolean;
+    /**
+    * Valor (opcional) que permite indicar si es un link o un button
+    */
+    'hrefLink'?: string;
   }
   interface CorreosUiCardLarge {
     /**
     * Valor (opcional) que permite habilitar o deshablitar el boton
     */
     'disabled': boolean;
+    /**
+    * Valor (opcional) que permite indicar si es un link o un button
+    */
+    'hrefLink'?: string;
+    /**
+    * Escucha los cambios en el width/height del Host del Custom element y setea el atributo "size"
+    */
+    'size': IElementSizeListenerBreakpoint;
+    /**
+    * Valor (opcional) Tema de la card
+    */
+    'variant': string;
   }
   interface CorreosUiIconButton {
     /**
@@ -80,6 +272,10 @@ export namespace Components {
     */
     'minlength': string;
     /**
+    * Valor del campo input
+    */
+    'name': string;
+    /**
     * Flag para indicar que coja el foco al renderizarse
     */
     'options': string;
@@ -96,6 +292,10 @@ export namespace Components {
     */
     'required': boolean;
     /**
+    * Flag para indicar que coja el foco al renderizarse
+    */
+    'theme': 'default' | 'light';
+    /**
     * Tipo del campo input
     */
     'type': string;
@@ -103,16 +303,6 @@ export namespace Components {
     * Valor del campo input
     */
     'value': string;
-  }
-  interface CorreosUiLopera {
-    /**
-    * The first name
-    */
-    'first': string;
-    /**
-    * The last name
-    */
-    'last': string;
   }
   interface CorreosUiMenu {
     /**
@@ -152,15 +342,67 @@ export namespace Components {
     */
     'value': string;
   }
+  interface CorreosUiTrackingStepper {
+    'points': any[] | string;
+    'type': 'horizontal' | 'vertical';
+  }
 }
 
 declare global {
 
 
-  interface HTMLCorreosCdkAlexElement extends Components.CorreosCdkAlex, HTMLStencilElement {}
-  var HTMLCorreosCdkAlexElement: {
-    prototype: HTMLCorreosCdkAlexElement;
-    new (): HTMLCorreosCdkAlexElement;
+  interface HTMLCorreosCdkCoreFooterElement extends Components.CorreosCdkCoreFooter, HTMLStencilElement {}
+  var HTMLCorreosCdkCoreFooterElement: {
+    prototype: HTMLCorreosCdkCoreFooterElement;
+    new (): HTMLCorreosCdkCoreFooterElement;
+  };
+
+  interface HTMLCorreosCdkCoreHeaderElement extends Components.CorreosCdkCoreHeader, HTMLStencilElement {}
+  var HTMLCorreosCdkCoreHeaderElement: {
+    prototype: HTMLCorreosCdkCoreHeaderElement;
+    new (): HTMLCorreosCdkCoreHeaderElement;
+  };
+
+  interface HTMLCorreosCdkHerosceneElement extends Components.CorreosCdkHeroscene, HTMLStencilElement {}
+  var HTMLCorreosCdkHerosceneElement: {
+    prototype: HTMLCorreosCdkHerosceneElement;
+    new (): HTMLCorreosCdkHerosceneElement;
+  };
+
+  interface HTMLCorreosCdkImageblockElement extends Components.CorreosCdkImageblock, HTMLStencilElement {}
+  var HTMLCorreosCdkImageblockElement: {
+    prototype: HTMLCorreosCdkImageblockElement;
+    new (): HTMLCorreosCdkImageblockElement;
+  };
+
+  interface HTMLCorreosCdkSectionBgimagecardElement extends Components.CorreosCdkSectionBgimagecard, HTMLStencilElement {}
+  var HTMLCorreosCdkSectionBgimagecardElement: {
+    prototype: HTMLCorreosCdkSectionBgimagecardElement;
+    new (): HTMLCorreosCdkSectionBgimagecardElement;
+  };
+
+  interface HTMLCorreosCdkSectionBoxElement extends Components.CorreosCdkSectionBox, HTMLStencilElement {}
+  var HTMLCorreosCdkSectionBoxElement: {
+    prototype: HTMLCorreosCdkSectionBoxElement;
+    new (): HTMLCorreosCdkSectionBoxElement;
+  };
+
+  interface HTMLCorreosCdkSectionLogElement extends Components.CorreosCdkSectionLog, HTMLStencilElement {}
+  var HTMLCorreosCdkSectionLogElement: {
+    prototype: HTMLCorreosCdkSectionLogElement;
+    new (): HTMLCorreosCdkSectionLogElement;
+  };
+
+  interface HTMLCorreosCdkSectionSliderElement extends Components.CorreosCdkSectionSlider, HTMLStencilElement {}
+  var HTMLCorreosCdkSectionSliderElement: {
+    prototype: HTMLCorreosCdkSectionSliderElement;
+    new (): HTMLCorreosCdkSectionSliderElement;
+  };
+
+  interface HTMLCorreosCdkShippingCardElement extends Components.CorreosCdkShippingCard, HTMLStencilElement {}
+  var HTMLCorreosCdkShippingCardElement: {
+    prototype: HTMLCorreosCdkShippingCardElement;
+    new (): HTMLCorreosCdkShippingCardElement;
   };
 
   interface HTMLCorreosCdkTarificadorElement extends Components.CorreosCdkTarificador, HTMLStencilElement {}
@@ -169,10 +411,28 @@ declare global {
     new (): HTMLCorreosCdkTarificadorElement;
   };
 
+  interface HTMLCorreosCdkTextBlockElement extends Components.CorreosCdkTextBlock, HTMLStencilElement {}
+  var HTMLCorreosCdkTextBlockElement: {
+    prototype: HTMLCorreosCdkTextBlockElement;
+    new (): HTMLCorreosCdkTextBlockElement;
+  };
+
+  interface HTMLCorreosCdkTextBlockCtaElement extends Components.CorreosCdkTextBlockCta, HTMLStencilElement {}
+  var HTMLCorreosCdkTextBlockCtaElement: {
+    prototype: HTMLCorreosCdkTextBlockCtaElement;
+    new (): HTMLCorreosCdkTextBlockCtaElement;
+  };
+
   interface HTMLCorreosCdkTrackingCardElement extends Components.CorreosCdkTrackingCard, HTMLStencilElement {}
   var HTMLCorreosCdkTrackingCardElement: {
     prototype: HTMLCorreosCdkTrackingCardElement;
     new (): HTMLCorreosCdkTrackingCardElement;
+  };
+
+  interface HTMLCorreosUiBreadcrumbElement extends Components.CorreosUiBreadcrumb, HTMLStencilElement {}
+  var HTMLCorreosUiBreadcrumbElement: {
+    prototype: HTMLCorreosUiBreadcrumbElement;
+    new (): HTMLCorreosUiBreadcrumbElement;
   };
 
   interface HTMLCorreosUiButtonElement extends Components.CorreosUiButton, HTMLStencilElement {}
@@ -205,73 +465,280 @@ declare global {
     new (): HTMLCorreosUiInputElement;
   };
 
-  interface HTMLCorreosUiLoperaElement extends Components.CorreosUiLopera, HTMLStencilElement {}
-  var HTMLCorreosUiLoperaElement: {
-    prototype: HTMLCorreosUiLoperaElement;
-    new (): HTMLCorreosUiLoperaElement;
-  };
-
   interface HTMLCorreosUiMenuElement extends Components.CorreosUiMenu, HTMLStencilElement {}
   var HTMLCorreosUiMenuElement: {
     prototype: HTMLCorreosUiMenuElement;
     new (): HTMLCorreosUiMenuElement;
   };
+
+  interface HTMLCorreosUiTrackingStepperElement extends Components.CorreosUiTrackingStepper, HTMLStencilElement {}
+  var HTMLCorreosUiTrackingStepperElement: {
+    prototype: HTMLCorreosUiTrackingStepperElement;
+    new (): HTMLCorreosUiTrackingStepperElement;
+  };
   interface HTMLElementTagNameMap {
-    'correos-cdk-alex': HTMLCorreosCdkAlexElement;
+    'correos-cdk-core-footer': HTMLCorreosCdkCoreFooterElement;
+    'correos-cdk-core-header': HTMLCorreosCdkCoreHeaderElement;
+    'correos-cdk-heroscene': HTMLCorreosCdkHerosceneElement;
+    'correos-cdk-imageblock': HTMLCorreosCdkImageblockElement;
+    'correos-cdk-section-bgimagecard': HTMLCorreosCdkSectionBgimagecardElement;
+    'correos-cdk-section-box': HTMLCorreosCdkSectionBoxElement;
+    'correos-cdk-section-log': HTMLCorreosCdkSectionLogElement;
+    'correos-cdk-section-slider': HTMLCorreosCdkSectionSliderElement;
+    'correos-cdk-shipping-card': HTMLCorreosCdkShippingCardElement;
     'correos-cdk-tarificador': HTMLCorreosCdkTarificadorElement;
+    'correos-cdk-text-block': HTMLCorreosCdkTextBlockElement;
+    'correos-cdk-text-block-cta': HTMLCorreosCdkTextBlockCtaElement;
     'correos-cdk-tracking-card': HTMLCorreosCdkTrackingCardElement;
+    'correos-ui-breadcrumb': HTMLCorreosUiBreadcrumbElement;
     'correos-ui-button': HTMLCorreosUiButtonElement;
     'correos-ui-card': HTMLCorreosUiCardElement;
     'correos-ui-card-large': HTMLCorreosUiCardLargeElement;
     'correos-ui-icon-button': HTMLCorreosUiIconButtonElement;
     'correos-ui-input': HTMLCorreosUiInputElement;
-    'correos-ui-lopera': HTMLCorreosUiLoperaElement;
     'correos-ui-menu': HTMLCorreosUiMenuElement;
+    'correos-ui-tracking-stepper': HTMLCorreosUiTrackingStepperElement;
   }
 }
 
 declare namespace LocalJSX {
-  interface CorreosCdkAlex {
+  interface CorreosCdkCoreFooter {
     /**
-    * The first name
+    * Escucha los cambios en el width/height del Host del Custom element y setea el atributo "size"
     */
-    'first'?: string;
+    'size'?: IElementSizeListenerBreakpoint;
+  }
+  interface CorreosCdkCoreHeader {
     /**
-    * The last name
+    * Valor del idioma actual
     */
-    'last'?: string;
+    'currentLang'?: string;
+    /**
+    * Establece el menu como "fixed"
+    */
+    'fixed'?: boolean;
+    /**
+    * Objeto de literales
+    * @type {[key:string] : string}
+    */
+    'literals'?: any;
+    /**
+    * Ruta del asset del logo
+    */
+    'logoSrc'?: string;
+    /**
+    * Establece como seleccionada la opción de primer nivel
+    */
+    'menuLvFirst'?: string;
+    /**
+    * Establece el menu de primer nivel a mostrar en el usuario
+    */
+    'menuLvZero'?: 'particular' | 'empresa';
+    /**
+    * Establece el menu en su estado abierto
+    */
+    'menuOpen'?: boolean;
+    /**
+    * Objeto de literales
+    * @type CDKCoreHeaderNavigation[]
+    */
+    'navigation'?: any;
+  }
+  interface CorreosCdkHeroscene {
+    /**
+    * Bg color for next section
+    */
+    'afterBgColor'?: string;
+    /**
+    * Image src url
+    */
+    'bgImage'?: string;
+    /**
+    * Max content width in EM units
+    */
+    'contentMaxWidth'?: string;
+  }
+  interface CorreosCdkImageblock {
+    'altImage'?: string;
+    'urlImage'?: string;
+  }
+  interface CorreosCdkSectionBgimagecard {
+    /**
+    * Image src url
+    */
+    'bgImage'?: string;
+  }
+  interface CorreosCdkSectionBox {
+    /**
+    * Bg color of global section
+    */
+    'BgColor'?: string;
+    /**
+    * Bg image for decorations
+    */
+    'BgImage'?: string;
+    /**
+    * Bg color of next section
+    */
+    'afterBgColor'?: string;
+    /**
+    * Bg color of back section
+    */
+    'beforeBgColor'?: string;
+    /**
+    * Section box without wrapperMain
+    */
+    'fullWidth'?: boolean;
+  }
+  interface CorreosCdkSectionLog {
+    /**
+    * Escucha los cambios en el width/height del Host del Custom element y setea el atributo "size"
+    */
+    'size'?: IElementSizeListenerBreakpoint;
+  }
+  interface CorreosCdkSectionSlider {
+    'autoplaySlider'?: boolean;
+    'centerOnMobile'?: boolean;
+    'itemDesktopSlider'?: number;
+    'itemMobileSlider'?: number;
+    'itemTabletSlider'?: number;
+    'loopSlider'?: boolean;
+    'speedSlider'?: number;
+    /**
+    * (opcional) Valor (opcional) estilo del title --> true: center; false: start
+    */
+    'variant'?: string;
+  }
+  interface CorreosCdkShippingCard {
+    /**
+    * Nombre de la compañia
+    */
+    'company_name'?: string;
+    /**
+    * Fecha de la entrega
+    */
+    'delivery_date'?: string;
+    'favourite'?: boolean;
+    /**
+    * Número de bultos que contiene el envio
+    */
+    'items'?: number;
+    /**
+    * CustomEvent para controlar la edición del envio
+    */
+    'onEditShipment'?: (event: CustomEvent<any>) => void;
+    /**
+    * CustomEvent para controlar el cambio del estado de la propiedad favorito
+    */
+    'onSwitchFavouriteItem'?: (event: CustomEvent<any>) => void;
+    'points'?: trackingPointsElement[] | string | any;
+    'size'?: IElementSizeListenerBreakpoint;
+    'track_number'?: string;
   }
   interface CorreosCdkTarificador {
-    'onEventChange'?: (event: CustomEvent<any>) => void;
+    /**
+    * Array de objetos con el siguiente tipado: {inputLabelOrigin: string; inputLabelDestination: string; inputLabelContent: string; inputLabelQuantity: string; buttontext: string;}
+    */
+    'literals'?: string;
+    /**
+    * Event submit output, No es una propiedad. Este evento devuelve el valor del formulario una vez se ha realizado el evento de submit. Este evento solo debera ser capturado en caso de que no se pase la propiedad urlForm.
+    */
+    'onFormSubmitOutput'?: (event: CustomEvent<any>) => void;
+    'size'?: IElementSizeListenerBreakpoint;
+    'urlForm'?: string;
+  }
+  interface CorreosCdkTextBlock {
+    /**
+    * Array de objetos con el siguiente tipado: { title: string; body: string; }
+    */
+    'literals'?: string;
+    /**
+    * Escucha los cambios en el width/height del Host del Custom element y setea el atributo "size"
+    */
+    'size'?: IElementSizeListenerBreakpoint;
+  }
+  interface CorreosCdkTextBlockCta {
+    /**
+    * Escucha los cambios en el width/height del Host del Custom element y setea el atributo "size"
+    */
+    'size'?: IElementSizeListenerBreakpoint;
   }
   interface CorreosCdkTrackingCard {
-    'onFormSubmit'?: (event: CustomEvent<any>) => void;
+    /**
+    * Literals
+    */
+    'literals'?: string;
+    /**
+    * Event submit output, No es una propiedad. Este evento devuelve el valor del formulario una vez se ha realizado el evento de submit. Este evento solo debera ser capturado en caso de que no se pase la propiedad urlForm.
+    */
+    'onFormSubmitOutput'?: (event: CustomEvent<any>) => void;
+    'size'?: IElementSizeListenerBreakpoint;
+    /**
+    * Component available themes. Posibles valores: primary, ghost & default
+    */
+    'theme'?: CdkTrackingCardThemes;
+    'urlForm'?: string;
+  }
+  interface CorreosUiBreadcrumb {
+    'literals'?: string;
+    /**
+    * Valor (opcional) Tema del breadrumb -- Variant="white"
+    */
+    'variant'?: string;
   }
   interface CorreosUiButton {
+    /**
+    * Valor (obligatorio si la propiedad disabled se ha proporcionado) que permite indicar que el area del boton esta deshabilitada
+    */
+    'ariaDisabled'?: boolean;
     /**
     * Valor (opcional) que permite habilitar o deshablitar el boton
     */
     'disabled'?: boolean;
     /**
-    * Valor (opcional) que permite asignar un formulario al que se hará submit
+    * Valor (opcional) que indica la url de enlace
     */
-    'form'?: string;
+    'hrefLink'?: string;
+    /**
+    * Valor (opcional) estilo del botón, Posibles valores: primary, secondary, default & ghost
+    */
+    'theme'?: string;
     /**
     * Valor (opcional) que permite indicar el tipo de boton
     */
     'type'?: string;
+    /**
+    * Valor (opcional) Tema del botón. Posibles valores: tiny o link
+    */
+    'variant'?: string;
   }
   interface CorreosUiCard {
     /**
     * Valor (opcional) que permite habilitar o deshablitar el boton
     */
     'disabled'?: boolean;
+    /**
+    * Valor (opcional) que permite indicar si es un link o un button
+    */
+    'hrefLink'?: string;
   }
   interface CorreosUiCardLarge {
     /**
     * Valor (opcional) que permite habilitar o deshablitar el boton
     */
     'disabled'?: boolean;
+    /**
+    * Valor (opcional) que permite indicar si es un link o un button
+    */
+    'hrefLink'?: string;
+    /**
+    * Escucha los cambios en el width/height del Host del Custom element y setea el atributo "size"
+    */
+    'size'?: IElementSizeListenerBreakpoint;
+    /**
+    * Valor (opcional) Tema de la card
+    */
+    'variant'?: string;
   }
   interface CorreosUiIconButton {
     /**
@@ -305,6 +772,10 @@ declare namespace LocalJSX {
     */
     'minlength'?: string;
     /**
+    * Valor del campo input
+    */
+    'name'?: string;
+    /**
     * Descripción del evento
     */
     'onEventChange'?: (event: CustomEvent<any>) => void;
@@ -325,6 +796,10 @@ declare namespace LocalJSX {
     */
     'required'?: boolean;
     /**
+    * Flag para indicar que coja el foco al renderizarse
+    */
+    'theme'?: 'default' | 'light';
+    /**
     * Tipo del campo input
     */
     'type'?: string;
@@ -332,16 +807,6 @@ declare namespace LocalJSX {
     * Valor del campo input
     */
     'value'?: string;
-  }
-  interface CorreosUiLopera {
-    /**
-    * The first name
-    */
-    'first'?: string;
-    /**
-    * The last name
-    */
-    'last'?: string;
   }
   interface CorreosUiMenu {
     /**
@@ -365,18 +830,33 @@ declare namespace LocalJSX {
     */
     'value'?: string;
   }
+  interface CorreosUiTrackingStepper {
+    'points'?: any[] | string;
+    'type'?: 'horizontal' | 'vertical';
+  }
 
   interface IntrinsicElements {
-    'correos-cdk-alex': CorreosCdkAlex;
+    'correos-cdk-core-footer': CorreosCdkCoreFooter;
+    'correos-cdk-core-header': CorreosCdkCoreHeader;
+    'correos-cdk-heroscene': CorreosCdkHeroscene;
+    'correos-cdk-imageblock': CorreosCdkImageblock;
+    'correos-cdk-section-bgimagecard': CorreosCdkSectionBgimagecard;
+    'correos-cdk-section-box': CorreosCdkSectionBox;
+    'correos-cdk-section-log': CorreosCdkSectionLog;
+    'correos-cdk-section-slider': CorreosCdkSectionSlider;
+    'correos-cdk-shipping-card': CorreosCdkShippingCard;
     'correos-cdk-tarificador': CorreosCdkTarificador;
+    'correos-cdk-text-block': CorreosCdkTextBlock;
+    'correos-cdk-text-block-cta': CorreosCdkTextBlockCta;
     'correos-cdk-tracking-card': CorreosCdkTrackingCard;
+    'correos-ui-breadcrumb': CorreosUiBreadcrumb;
     'correos-ui-button': CorreosUiButton;
     'correos-ui-card': CorreosUiCard;
     'correos-ui-card-large': CorreosUiCardLarge;
     'correos-ui-icon-button': CorreosUiIconButton;
     'correos-ui-input': CorreosUiInput;
-    'correos-ui-lopera': CorreosUiLopera;
     'correos-ui-menu': CorreosUiMenu;
+    'correos-ui-tracking-stepper': CorreosUiTrackingStepper;
   }
 }
 
@@ -386,16 +866,27 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
-      'correos-cdk-alex': LocalJSX.CorreosCdkAlex & JSXBase.HTMLAttributes<HTMLCorreosCdkAlexElement>;
+      'correos-cdk-core-footer': LocalJSX.CorreosCdkCoreFooter & JSXBase.HTMLAttributes<HTMLCorreosCdkCoreFooterElement>;
+      'correos-cdk-core-header': LocalJSX.CorreosCdkCoreHeader & JSXBase.HTMLAttributes<HTMLCorreosCdkCoreHeaderElement>;
+      'correos-cdk-heroscene': LocalJSX.CorreosCdkHeroscene & JSXBase.HTMLAttributes<HTMLCorreosCdkHerosceneElement>;
+      'correos-cdk-imageblock': LocalJSX.CorreosCdkImageblock & JSXBase.HTMLAttributes<HTMLCorreosCdkImageblockElement>;
+      'correos-cdk-section-bgimagecard': LocalJSX.CorreosCdkSectionBgimagecard & JSXBase.HTMLAttributes<HTMLCorreosCdkSectionBgimagecardElement>;
+      'correos-cdk-section-box': LocalJSX.CorreosCdkSectionBox & JSXBase.HTMLAttributes<HTMLCorreosCdkSectionBoxElement>;
+      'correos-cdk-section-log': LocalJSX.CorreosCdkSectionLog & JSXBase.HTMLAttributes<HTMLCorreosCdkSectionLogElement>;
+      'correos-cdk-section-slider': LocalJSX.CorreosCdkSectionSlider & JSXBase.HTMLAttributes<HTMLCorreosCdkSectionSliderElement>;
+      'correos-cdk-shipping-card': LocalJSX.CorreosCdkShippingCard & JSXBase.HTMLAttributes<HTMLCorreosCdkShippingCardElement>;
       'correos-cdk-tarificador': LocalJSX.CorreosCdkTarificador & JSXBase.HTMLAttributes<HTMLCorreosCdkTarificadorElement>;
+      'correos-cdk-text-block': LocalJSX.CorreosCdkTextBlock & JSXBase.HTMLAttributes<HTMLCorreosCdkTextBlockElement>;
+      'correos-cdk-text-block-cta': LocalJSX.CorreosCdkTextBlockCta & JSXBase.HTMLAttributes<HTMLCorreosCdkTextBlockCtaElement>;
       'correos-cdk-tracking-card': LocalJSX.CorreosCdkTrackingCard & JSXBase.HTMLAttributes<HTMLCorreosCdkTrackingCardElement>;
+      'correos-ui-breadcrumb': LocalJSX.CorreosUiBreadcrumb & JSXBase.HTMLAttributes<HTMLCorreosUiBreadcrumbElement>;
       'correos-ui-button': LocalJSX.CorreosUiButton & JSXBase.HTMLAttributes<HTMLCorreosUiButtonElement>;
       'correos-ui-card': LocalJSX.CorreosUiCard & JSXBase.HTMLAttributes<HTMLCorreosUiCardElement>;
       'correos-ui-card-large': LocalJSX.CorreosUiCardLarge & JSXBase.HTMLAttributes<HTMLCorreosUiCardLargeElement>;
       'correos-ui-icon-button': LocalJSX.CorreosUiIconButton & JSXBase.HTMLAttributes<HTMLCorreosUiIconButtonElement>;
       'correos-ui-input': LocalJSX.CorreosUiInput & JSXBase.HTMLAttributes<HTMLCorreosUiInputElement>;
-      'correos-ui-lopera': LocalJSX.CorreosUiLopera & JSXBase.HTMLAttributes<HTMLCorreosUiLoperaElement>;
       'correos-ui-menu': LocalJSX.CorreosUiMenu & JSXBase.HTMLAttributes<HTMLCorreosUiMenuElement>;
+      'correos-ui-tracking-stepper': LocalJSX.CorreosUiTrackingStepper & JSXBase.HTMLAttributes<HTMLCorreosUiTrackingStepperElement>;
     }
   }
 }

@@ -1,0 +1,39 @@
+:host {
+    --_ui-floating-icon-button-bg-color:                      var(--ui-floating-icon-button-bg-color, magenta);
+    --_ui-floating-icon-button-bg-color-hover:                var(--ui-floating-icon-button-bg-color-hover, green);
+    --_ui-floating-icon-button-bg-color-disabled:             var(--ui-floating-icon-button-bg-color-disabled, red);
+    --_ui-floating-icon-button-icon-bg-color:                 var(--ui-floating-icon-button-icon-bg-color, yellow);
+    --_ui-floating-icon-button-icon-bg-color-disabled:        var(--ui-floating-icon-button-icon-bg-color-disabled, purple);
+    --_ui-floating-icon-button-icon-border-color:             var(--ui-floating-icon-button-icon-bg-color-disabled, purple);
+    --_ui-floating-icon-button-icon-border-color-disabled:    var(--ui-floating-icon-button-icon-bg-color-disabled, purple);
+
+  &[theme="primary"] {
+    --_ui-floating-icon-button-bg-color:                      var(--ui-floating-icon-button-primary-bg-color);
+    --_ui-floating-icon-button-bg-color-hover:                var(--ui-floating-icon-button-primary-bg-color-hover);
+    --_ui-floating-icon-button-bg-color-disabled:             var(--ui-floating-icon-button-primary-bg-color-disabled);
+    --_ui-floating-icon-button-icon-bg-color:                 var(--ui-floating-icon-button-primary-icon-bg-color);
+    --_ui-floating-icon-button-icon-bg-color-disabled:        var(--ui-floating-icon-button-primary-icon-bg-color-disabled);
+    --_ui-floating-icon-button-icon-border-color:             var(--ui-floating-icon-button-primary-icon-border-color);
+    --_ui-floating-icon-button-icon-border-color-disabled:    var(--ui-floating-icon-button-primary-icon-border-color-disabled);
+  }
+
+  &[theme="secondary"] {
+    --_ui-floating-icon-button-bg-color:                      var(--ui-floating-icon-button-secondary-bg-color);
+    --_ui-floating-icon-button-bg-color-hover:                var(--ui-floating-icon-button-secondary-bg-color-hover);
+    --_ui-floating-icon-button-bg-color-disabled:             var(--ui-floating-icon-button-secondary-bg-color-disabled);
+    --_ui-floating-icon-button-icon-bg-color:                 var(--ui-floating-icon-button-secondary-icon-bg-color);
+    --_ui-floating-icon-button-icon-bg-color-disabled:        var(--ui-floating-icon-button-secondary-icon-bg-color-disabled);
+    --_ui-floating-icon-button-icon-border-color:             var(--ui-floating-icon-button-secondary-icon-border-color);
+    --_ui-floating-icon-button-icon-border-color-disabled:    var(--ui-floating-icon-button-secondary-icon-border-color-disabled);
+  }
+
+  &[theme="ghost"] {
+    --_ui-floating-icon-button-bg-color:                      var(--ui-floating-icon-button-ghost-bg-color);
+    --_ui-floating-icon-button-bg-color-hover:                var(--ui-floating-icon-button-ghost-bg-color-hover);
+    --_ui-floating-icon-button-bg-color-disabled:             var(--ui-floating-icon-button-ghost-bg-color-disabled);
+    --_ui-floating-icon-button-icon-bg-color:                 var(--ui-floating-icon-button-ghost-icon-bg-color);
+    --_ui-floating-icon-button-icon-bg-color-disabled:        var(--ui-floating-icon-button-ghost-icon-bg-color-disabled);
+    --_ui-floating-icon-button-icon-border-color:             var(--ui-floating-icon-button-ghost-icon-border-color);
+    --_ui-floating-icon-button-icon-border-color-disabled:    var(--ui-floating-icon-button-ghost-icon-border-color-disabled);
+  }
+}

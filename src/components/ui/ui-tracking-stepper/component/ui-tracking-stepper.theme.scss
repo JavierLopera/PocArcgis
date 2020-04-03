@@ -1,0 +1,11 @@
+:host {
+	--_ui-tracking-stepper-line-done-color:        var(--ui-tracking-stepper-line-done-color, blue);
+	--_ui-tracking-stepper-line-undone-color:      var(--ui-tracking-stepper-line-undone-color, brown);
+	--_ui-tracking-stepper-dot-active-color:       var(--ui-tracking-stepper-dot-active-color, pink);
+	--_ui-tracking-stepper-dot-done-color:         var(--ui-tracking-stepper-dot-done-color, blue);
+	--_ui-tracking-stepper-dot-undone-color:       var(--ui-tracking-stepper-dot-undone-color, brown);    
+	--_ui-tracking-stepper-icon-active-color:      var(--ui-tracking-stepper-icon-active-color, green); 
+	--_ui-tracking-stepper-icon-done-color:        var(--ui-tracking-stepper-icon-done-color, yellow);   
+	--_ui-tracking-stepper-font-color:             var(--ui-tracking-stepper-icon-font-color, black); 	
+	--_ui-tracking-stepper-error:                  var(--ui-tracking-stepper-error, purple);  
+}

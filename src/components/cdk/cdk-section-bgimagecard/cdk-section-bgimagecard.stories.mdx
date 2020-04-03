@@ -1,0 +1,80 @@
+import { Story, Preview, Meta, Props } from "@storybook/addon-docs/blocks";
+import { html } from "lit-html";
+
+import { customEventAction } from "../../../docs/utils/decorators.js";
+import { action, decorate } from "@storybook/addon-actions";
+import { text } from "@storybook/addon-knobs";
+
+# Storybook Docs for Section bgimagecard
+
+<Meta title="CDK/section-bgimagecard" />
+
+## Story definition
+
+Preview of default state.X
+
+<Story name="Develop">
+	{() => {
+		const literals = [
+			{
+				title: "Lorem ipsum dolor sit amet",
+				body:
+					"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium."
+			},
+			{
+				title: "Lorem ipsum dolor sit amet",
+				body:
+					"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium."
+			},
+			{
+				title: "Lorem ipsum dolor sit amet",
+				body:
+					"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium."
+			},
+			{
+				title: "Lorem ipsum dolor sit amet",
+				body:
+					"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium."
+			}
+		];
+		const attr = {
+				bgImage: text(
+					"bg-image",
+					"/images/section_img_1.png"
+				)
+			};
+		return html`
+			<correos-cdk-section-bgimagecard bg-image="${attr.bgImage}">
+				<div slot="textblock">
+					<!-- Reemplazar por el Layout de AEM o de la SPA -->
+						<div class="AEM-grid-placeholder" style="height: 20rem"></div>
+					<!-- / -->
+				</div>
+			</correos-cdk-section-bgimagecard>
+		`;
+	}}
+</Story>
+
+## API
+
+<Props of="correos-cdk-section-bgimagecard" />
+
+## Examples
+
+Basic example
+
+<Preview withToolbar>
+	<Story name="Example">
+	{() => {
+		return html`
+			<correos-cdk-section-bgimagecard bg-image="/images/section_img_1.png">
+				<div slot="textblock">
+					<!-- Reemplazar por el Layout de AEM o de la SPA -->
+						<div class="AEM-grid-placeholder" style="height: 20rem"></div>
+					<!-- / -->
+				</div>
+			</correos-cdk-section-bgimagecard>
+		`;
+	}}
+</Story>
+</Preview>

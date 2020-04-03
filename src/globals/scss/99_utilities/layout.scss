@@ -1,0 +1,9 @@
+// wrappers, etc
+.wrapper-main {
+  max-width: var(--theme-layout-wrapper);
+  box-sizing: border-box;
+  padding-left: $layout-grid-gap-outside;
+  padding-right: $layout-grid-gap-outside;
+  margin-left: auto;
+  margin-right: auto;
+}

@@ -1,0 +1,57 @@
+import { Component, Prop, Host, h, Watch, State, EventEmitter, Event } from '@stencil/core';
+import { ElementSizeListener, IElementSizeListenerBreakpoint } from '@app/utils';
+
+@Component({
+	tag: 'correos-cdk-{{dashCase name}}',
+	styleUrls: ['cdk-{{dashCase name}}.scss', 'cdk-{{dashCase name}}.theme.scss'],
+	shadow: false,
+	scoped: true
+})
+export class CDK{{pascalCase name}} {
+
+	/** Escucha los cambios en el width/height del Host del Custom element y setea el atributo "size" con el valor del breakpoint del componente */
+	@ElementSizeListener({ sm: 608, md: 1023 })
+	@Prop({mutable: true, reflect: true}) size: IElementSizeListenerBreakpoint
+
+  /** Propiedad que refleja sus cambios sobre un atributo en el Host del Custom Element
+	 * https://stenciljs.com/docs/properties#prop-options
+	 */
+	@Prop({reflect: true}) bgColor: string = 'white';
+
+	/** Propiedad no primitiva (Objeto, Array). Requiere un watch que parsee a un State interno para usarse */
+	@Prop() literals: string;
+	@Watch('literals') parseLiterals(newLiterals: string) {
+    if (newLiterals) {
+			try { this._literals = JSON.parse(newLiterals); }
+			catch(e) { }
+		}
+  }
+	@State() _literals: {[key:string]: any}
+
+	/** Descripción del evento */
+	@Event() eventChange: EventEmitter;
+
+	/** Ciclo de vida ejecutado tras el primer Render después de la carga */
+	componentDidLoad() {}
+
+	/** Ciclo de vida ejecutado tras actualizarse */
+	componentDidUpdate() {}
+
+	/** Ciclo de vida al eliminar la instancia del componente */
+	componentDidUnload() {}
+
+	render() {
+
+		const isActive = true ? 'cdk-element--is-active' : '';
+
+		return (
+			<Host> 
+				<div class="cdk-{{dashCase name}}-root">
+					<div class={`cdk-element ${isActive}`}>
+						Hello World
+					</div>
+				</div>
+			</Host>
+		);
+	}
+}

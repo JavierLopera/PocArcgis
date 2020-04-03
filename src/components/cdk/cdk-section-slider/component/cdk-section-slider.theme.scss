@@ -1,0 +1,6 @@
+:host {
+  /** Las variables deberán ser mapeadas a una con el mismo nombre pero privada (_) */
+	--_color-text-title-mobile: 			var(--cdk-section-slider-color-text-title-mobile, red);
+	--_color-text-title-desktop: 			var(--cdk-section-slider-color-text-title-desktop, red);
+	--_wrapper:												var(--cdk-section-slider-wrapper, 1366px);
+}

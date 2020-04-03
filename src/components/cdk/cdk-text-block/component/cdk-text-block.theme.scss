@@ -1,0 +1,7 @@
+:host {
+  --_cdk-text-block-bg-color:                 var(--cdk-text-block-bg-color, magenta);
+  --_cdk-text-block-text-color-title:         var(--cdk-text-block-text-color-title, red);
+  --_cdk-text-block-color-line:               var(--cdk-text-block-color-line, blue);
+  --_cdk-text-block-text-color-title-body:    var(--cdk-text-block-text-color-title-body, yellow);
+  --_cdk-text-block-text-color-body:          var(--cdk-text-block-text-color-body, green);
+}

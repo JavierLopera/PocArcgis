@@ -1,0 +1,41 @@
+@import "force-reset.scss";
+
+
+:host {
+  ::slotted([slot="title"]) {
+    @include reset-text();
+    margin-bottom: 1.5rem;
+    line-height: 1.17;
+    color: var(--_color-text-title-desktop);
+    text-align: start;
+    font-size: 1.75rem;  
+    padding-left: $layout-grid-gap-outside;
+    padding-right: $layout-grid-gap-outside;
+    @include desktop {
+      font-size: 2rem;  
+    }
+  }
+
+  .cdk-root {
+    width: 100%;
+    max-width: var(--_wrapper);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cdk-slider {
+    padding-left: $layout-grid-gap-outside;
+    padding-right: $layout-grid-gap-outside;
+    padding-bottom: 2rem;
+    display: flex;
+    &.--center-mobile {
+      padding-left: 0;
+      padding-right: 0;
+      @include desktop {
+        padding-left: $layout-grid-gap-outside;
+        padding-right: $layout-grid-gap-outside;
+      }
+    }
+  }
+
+}

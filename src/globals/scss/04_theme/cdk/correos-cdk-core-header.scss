@@ -1,0 +1,15 @@
+:root {
+  --cdk-core-header-wrapper-main:                   var(--theme-layout-wrapper);
+  --cdk-core-header-bg-color:                       var(--theme-color-white);
+  --cdk-core-header-logo-bg-color:                  var(--theme-color-yellow);
+  --cdk-core-header-panel-bg-color-primary:         var(--theme-color-yellow);
+  --cdk-core-header-panel-bg-color-secondary:       var(--theme-color-manageBlue);
+  --cdk-core-header-subpanel-bg-color:              var(--theme-color-white);
+  --cdk-core-header-text-color:                     var(--theme-color-blue);
+  --cdk-core-header-text-color-alt:                 var(--theme-color-strongGrey);
+  --cdk-core-header-panel-text-color-primary:       var(--theme-color-manageBlue);
+  --cdk-core-header-panel-text-color-secondary:     var(--theme-color-white);
+  --cdk-core-header-subpanel-text-color:            var(--theme-color-manageBlue);
+  --cdk-core-header-shadow:                         var(--theme-boxShadow-main);
+}
+

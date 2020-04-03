@@ -1,77 +1,155 @@
 import { Story, Preview, Meta, Props } from '@storybook/addon-docs/blocks';
-import { action } from '@storybook/addon-actions';
 import { html } from 'lit-html';
 
-import { text} from "@storybook/addon-knobs";
+import { text, boolean, optionsKnob } from '@storybook/addon-knobs';
+import { action, decorate } from '@storybook/addon-actions';
 
 # Storybook Docs for Button
 
-<Meta title="DESIGN SYSTEM/Button" />
+<Meta title="DESIGN SYSTEM/button" />
 
 ## Story definition
 
-A story can be a simple return of `html`
+Preview of default state button.
 
-<Story name="simple">
-  {html`
-    <correos-ui-button
-			first='${text("first", "Jon")}'
-			last='${text("last", "Snow")}'>
-		</correos-ui-button>
-  `}
+<Story name="Develop button">
+	{() => {
+		const knobs = {
+			attr: {
+				theme: optionsKnob('Theme',
+					{
+						'Default': '',
+						'Primary': 'primary',
+						'Secondary': 'secondary',
+						'Ghost': 'ghost'
+					},
+					'primary',
+					{ display: 'select' },
+					'Button'
+				),
+				disabled: boolean('Disabled', false,'Button'),
+				type: optionsKnob('Type',
+					{
+						'Text': 'text',
+						'Submit': 'submit'
+					},
+					'text',
+					{ display: 'select' },
+					'Button'
+				)
+			},
+			slot: {
+				text: text('Text', 'text Button', 'Slot'),
+				iconLeftClass: optionsKnob('Left icon',
+					{
+						'No icon': 'display-none',
+						'icon-download': 'icon-download',
+						'icon-arrow': 'icon-arrow',
+						'icon-notif_info': 'icon-notif_info'
+					},
+					'icon-download',
+					{ display: 'select' },
+					'Slot'
+				)
+			}
+		};
+		return html`
+			<correos-ui-button
+				theme='${knobs.attr.theme}'
+				disabled='${knobs.attr.disabled}'
+				type='${knobs.attr.type}'
+				@click='${action('button-click')}'
+			>
+				<i slot="icon-left" class="${knobs.slot.iconLeftClass}" ></i>
+				<span slot="text">${knobs.slot.text}</span>
+			</correos-ui-button>
+		`;
+	}}
+</Story>
+
+Preview of default state link.
+
+<Story name="Develop link">
+	{() => {
+		const knobs = {
+			attr: {
+				theme: optionsKnob('Theme',
+					{
+						'Primary': 'primary',
+						'Secondary': 'secondary',
+					},
+					'secondary',
+					{ display: 'select' },
+					'Link'
+				),
+				disabled: boolean('Disabled', false, 'Link')
+			},
+			slot: {
+				text: text('Text', 'text Button', 'Slot'),
+				iconRightClass: optionsKnob('Right icon',
+					{
+						'No icon': 'display-none',
+						'icon-download': 'icon-download',
+						'icon-arrow': 'icon-arrow',
+						'icon-notif_info': 'icon-notif_info'
+					},
+					'icon-download',
+					{ display: 'select' },
+					'Slot'
+				)
+			}
+		};
+		return html`
+			<correos-ui-button
+				theme='${knobs.attr.theme}'
+				variant='link'
+				disabled='${knobs.attr.disabled}'
+				hrefLink="/ejemplo"
+				@click='${action('button-click')}'
+			>
+				<i slot="icon-right" class="${knobs.slot.iconRightClass}" ></i>
+				<span slot="text">${knobs.slot.text}</span>
+			</correos-ui-button>
+		`;
+	}}
 </Story>
 
 ## API
 
-You can show the api table of a web component at any point in your documentation.
-
 <Props of="correos-ui-button" />
 
-## Function stories
+## Examples
 
-Or a function
-
-<Story name="function">
-  {() => {
-    const data = { first: 'Jon', last: 'Snow' };
-    return html`
-      <correos-ui-button
-				first='${text("first", data.first)}'
-				last='${text("last", data.last)}'>
-			</correos-ui-button>
-    `;
-  }}
-</Story>
-
-## Wrapper
-
-You can also wrap your live demos in a nice little wrapper.
-
-<Preview withToolbar>
-  <Story name="wrapper">
-    {html`
-		  <correos-ui-button
-		    first='${text("first", "Jon")}'
-		    last='${text("last", "Snow")}'>
-		  </correos-ui-button>
-		`}
-  </Story>
-</Preview>
-
-## Story reference
-
-You can also reference an existing story from within your MDX file.
+Simple button
 
 <Preview>
-  <Story id="welcome--welcome" inline={false} />
+	<Story name="Button">
+		{html`
+			<correos-ui-button
+				theme="primary"
+				type='text'
+			>
+				<span slot="text"> Text Button </span>
+				<i slot="icon-left" class="icon-download"></i>
+			</correos-ui-button>
+		`}
+	</Story>
 </Preview>
 
-## Stories not inline
+Link button
 
-By default stories are rendered inline.
-For web components that is usually fine as they are style encapsulated via shadow dom.
-However when you have a style tag in you template it might be best to show them in an iframe.
-
-```
-<Story inline={false} />
-```
+<Preview>
+	<Story name="Link">
+		{html`
+			<correos-ui-button
+				theme="secondary"
+				variant="link"
+				type='text'
+				hrefLink="/ejemplo"
+			>
+				<span slot="text"> Text Button </span>
+				<i slot="icon-right" class="icon-download"></i>
+			</correos-ui-button>
+		`}
+	</Story>
+</Preview>

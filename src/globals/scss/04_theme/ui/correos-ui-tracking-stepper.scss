@@ -1,0 +1,11 @@
+:root {
+  --ui-tracking-stepper-line-done-color: var(--theme-color-green);
+  --ui-tracking-stepper-line-undone-color: var(--theme-color-sendGrey);
+  --ui-tracking-stepper-dot-active-color: var(--theme-color-yellow);
+  --ui-tracking-stepper-dot-done-color: var(--theme-color-green);
+  --ui-tracking-stepper-dot-undone-color: var(--theme-color-sendGrey);
+  --ui-tracking-stepper-icon-active-color: var(--theme-color-manageBlue);
+  --ui-tracking-stepper-icon-done-color: var(--theme-color-green);
+  --ui-tracking-stepper-icon-font-color: var(--theme-color-strongGrey);
+  --ui-tracking-stepper-error: var(--theme-color-red);
+}

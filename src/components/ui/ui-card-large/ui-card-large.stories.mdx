@@ -1,0 +1,164 @@
+import { Story, Preview, Meta, Props } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions';
+import { html } from 'lit-html';
+
+import { text, boolean } from "@storybook/addon-knobs";
+
+# Storybook Docs for Card large
+
+<Meta title="DESIGN SYSTEM/card-large" />
+
+## Story definition
+
+Preview of default state vertical card large.
+
+<Story name="Develop Vertical">
+	{() => {
+    const slotCardTitle = {
+      title: text('[SLOT] title', 'Producto', 'Card'),
+      mainText: text('[SLOT] mainText','Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. Lorem Ipsum has been the industrys standards','Card'),
+      disabled: boolean('disabled', false, 'Card')
+    };
+    const slot = {
+      text: text('[SLOT] text', 'text Button', 'button')
+    };
+    {/* ${slotCardTitle.disabled ? 'disabled aria-disabled="true"' : 'aria-disabled="false"'} */}
+		return html`
+			<correos-ui-card-large disabled=${slotCardTitle.disabled}>
+				<h3 slot="title"> ${slotCardTitle.title}</h3>
+				<p slot="body-text"> ${slotCardTitle.mainText }</p>
+				<footer slot="footer">
+					<correos-ui-button slot="footer" variant="link" theme="secondary" link="true">
+						<span slot="text">${slot.text}</span>
+						<i slot="icon-right" class="icon-go"></i>
+					</correos-ui-button>
+				</footer>
+			</correos-ui-card-large>
+		`;
+	}}
+</Story>
+
+Preview of default state vertical card large -- link.
+
+<Story name="Develop Vertical link">
+	{() => {
+    const slotCardTitle = {
+      title: text('[SLOT] title', 'Producto', 'Card'),
+      mainText: text('[SLOT] mainText','Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standards','Card'),
+      href: text('href', "/ejemplo", 'Card')
+    };
+    const slot = {
+      text: text('[SLOT] text', 'text Button', 'button')
+    };
+    {/* ${slotCardTitle.disabled ? 'disabled aria-disabled="true"' : 'aria-disabled="false"'} */} //TODO: RESOLVER
+		return html`
+			<correos-ui-card-large href-link=${slotCardTitle.href}>
+				<h3 slot="title"> ${slotCardTitle.title}</h3>
+				<p slot="body-text"> ${slotCardTitle.mainText }</p>
+				<footer slot="footer">
+					<correos-ui-button slot="footer" variant="link" theme="secondary" link="true">
+						<span slot="text">${slot.text}</span>
+						<i slot="icon-right" class="icon-go"></i>
+					</correos-ui-button>
+				</footer>
+			</correos-ui-card-large>
+		`;
+	}}
+</Story>
+
+Preview of default state horizontal card large.
+
+<Story name="Develop Horizontal">
+	{() => {
+    const slotCardTitle = {
+      title: text('[SLOT] title', 'Producto', 'Card'),
+      mainText: text('[SLOT] mainText',
+      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. Lorem Ipsum has been the industrys standards',
+      'Card'),
+      disabled: boolean('disabled', false, 'Card')
+    }
+    const slot = {
+      text: text('[SLOT] text', 'text Button', 'button')
+    };
+    {/* ${slotCardTitle.disabled ? 'disabled aria-disabled="true"' : 'aria-disabled="false"'} */}
+        {/* <div slot="image"> ${dummyImage} </div> */}
+		return html`
+			<correos-ui-card-large disabled=${slotCardTitle.disabled} variant="with-img">
+				<img slot="image" src="/images/box.svg" alt="" />
+				<h3 slot="title"> ${slotCardTitle.title}</h3>
+				<p slot="body-text" > ${slotCardTitle.mainText }</p>
+				<footer slot="footer">
+					<correos-ui-button slot="footer" variant="link" theme="secondary" link="true">
+						<span slot="text">${slot.text}</span>
+						<i slot="icon-right" class="icon-more"></i>
+					</correos-ui-button>
+				</footer>
+			</correos-ui-card-large>
+		`;
+	}}
+</Story>
+
+## API
+
+<Props of="correos-ui-card-large" />
+
+## Examples
+
+Example vertical card large
+
+<Preview>
+	<Story name="Vertical card">
+		{html`
+			<correos-ui-card-large>
+        		<h3 slot="title">Producto</h3>
+				<p slot="body-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. Lorem Ipsum has been the industrys standards</p>
+				<footer slot="footer">
+					<correos-ui-button slot="footer" variant="link" theme="secondary" link="true">
+						<span slot="text">TEXT BUTTON</span>
+						<i slot="icon-right" class="icon-go"></i>
+					</correos-ui-button>
+				</footer>
+			</correos-ui-card-large>
+		`}
+	</Story>
+</Preview>
+
+Example vertical card large -- link
+
+<Preview>
+	<Story name="Vertical card link">
+		{html`
+			<correos-ui-card-large href-link="/ejemplo">
+				<h3 slot="title"> Producto</h3>
+				<p slot="body-text"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standards</p>
+				<footer slot="footer">
+					<correos-ui-button slot="footesr" variant="link" theme="secondary" link="true">
+						<span slot="text">text Button</span>
+						<i slot="icon-right" class="icon-go"></i>
+					</correos-ui-button>
+				</footer>
+			</correos-ui-card-large>
+		`}
+</Story>
+</Preview>
+
+Example horizontal card large
+
+<Preview>
+	<Story name="Horizontal card">
+		{html`
+			<correos-ui-card-large variant="with-img">
+				<img slot="image" src="/images/box.svg" alt="" />
+				<h3 slot="title"> Producto</h3>
+				<p slot="body-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. Lorem Ipsum has been the industrys standards</p>
+				<footer slot="footer">
+					<correos-ui-button slot="footer" variant="link" theme="secondary" link="true">
+						<span slot="text">TEXT BUTTON</span>
+						<i slot="icon-right" class="icon-more"></i>
+					</correos-ui-button>
+				</footer>
+			</correos-ui-card-large>
+		`}
+	</Story>
+</Preview>
+

@@ -1,0 +1,50 @@
+import { Component, Prop, Host, h, Watch, State } from '@stencil/core';
+import { ElementSizeListener, IElementSizeListenerBreakpoint } from '@app/utils';
+
+@Component({
+	tag: 'tag-template-component',
+	styleUrls: ['style-template-component.scss', 'style-template-component.theme.scss'],
+	shadow: false,
+	scoped: true
+})
+export class TemplateComponent {
+
+	/** Escucha los cambios en el width/height del Host del Custom element y setea el atributo "size" */
+	@ElementSizeListener({
+		sm: 608,
+		md: 1023
+	})
+
+  /** Propiedad que refleja sus cambios sobre un atributo en el Host del Custom Element
+	 * https://stenciljs.com/docs/properties#prop-options
+	 */
+	@Prop({reflect: true}) first: string = 'Jhon';
+
+	/** Propiedad no primitiva (Objeto, Array). Requiere un watch que parsee a un State interno para usarse */
+	@Prop() literals: string;
+	@Watch('literals') parseLiterals(newLiterals: string) {
+    if (newLiterals) {
+			try { this._literals = JSON.parse(newLiterals); }
+			catch(e) { }
+		}
+  }
+	@State() _literals: {[key:string]: any}
+
+	/** Ciclo de vida ejecutado tras el primer Render después de la carga */
+	componentDidLoad() {}
+
+	/** Ciclo de vida ejecutado tras actualizarse */
+	componentDidUpdate() {}
+
+	/** Ciclo de vida al eliminar la instancia del componente */
+	componentDidUnload() {}
+
+
+	render() {
+		return (
+			<Host>
+				<div>Hello World</div>
+			</Host>
+		);
+	}
+}

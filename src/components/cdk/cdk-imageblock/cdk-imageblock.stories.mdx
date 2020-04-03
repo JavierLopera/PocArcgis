@@ -1,0 +1,28 @@
+import { Story, Preview, Meta, Props } from "@storybook/addon-docs/blocks";
+import { html } from "lit-html";
+
+# Storybook Docs for Imageblock
+
+<Meta title="CDK/imageblock" />
+
+## API
+
+<Props of="correos-cdk-imageblock" />
+
+## Story definition
+
+Preview of default state.
+
+<Preview withToolbar>
+	<Story name="Example">
+		{() => {
+			return html`
+				<correos-cdk-imageblock
+					url-image="/images/img-envios-camimo.svg"
+					alt-image="herramientas"
+				>
+				</correos-cdk-imageblock>
+			`;
+		}}
+	</Story>
+</Preview>

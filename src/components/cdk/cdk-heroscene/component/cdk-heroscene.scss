@@ -1,0 +1,122 @@
+:host {
+	--_background-color: 				var(--cdk-heroscene-background-color, darkblue);
+	--_text-color: 							var(--cdk-heroscene-text-color, white);
+	--_background-color-end: 		var(--cdk-heroscene-background-color-end, white);
+	--_content-max-width: 			var(--cdk-heroscene-content-max-width, 22em);
+
+	display: block;
+	position: relative;
+
+	::slotted([slot="pretext"]) {
+		@include reset-text;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    font-weight: 600;
+		@include tablet {
+			margin-bottom: 1.5rem;
+		}
+	}
+
+	::slotted([slot="title"]) {
+		@include reset-text;
+		font-size: 2rem;
+		line-height: 1.25;
+		font-weight: 300;
+		margin-bottom: 1rem;
+		@include tablet {
+			margin-bottom: 1.5rem;
+			font-size: 3rem;
+		}
+	}
+
+	::slotted([slot="description"]) {
+		margin: 0;
+		line-height: 1.6;
+		font-weight: 300;
+		margin-bottom: 0.5rem;
+		@include tablet {
+			margin-bottom: 1rem;
+		}
+	}
+}
+
+$overlay: -64px;
+
+// ::slotted([slot="button"]) {
+// }
+
+.cdk-wrapper {
+	$this: &;
+	position: relative;
+	overflow: hidden;
+	background-color: var(--_background-color);
+
+	@include tablet {
+		display: flex;
+	}
+}
+
+.cdk-image {
+	background-color: lightgrey;
+	position: relative;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	min-height: 168px;
+	width: 100%;
+	@include tablet { width: 40% }
+	@include desktop { width: 50% }
+}
+
+.cdk-image-end {
+	position: absolute;
+	bottom: -1px;
+	left: 0%;
+	@include tablet { display: none; }
+	& > path { fill: var(--_background-color)}
+}
+
+.cdk-content-end {
+	position: absolute;
+	bottom: -1px;
+	left: 0%;
+	& > path { 
+		fill: var(--_background-color-end, white);
+	}
+}
+
+.cdk-content-container {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	padding: 2rem 24px;
+	box-sizing: border-box;
+	@include tablet { 
+		width: 60%;
+		min-height: 360px;
+	}
+	@include desktop { 
+		width: 50%;
+		min-height: 480px;
+	}
+}
+
+.cdk-content-box {
+	max-width: var(--_content-max-width);
+	color: var(--_text-color);
+	padding-bottom: 48px;
+	@include desktop {
+		margin-left: 3rem;
+	}
+}
+
+.cdk-cta {	
+	background-color: var(--_background-color-end);
+	width: 100%;
+	margin-bottom: $overlay;
+}
+
+.cdk-cta-container {
+	position: relative;
+	top: $overlay;
+}

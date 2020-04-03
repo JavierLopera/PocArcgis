@@ -1,0 +1,69 @@
+import { Story, Preview, Meta, Props } from '@storybook/addon-docs/blocks';
+import { html } from 'lit-html';
+
+import { text, optionsKnob, boolean } from "@storybook/addon-knobs";
+import { action } from '@storybook/addon-actions';
+
+# Storybook Docs for Icon button
+
+<Meta title="DESIGN SYSTEM/icon-button" />
+
+## Story definition
+
+Preview of default state.
+
+<Story name="Develop">
+  {() => {
+		const icon = {
+        iconClass: optionsKnob('[SLOT] icon',
+            {
+                'icon-download': 'icon-download',
+                'icon-arrow': 'icon-arrow',
+                'icon-notif_info': 'icon-notif_info'
+            },
+            'icon-download',
+            { display: 'select' }
+        ),
+        attr: optionsKnob('Tipo',
+            {
+                'Default': '',
+                'Primary': 'primary',
+                'Secondary': 'secondary',
+                'Ghost': 'ghost'
+            },
+            'primary',
+            { display: 'select' }
+        ),
+        disabled: boolean('Disabled', false),
+    };
+	{/* ${icon.attr}
+	${icon.disabled ? 'disabled aria-disabled="true"' : 'aria-disabled="false"'} */}
+	return html`
+		<correos-ui-icon-button @click='${action('button-click')}'
+			theme="${icon.attr}"
+			aria-label="${text('AriaLabel', 'download')}"
+            disabled='${icon.disabled}'
+		>
+		<i slot="icon" class="${icon.iconClass}"></i>
+		</correos-ui-icon-button>
+	`}
+	}
+</Story>
+
+## API
+
+<Props of="correos-ui-icon-button" />
+
+## Examples
+
+Example icon button
+
+<Preview>
+	<Story name="icon button">
+		{html`
+			<correos-ui-icon-button theme="primary" aria-label="download">
+				<i slot="icon" class="icon-download">   </i>
+			</correos-ui-icon-button>
+		`}
+	</Story>
+</Preview>

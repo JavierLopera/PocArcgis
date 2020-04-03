@@ -1,0 +1,17 @@
+@mixin tablet {
+	@media (min-width: #{map-get($layout-breakpoints, md)}) {
+		@content;
+	}
+}
+
+@mixin desktop {
+	@media (min-width: #{map-get($layout-breakpoints, lg)}) {
+		@content;
+	}
+}
+
+@mixin only-mobile {
+	@media (max-width: #{map-get($layout-breakpoints, md) - 1px}) {
+		@content;
+	}
+}

@@ -1,0 +1,65 @@
+
+:host {
+  --_ui-button-font-family:              var(--ui-button-font-family, sans-serif);
+  --_ui-button-min-width:                var(--ui-button-min-width, 12rem);
+  --_ui-button-border-radius:            var(--ui-button-border-radius, 8px);
+  --_ui-button-bg-color:                 var(--ui-button-bg-color, magenta);
+  --_ui-button-bg-color-disabled:        var(--ui-button-bg-color-disabled, gray);
+  --_ui-button-bg-color-hover:           var(--ui-button-bg-color-hover, green);
+  --_ui-button-text-color:               var(--ui-button-text-color, white);
+  --_ui-button-border-color:             var(--ui-button-border-color, transparent);
+  --_ui-button-border-color-disabled:    var(--ui-button-border-color-disabled, none);
+  --_ui-button-border:                   var(--ui-button-border, transparent);
+  --_ui-button-text-color-hover:         var(--ui-button-text-color-hover, red);
+
+  &[theme="primary"] {  
+  --_ui-button-bg-color:                 var(--ui-button-primary-bg-color);
+  --_ui-button-bg-color-disabled:        var(--ui-button-primary-bg-color-disabled);
+  --_ui-button-bg-color-hover:           var(--ui-button-primary-bg-color-hover);
+  --_ui-button-text-color:               var(--ui-button-primary-text-color);
+  --_ui-button-border-color:             var(--ui-button-primary-border-color);
+  --_ui-button-border:                   var(--ui-button-primary-border);
+  --_ui-button-border-color-disabled:    var(--ui-button-primary-border-color-disabled);
+  }
+
+  &[theme="secondary"] {  
+    --_ui-button-bg-color:                 var(--ui-button-secondary-bg-color);
+    --_ui-button-bg-color-disabled:        var(--ui-button-secondary-bg-color-disabled);
+    --_ui-button-bg-color-hover:           var(--ui-button-secondary-bg-color-hover);
+    --_ui-button-text-color:               var(--ui-button-secondary-text-color);
+    --_ui-button-border-color:             var(--ui-button-secondary-border-color);
+    --_ui-button-border:                   var(--ui-button-secondary-border);
+    --_ui-button-border-color-disabled:    var(--ui-button-secondary-border-color-disabled);
+  }
+
+  &[theme="ghost"] {  
+    --_ui-button-bg-color:                 var(--ui-button-ghost-bg-color);
+    --_ui-button-bg-color-disabled:        var(--ui-button-ghost-bg-color-disabled);
+    --_ui-button-bg-color-hover:           var(--ui-button-ghost-bg-color-hover);
+    --_ui-button-text-color:               var(--ui-button-ghost-text-color);
+    --_ui-button-border-color:             var(--ui-button-ghost-border-color);
+    --_ui-button-border:                   var(--ui-button-ghost-border);
+    --_ui-button-border-color-disabled:    var(--ui-button-ghost-border-color-disabled);
+  }
+
+  &[theme="primary"][variant="link"] { 
+    --_ui-button-bg-color:                 var(--ui-button-link-primary-bg-color);
+    --_ui-button-bg-color-disabled:        var(--ui-button-link-primary-bg-color-disabled);
+    --_ui-button-bg-color-hover:           var(--ui-button-link-primary-bg-color-hover);
+    --_ui-button-text-color:               var(--ui-button-link-primary-text-color);
+    --_ui-button-text-color-hover:         var(--ui-button-link-primary-text-color-hover);
+    --_ui-button-border:                   var(--ui-button-link-primary-border);
+    --_ui-button-min-width:                var(--ui-button-link-primary-min-width);
+  }
+
+  &[theme="secondary"][variant="link"] { 
+    --_ui-button-bg-color:                 var(--ui-button-link-secondary-bg-color);
+    --_ui-button-bg-color-disabled:        var(--ui-button-link-secondary-bg-color-disabled);
+    --_ui-button-bg-color-hover:           var(--ui-button-link-secondary-bg-color-hover);
+    --_ui-button-text-color:               var(--ui-button-link-secondary-text-color);
+    --_ui-button-text-color-hover:         var(--ui-button-link-secondary-text-color-hover);
+    --_ui-button-border:                   var(--ui-button-link-secondary-border);
+    --_ui-button-min-width:                var(--ui-button-link-secondary-min-width);
+  }
+
+}

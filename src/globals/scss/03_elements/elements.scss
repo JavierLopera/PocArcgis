@@ -1,0 +1,26 @@
+html { 
+  cursor: default; /* 1 */ 
+  line-height: 1.49; /* 2 */ 
+  -moz-tab-size: 4; /* 3 */ 
+  tab-size: 4; /* 3 */ 
+  -webkit-tap-highlight-color: transparent /* 4 */; 
+  -ms-text-size-adjust: 100%; /* 5 */ 
+  -webkit-text-size-adjust: 100%; /* 5 */ 
+  word-break: break-word; /* 6 */ 
+  -webkit-font-smoothing: antialiased; 
+  -moz-osx-font-smoothing: grayscale; 
+  text-rendering: optimizeLegibility; 
+} 
+
+body { 
+  font-family: var(--theme-fontFamily-main); 
+  color: var(--theme-color-strongGrey); 
+  font-weight: normal; 
+  font-size: 16px; 
+  margin: 0; 
+  padding: 0; 
+} 
+
+* { 
+  box-sizing: border-box; 
+} 

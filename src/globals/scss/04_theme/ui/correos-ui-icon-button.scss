@@ -1,0 +1,37 @@
+:root {
+  /* default */
+  --ui-floating-icon-button-bg-color: var(--theme-color-bigGrey);
+  --ui-floating-icon-button-bg-color-hover: var(--theme-color-strongGrey);
+  --ui-floating-icon-button-bg-color-disabled: var(--theme-color-coolGrey);
+  --ui-floating-icon-button-icon-bg-color: var(--theme-color-white);
+  --ui-floating-icon-button-icon-bg-color-disabled: var(--theme-color-lightGrey);
+  --ui-floating-icon-button-icon-border-color: var(--theme-color-bigGrey);
+  --ui-floating-icon-button-icon-border-color-disabled: var(--theme-color-sendGrey);
+
+  /* primary */
+  --ui-floating-icon-button-primary-bg-color: var(--theme-color-yellow);
+  --ui-floating-icon-button-primary-bg-color-hover: var(--theme-color-brown);
+  --ui-floating-icon-button-primary-bg-color-disabled: var(--theme-color-coolGrey);
+  --ui-floating-icon-button-primary-icon-bg-color: var(--theme-color-blue);
+  --ui-floating-icon-button-primary-icon-bg-color-disabled: var(--theme-color-lightGrey);
+  --ui-floating-icon-button-primary-icon-border-color: var(--theme-color-brown);
+  --ui-floating-icon-button-primary-icon-border-color-disabled: var(--theme-color-sendGrey);
+
+  /* secondary */
+  --ui-floating-icon-button-secondary-bg-color: var(--theme-color-blue);
+  --ui-floating-icon-button-secondary-bg-color-hover: var(--theme-color-hoverBlue);
+  --ui-floating-icon-button-secondary-bg-color-disabled: var(--theme-color-coolGrey);
+  --ui-floating-icon-button-secondary-icon-bg-color: var(--theme-color-white);
+  --ui-floating-icon-button-secondary-icon-bg-color-disabled: var(--theme-color-lightGrey);
+  --ui-floating-icon-button-secondary-icon-border-color: none;
+  --ui-floating-icon-button-secondary-icon-border-color-disabled: var(--theme-color-sendGrey);
+
+  /* ghost */
+  --ui-floating-icon-button-ghost-bg-color: var(--theme-color-white);
+  --ui-floating-icon-button-ghost-bg-color-hover: var(--theme-color-softGrey);
+  --ui-floating-icon-button-ghost-bg-color-disabled: var(--theme-color-coolGrey);
+  --ui-floating-icon-button-ghost-icon-bg-color: var(--theme-color-strongGrey);
+  --ui-floating-icon-button-ghost-icon-bg-color-disabled: var(--theme-color-lightGrey);
+  --ui-floating-icon-button-ghost-icon-border-color: var(--theme-color-coolGrey);
+  --ui-floating-icon-button-ghost-icon-border-color-disabled: var(--theme-color-sendGrey);
+}

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>atoms/ico/24px/ico_checkmark</title>
+    <desc>Created with Sketch.</desc>
+    <g id="atoms/ico/24px/ico_checkmark" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M8.20971251,12.2097125 C7.81774911,11.8177491 7.18188858,11.8181114 6.79392296,12.206077 L6.70607704,12.293923 C6.31612146,12.6838785 6.31387329,13.3138733 6.70591205,13.7059121 L10,17 L18.2787059,9.18122225 C18.6770656,8.80499359 18.6818886,8.18188858 18.293923,7.79392296 L18.206077,7.70607704 C17.8161215,7.31612146 17.1777344,7.30078125 16.7672128,7.68393473 L10,14 L8.20971251,12.2097125 Z" id="Checkmark" fill="#002453"></path>
+    </g>
+</svg>

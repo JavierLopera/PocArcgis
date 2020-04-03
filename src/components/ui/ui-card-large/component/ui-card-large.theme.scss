@@ -1,0 +1,10 @@
+:host {
+  --_ui-card-large-bg-color: var(--ui-card-large-bg-color, magenta);
+  --_ui-card-large-border-radius: var(--ui-card-large-border-radius, 0px);
+  --_ui-card-large-border-color: var(--ui-card-large-border-color, green);
+  --_ui-card-large-bg-color-line: var(--ui-card-large-bg-color-line, yellow);
+  --_ui-card-large-bg-color-disabled: var(--ui-card-large-bg-color-disabled, red);
+  --_ui-card-large-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.1);
+  --_ui-card-large-shadow-hover: 0 10px 20px 0 rgba(0, 0, 0, 0.25);
+  --_ui-card-large-text-title-color: var(--ui-card-large-text-title-color);
+}

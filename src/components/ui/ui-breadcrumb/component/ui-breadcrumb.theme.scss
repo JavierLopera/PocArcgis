@@ -1,0 +1,7 @@
+:host {
+  --templateComponentType-floating-button-bg-color: var("name", magenta);
+  --templateComponentType-floating-button-bg-color-hover: var("name", green);
+  --templateComponentType-floating-button-bg-color-disabled: var("name", gray);
+  --templateComponentType-floating-button-icon-bg-color: var("name", red);
+  --templateComponentType-floating-button-icon-bg-color-disabled: var("name", blue);
+}

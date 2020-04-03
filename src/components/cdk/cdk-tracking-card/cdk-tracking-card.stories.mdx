@@ -1,0 +1,112 @@
+import { Story, Preview, Meta, Props } from '@storybook/addon-docs/blocks';
+import { html } from 'lit-html';
+import { customEventAction } from '../../../docs/utils/decorators.js';
+import { text, object, optionsKnob } from "@storybook/addon-knobs";
+
+# Storybook Docs for Tracking card
+
+<Meta title="CDK/Tracking card" />
+
+## Story definition
+
+Preview of default state.
+
+<Story name="Develop">
+  {() => {
+		const knobs = {
+			attr: {
+				literals: object('literals', {
+					buttonSubmitTxT: 'Buscar',
+					searchFieldLabel: '¿Dónde está mi número de envío?'
+				}, 'Attribute'),
+				theme: optionsKnob('Theme',
+					{
+						'Default': 'default'
+					},
+					'default',
+					{ display: 'select' },
+					'Attribute'
+				)
+			},
+			slot: {
+				title: text('title', 'Sigue tu envío', 'Slot'),
+				link: text('link', '¿Dónde está mi número de envío?', 'Slot')
+			},
+			cards: {
+				linkcard1: text('link card 1', '/ejemplo', 'links'),
+				linkcard2: text('link card 2', '/ejemplo', 'links'),
+				linkcard3: text('link card 3', '/ejemplo', 'links')
+			}
+		}
+		return html`
+			<correos-cdk-tracking-card
+				literals='${JSON.stringify(knobs.attr.literals)}'
+				theme='${knobs.attr.theme}'
+				@formSubmitOutput="${customEventAction('formSubmitOutput')}"
+			>
+				<h1 slot="title">${knobs.slot.title}</h1>
+				<a slot="help-text" href="#">${knobs.slot.link}</a>
+				<section slot="tool-first">
+					<correos-ui-card tools href-link=${knobs.cards.linkcard1}>
+						<img slot="image" src="/images/tool_arrow.svg" alt="herramienta"/>
+						<p slot="text"> Localiza oficinas, buzones y Citypaq </p>
+					</correos-ui-card>
+				</section>
+				<section slot="tool-second">
+					<correos-ui-card tools href-link=${knobs.cards.linkcard2}>
+						<img slot="image" src="/images/tool_location.svg" alt="herramienta"/>
+						<p slot="text">Encuentra códigos postales </p>
+					</correos-ui-card>
+				</section>
+				<section slot="tool-third" href-link=${knobs.cards.linkcard3}>
+					<correos-ui-card tools>
+						<img slot="image" src="/images/tool_calendar.svg" alt="herramienta"/>
+						<p slot="text"> Reserva cita en oficina </p>
+					</correos-ui-card>
+				</section>
+			</correos-cdk-tracking-card>
+		`}
+	}
+</Story>
+
+## API
+
+<Props of="correos-cdk-tracking-card" />
+
+## Examples
+
+Basic example
+
+<Preview withToolbar>
+  <Story name="tracking-card">
+    {html`
+			<correos-cdk-tracking-card
+				literals='{"buttonSubmitTxT":"Buscar","searchFieldLabel":"¿Dónde está mi número de envío?"}'
+				theme='default'
+				class="height-100"
+				url-form='https://example.correos.es/localizador'
+			>
+				<h1 slot="title">Sigue tu envío</h1>
+				<a slot="help-text" href="#">¿Dónde está mi número de envío?</a>
+				<section slot="tool-first">
+					<correos-ui-card tools href-link="/ejemplo">
+						<img slot="image" src="/images/tool_arrow.svg" alt="herramienta"/>
+						<p slot="text"> Localiza oficinas, buzones y Citypaq </p>
+					</correos-ui-card>
+				</section>
+				<section slot="tool-second" href-link="/ejemplo">
+					<correos-ui-card tools>
+						<img slot="image" src="/images/tool_location.svg" alt="herramienta"/>
+						<p slot="text">Encuentra códigos postales </p>
+					</correos-ui-card>
+				</section>
+				<section slot="tool-third" href-link="/ejemplo">
+					<correos-ui-card tools>
+						<img slot="image" src="/images/tool_calendar.svg" alt="herramienta"/>
+						<p slot="text"> Reserva cita en oficina </p>
+					</correos-ui-card>
+				</section>
+			</correos-cdk-tracking-card>
+		`}
+  </Story>
+</Preview>

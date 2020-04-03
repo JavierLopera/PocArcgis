@@ -1,0 +1,115 @@
+@import "force-reset.scss";
+
+:host([size="sm"]) {
+  ::slotted([slot="image"]) {
+    width: 96px;
+  }
+}
+
+// TODO: Contemplar en las props el variant de tipo imagen
+:host([variant="with-img"]) {
+  .card {
+    display: flex;
+  }
+}
+
+:host {
+  .card {
+    @include reset-button();
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 240px;
+    padding: 24px;
+    background-color: var(--_ui-card-large-bg-color);
+    box-shadow: var(--_ui-card-large-shadow);
+    border: solid 1px var(--_ui-card-large-border-color);
+    border-radius: var(--_ui-card-large-border-radius);
+    transition: box-shadow 0.3s linear;
+    text-decoration: none;
+
+    &:hover {
+      box-shadow: var(--_ui-card-large-shadow-hover);
+      cursor: pointer;
+    }
+
+    &:focus {
+      outline: none;
+      outline-width: 0;
+    }
+
+    &:disabled {
+      background: var(--_ui-card-large-bg-color-disabled);
+      box-shadow: none;
+      cursor: default;
+      .content {
+        opacity: 0.3;
+      }
+      ::slotted([slot="image"]) {
+        opacity: 0.3;
+      }
+      ::slotted([slot="footer"]) {
+        cursor: default;
+      }
+    }
+  }
+
+  .content {
+    display: block;
+    height: 100%;
+
+    // TODO: Refactorizar para que el footer se quede siempre abajo sin que se centre
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: flex-start;
+  }
+
+  .divisor {
+    width: 100%;
+    height: 1px;
+    background-color: var(--_ui-card-large-bg-color-line);
+    margin-top: 20px;
+    margin-bottom: 15px;
+  }
+
+  ::slotted([slot="title"]) {
+    @include reset-text();
+    font-size: 1.125rem;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.13;
+    letter-spacing: normal;
+    color: var(--_ui-card-large-text-title-color);
+    @include tablet {
+      font-size: 2rem;
+    }
+  }
+
+  ::slotted([slot="image"]) {
+    margin-right: 24px;
+    display: block;
+    width: 158px;
+    height: 100px;
+  }
+
+  ::slotted([slot="body-text"]) {
+    @include reset-text();
+    margin-bottom: 1.5rem;
+    font-size: 0.875rem;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    @include tablet {
+      font-size: 1rem;
+    }
+  }
+
+  ::slotted([slot="footer"]) {
+    // background: red !important;
+    margin-top: auto;
+  }
+
+}

@@ -1,0 +1,150 @@
+import { Story, Preview, Meta, Props } from "@storybook/addon-docs/blocks";
+import { html } from "lit-html";
+import { optionsKnob } from "@storybook/addon-knobs";
+
+import { text, color, number } from "@storybook/addon-knobs";
+
+# Storybook Docs for Heroscene
+
+<Meta title="CDK/heroscene" />
+
+## Story definition
+
+Preview de la Hero de una landing page. El componente deberá mostrarse sin márgenes laterales y tendrá como opción la posibilidad de mostrar otros componentes con superposición de la parte inferior.
+
+<Preview inline >
+	<Story name="Develop" >
+		{() => {
+			const colors = {
+				'white': 'var(--theme-color-white)',
+				'cool-grey': 'var(--theme-color-coolGrey)',
+				'ice-blue': 'var(--theme-color-iceBlue)'
+			}
+			const attr = {
+				bgImage: text(
+					"bg-image",
+					"/images/hero_img.jpg"
+				),
+				afterBgColor: optionsKnob('after-bg-color', colors, 'var(--theme-color-coolGrey)', { display: 'radio' }),
+				contentMaxWidth: number("content-max-width", 22) + "em"
+			};
+			return html`
+				<correos-cdk-heroscene
+					after-bg-color="${attr.afterBgColor}"
+					bg-image="${attr.bgImage}"
+					content-max-width="${attr.contentMaxWidth}"
+				>
+					<h1 slot="title"> No es suerte llegar a Alaska</h1>
+					<p slot="description"> 
+						Todo lo que necesites para satisfacer a tus clientes y lo mejor para tu negocio. Cuenta con nosotros.
+					</p>
+					<correos-ui-button slot="button" variant="link" theme="primary" hrefLink="/ejemplo">
+						<span slot="text">Ver más</span>
+						<i slot="icon-right" class="icon-go"></i>
+					</correos-ui-button>
+					<section slot="call-to-action"> 
+						<!-- Reemplazar por el Layout de AEM o de la SPA -->
+							<div class="AEM-grid-placeholder" style="height: 10rem"></div>
+						<!-- / -->
+					</section>
+					
+				</correos-cdk-heroscene>
+			`;
+		}}
+	</Story>
+</Preview>
+
+## API
+
+<Props of="correos-cdk-heroscene" />
+
+## Examples
+
+Example heroscene
+
+<Preview withToolbar>
+	<Story name="Example">
+		{html`
+				<correos-cdk-heroscene
+					after-bg-color="var(--theme-color-white)"
+					bg-image="/images/hero_img.jpg"
+					content-max-width="22em"
+				>
+					<p slot="pretext"> Nuevo Paq Business </p>
+					<h1 slot="title"> No es suerte llegar a Alaska</h1>
+					<p slot="description"> 
+						Todo lo que necesites para satisfacer a tus clientes y lo mejor para tu negocio. Cuenta con nosotros.
+					</p>
+					<correos-ui-button slot="button" variant="link" theme="primary" hrefLink="/ejemplo">
+						<span slot="text">Ver más</span>
+						<i slot="icon-right" class="icon-go"></i>
+					</correos-ui-button>
+					<section slot="call-to-action"> 
+						<!-- Reemplazar por el Layout de AEM o de la SPA -->
+							<div class="AEM-grid-placeholder" style="height: 10rem"></div>
+						<!-- / -->
+					</section>
+				</correos-cdk-heroscene>
+		`}
+	</Story>
+</Preview>
+
+<Preview withToolbar>
+	<Story name="Example test A">
+		{html`
+				<correos-cdk-heroscene
+					after-bg-color="var(--theme-color-white)"
+					bg-image="/images/hero_img.jpg"
+					content-max-width="22em"
+				>
+					<p slot="pretext"> Nuevo Paq Business </p>
+					<h1 slot="title"> No es suerte llegar a Alaska</h1>
+					<p slot="description"> 
+						Todo lo que necesites para satisfacer a tus clientes y lo mejor para tu negocio. Cuenta con nosotros.
+					</p>
+					<correos-ui-button slot="button" variant="link" theme="primary" hrefLink="/ejemplo">
+						<span slot="text">Ver más</span>
+						<i slot="icon-right" class="icon-go"></i>
+					</correos-ui-button>
+					<section slot="call-to-action"> 
+						<!-- Tracking card -->
+						<div class="row">
+							<correos-cdk-tracking-card class="col-12"
+							literals='{"buttonSubmitTxT":"Buscar","searchFieldLabel":"Número de envío"}'
+							theme='default'
+							url-form='https://correos-example.es/localizador'
+							>
+								<h1 slot="title">Sigue tu envío</h1>
+								<a slot="help-text" href="https://www.correos.es/">¿Dónde está mi número de envío?</a>
+								<section slot="tool-first">
+									<correos-ui-card tools>
+										<img slot="image" src="/images/tool_arrow.svg" alt="herramienta"/>
+										<p slot="text"> Localiza oficinas, buzones y Citypaq </p>
+									</correos-ui-card>
+								</section>
+								<section slot="tool-second">
+									<correos-ui-card tools>
+										<img slot="image" src="/images/tool_location.svg" alt="herramienta"/>
+										<p slot="text">Encuentra códigos postales </p>
+									</correos-ui-card>
+								</section>
+								<section slot="tool-third">
+									<correos-ui-card tools>
+										<img slot="image" src="/images/tool_calendar.svg" alt="herramienta"/>
+										<p slot="text"> Reserva cita en oficina </p>
+									</correos-ui-card>
+								</section>
+							</correos-cdk-tracking-card>
+							<!-- / -->
+							<!-- Tracking card -->
+							<correos-cdk-tarificador class="col-12"	url-form='https://correos-example.es/test'>
+								<h2 slot="title"> Quiero enviar</h2>
+								<p slot="text"> A partir de: <strong>0.80€</strong></p>
+							</correos-cdk-tarificador>
+							<!-- / -->
+						</div>
+					</section>
+				</correos-cdk-heroscene>
+		`}
+	</Story>
+</Preview>

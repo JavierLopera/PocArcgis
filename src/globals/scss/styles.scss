@@ -1,36 +1,21 @@
-/* Settings */
-@import "01_settings/settings";
-
-/* Tools */
-@import "02_tools/tools";
-
-/* Generics */
-@import "03_generic/generic";
-@import "04_elements/theme";
-
 /* Elements */
-@import "04_elements/reset";
-@import "04_elements/fonts";
-@import "04_elements/elements";
+@import "03_elements/fonts";
+@import "03_elements/elements";
+@import "03_elements/tiny-slider.scss";
 
-/* Objects */
-@import "05_objects/grid";
-@import "05_objects/layout";
+/* Theme */
+@import "04_theme/theme";
 
-/* Components */
-@import "06_components/correos-ui-button";
-@import "06_components/correos-ui-icon-button";
-@import "06_components/correos-ui-input";
-@import "06_components/correos-ui-card-large";
-@import "06_components/correos-ui-card";
-
-/* Utilities */
+/* Theme */
 @import "99_utilities/icons";
-@import "99_utilities/text-style";
-@import "99_utilities/background";
-@import "99_utilities/spacing";
+@import "99_utilities/grid";
+@import "99_utilities/aem-grid-overrides";
 @import "99_utilities/display";
-@import "99_utilities/utilities.scss";
+@import "99_utilities/layout";
+@import "99_utilities/spacing";
+@import "99_utilities/global-mdx";
 
 // All the CSS, hacks and things we are not proud of.
 @import "shame";
+
+

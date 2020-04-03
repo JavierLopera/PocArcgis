@@ -1,0 +1,74 @@
+import { Story, Preview, Meta, Props } from '@storybook/addon-docs/blocks';
+import { html } from 'lit-html';
+
+import { customEventAction } from '../../../docs/utils/decorators.js';
+import { action, decorate } from '@storybook/addon-actions';
+import { text} from "@storybook/addon-knobs";
+
+# Storybook Docs for Text block cta
+
+<Meta title="CDK/text-block-cta" />
+
+## Story definition
+
+Preview of default state.
+
+<Story name="Develop">
+  {() => {
+	  const knobs = {
+				header: text('[SLOT] header', 'Lorem ipsum dolor sit amet consectetur adipiscing elit'),
+				title: text('[SLOT] title', '¿Cunto tiempo hace que no charlas con el portero?'),
+				text: text('[SLOT] text', '¿O con la recepcionista? Ahora, con CITYPAQ, no te hará falta conversar sobre el tiempo'),
+				textButton: text('[SLOT] text Button', 'Lorem ipsum dolor')
+		}
+		return html`
+			<correos-cdk-text-block-cta>
+				<p slot="header">${knobs.header}</p>
+				<h3 slot="title">${knobs.title}</h3>
+				<p slot="text">${knobs.text}</p>
+				<correos-ui-button
+					slot="link"
+					theme="secondary"
+					variant="link"
+					link="true"
+					@click='${action('button-click')}'
+				>
+					<span slot="text">${knobs.textButton}</span>
+					<i slot="icon-right" class="icon-download"></i>
+				</correos-ui-button>
+			</correos-cdk-text-block-cta>
+		`}
+	}
+</Story>
+
+## API
+
+<Props of="correos-cdk-text-block-cta" />
+
+## Examples
+
+Basic example
+
+<Preview withToolbar>
+  <Story name="Example">
+  {() => {
+		return html`
+			<correos-cdk-text-block-cta>
+				<p slot="header">CITYPAQ</p>
+				<h3 slot="title">¿Cunto tiempo hace que no charlas con el portero?</h3>
+				<p slot="text">¿O con la recepcionista? Ahora, con CITYPAQ, no te hará falta conversar sobre el tiempo</p>
+				<correos-ui-button
+					slot="link"
+					theme="secondary"
+					variant="link"
+					type='text'
+					aria-disabled="false"
+				>
+					<span slot="text">Lorem ipsum dolor</span>
+					<i slot="icon-right" class="icon-download"></i>
+				</correos-ui-button>
+			</correos-cdk-text-block-cta>
+		`}
+	}
+</Story>
+</Preview>

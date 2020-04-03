@@ -1,0 +1,36 @@
+import { Story, Preview, Meta, Props } from '@storybook/addon-docs/blocks';
+import { html } from 'lit-html';
+
+import { customEventAction } from '../../../docs/utils/decorators.js';
+import { action, decorate } from '@storybook/addon-actions';
+import { boolean } from "@storybook/addon-knobs";
+
+# Storybook Docs for Core header
+
+<Meta title="CDK/core-header" />
+
+## Examples
+
+Basic example
+
+<Preview withToolbar>
+  <Story name="Basic">
+		{() => {
+			return html`
+				<correos-cdk-core-header
+					literals='{"txtMenuButton":"Menu","txtMenuButtonDesc":"Abrir o Cerrar el Menú","txtPrimaryButtonDesc":"Abrir o Cerrar elemento","txtPrimaryNavDesc":"Menu de primer nivel","txtSecondaryNavDesc":"Menu de segundo nivel","txtLangDesc":"Selección de idiomas","txtGoBack":"Volver","txtGoBackDesc":"Volver al menu principal"}'
+					navigation='[{"id":"particular","name":"Particular","children":[{"id":"recibir","name":"Recibir","icon":"icon-box_scan","href":"#recibir"},{"id":"enviar","name":"Enviar","icon":"icon-almacen","children":[{"id":"preparar-envio","name":"Preparar envío","href":"#preparar-envio"},{"id":"enviar-al-extranjero","name":"Enviar al extranjero","children":[{"id":"enviar-al-extranjero-paquetes","name":"Paquetes","href":"#enviar-al-extranjero-paquetes"},{"id":"enviar-al-extranjero-documentos","name":"Documentos","href":"#enviar-al-extranjero-documentos"}]},{"id":"envios-nacionales","name":"Envíos nacionales","children":[{"id":"envios-nacionales-paquetes","name":"Paquetes","href":"envios-nacionales-paquetes"},{"id":"envios-nacionales-documentos","name":"Documentos","href":"envios-nacionales-documentos"},{"id":"envios-nacionales-zonas-internacionales","name":"Zonas internacionales","href":"envios-nacionales-zonas-internacionales"},{"id":"envios-nacionales-gestion-aduanera","name":"Gestión aduanera y regulación","href":"envios-nacionales-gestion-aduanera"}]},{"id":"sellos-sobres-embalajes","name":"Sobres y embalajes","href":"#preparar-envio","children":[{"id":"sobres-y-embalajes","name":"Sobres y embalajes","href":"#sobres-y-embalajes"},{"id":"sellos","name":"Sellos","href":"#sellos"}]},{"id":"debes-saber-para-enviar","name":"Debes saber para enviar","href":"#preparar-envio","children":[{"id":"guia-de-peso-y-medidas","name":"Guía de peso y medidas","href":"#guia-de-peso-y-medidas"},{"id":"articulos-prohibidos","name":"Articulos prohibidos y mercancías peligrosas","href":"#articulos-prohibidos"},{"id":"consejos-para-un-buen-embajale","name":"Consejos para un buen embalaje","href":"#consejos-para-un-buen-embajale"},{"id":"guias-para-realizar-el-envío","name":"Consejos para un buen embalaje","href":"#guias-para-realizar-el-envío"}]},{"id":"debes-devolver-un-paquete","name":"Debes devolver un paquete","href":"#preparar-envio","children":[{"id":"como-devolver-un-pedido","name":"Cómo devolver un pedido","href":"#como-devolver-un-pedido"},{"id":"portal-de-devoluciones","name":"Portal de devoluciones","href":"#portal-de-devoluciones"}]}]},{"id":"dinero-compras","name":"Dinero y compras","icon":"icon-money","href":"#dinero-compras"},{"id":"ocio-mas","name":"Ocio y más","icon":"icon-hobby","href":"#ocio-mas"}]},{"id":"empresa","name":"Empresa","children":[{"id":"localizador-buzones","name":"Localizador de buzones","icon":"icon-pago_oficina","href":"#localizador-buzones"},{"id":"calculador-tarifas","name":"Calculadora de tarifas","icon":"icon-pago_card","href":"#calculador-tarifas"}]},{"id":"idiomas","name":"Idiomas","children":[{"id":"es","name":"Es","href":"#es"},{"id":"en","name":"En","href":"#en"},{"id":"ca","name":"Ca","href":"#ca"},{"id":"gl","name":"Gl","href":"#gl"},{"id":"eu","name":"Eu","href":"#va"}]},{"id":"comunes","name":"","children":[{"id":"tienda","icon":"icon-cart","name":"Tienda","href":"#tienda"},{"id":"herramientas","icon":"icon-tools","name":"Herramientas"}]},{"id":"accesos","name":"","children":[{"id":"busqueda","icon":"icon-search","name":"Búsqueda","href":"#busqueda"},{"id":"registro","icon":"icon-perfil","name":"Registro","href":"#registro"},{"id":"tienda","icon":"icon-cart","name":"Tienda","href":"#tienda"}]}]'
+					logo-src='images/cornamusa.svg'
+					current-lang='es'
+					menu-lv-zero='particular'
+					fixed
+				>
+				</correos-cdk-core-header>
+			`}
+		}
+  </Story>
+</Preview>
+
+## API
+
+<Props of="correos-cdk-core-header" />

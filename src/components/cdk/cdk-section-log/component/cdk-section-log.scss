@@ -1,0 +1,84 @@
+@import "force-reset.scss";
+
+:host {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  border: 1px solid var(--_cdk-section-log-border-color);
+  border-radius: var(--_cdk-section-log-border-radius);
+  background-color: var(--_cdk-section-log-background-color);
+  box-shadow: var(--_cdk-section-log-box-shadow);
+  text-decoration: initial;
+  padding: 16px;
+
+  .cdk-log {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+
+    &__signup {
+      width: 50%;
+      text-align: center;
+      border-right: 1px solid var(--_cdk-section-log-border-color);
+      margin-right: 16px;
+      padding-right: 15px;
+    }
+
+    &__login {
+      width: 50%;
+      text-align: center;
+    }
+  }
+
+  ::slotted([slot="inf"]) {
+    @include reset-text();
+    display: none;
+  }
+
+  ::slotted([slot="signup"]) {
+    text-decoration: initial;
+    color: var(--_cdk-section-log-color-text-link);
+    font-size: 0.875rem;
+    font-weight: bold;
+    line-height: 1.375;
+  }
+
+  ::slotted([slot="login"]) {
+    text-decoration: initial;
+    color: var(--_cdk-section-log-color-text-link);
+    font-size: 0.875rem;
+    font-weight: bold;
+    line-height: 1.375;
+  }
+
+  &[size="md"],
+  &[size="lg"] {
+    display: flex;
+    align-items: center;
+    padding: 24px 32px;
+
+    .cdk-header {
+      display: flex;
+      align-items: center;
+      width: 50%;
+    }
+
+    .cdk-log {
+      width: 50%;
+    }
+
+    ::slotted([slot="inf"]) {
+      @include reset-text();
+      display: block;
+      color: var(--_cdk-section-log-color-text-inf);
+      font-size: 1.5rem;
+      line-height: 2.25;
+    }
+    ::slotted([slot="signup"]),
+    ::slotted([slot="login"]) {
+      font-size: 1rem;
+      line-height: 1.25;
+    }
+  }
+}

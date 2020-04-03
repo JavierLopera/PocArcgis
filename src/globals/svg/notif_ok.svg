@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>atoms/ico/24px/ico_notif_ok</title>
+    <desc>Created with Sketch.</desc>
+    <g id="atoms/ico/24px/ico_notif_ok" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M12,3 C16.9705627,3 21,7.02943725 21,12 C21,16.9705627 16.9705627,21 12,21 C7.02943725,21 3,16.9705627 3,12 C3,7.02943725 7.02943725,3 12,3 Z M16.0990746,8.55742264 L10.3846154,13.6 L8.88108765,12.1784829 C8.54316842,11.8589956 8.00005957,11.8544891 7.64948797,12.1859386 L7.6197428,12.2140614 C7.2774683,12.5376663 7.27697728,13.0618694 7.62079063,13.3869293 L10.3846154,16 L17.363815,9.7680682 C17.7151703,9.4543328 17.7308288,8.94551086 17.3802572,8.61406136 L17.350512,8.58593864 C17.0082375,8.26233367 16.4415976,8.25517206 16.0990746,8.55742264 Z" id="Combined-Shape" fill="#002453"></path>
+    </g>
+</svg>

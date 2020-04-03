@@ -1,0 +1,141 @@
+import { Story, Preview, Meta, Props } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions';
+import { html } from 'lit-html';
+
+import { text, boolean, optionsKnob } from "@storybook/addon-knobs";
+
+# Storybook Docs for Card
+
+<Meta title="DESIGN SYSTEM/card" />
+
+## Story definition
+
+Preview of default state tools card.
+
+<Story name="Develop tools card button">
+	{() => {
+		const slot = {
+			text: text("[SLOT] text", "Localiza oficinas, buzones y Citypaq"),
+			disabled: boolean("disabled", false)
+		};
+		{
+			/* ${slotCardTitle.disabled ? 'disabled aria-disabled="true"' : 'aria-disabled="false"'} */
+		}
+		return html`
+			<correos-ui-card tools disabled=${slot.disabled}>
+				<img slot="image" src="/images/tool_menu.svg" alt="" />
+				<p slot="text">${slot.text}</p>
+			</correos-ui-card>
+		`;
+	}}
+</Story>
+
+Preview of default state tools card button.
+
+<Story name="Develop direct access button">
+	{() => {
+		const slot = {
+			text: text("[SLOT] text", "Quiero hacer una devolución"),
+			iconClassName: optionsKnob(
+				"[SLOT] icon",
+				{
+					Default: "display-none",
+					"icon-almacen": "icon-almacen",
+					"icon-download": "icon-download"
+				},
+				"icon-almacen",
+				{ display: "select" }
+			),
+			disabled: boolean("disabled", false)
+		};
+		{
+			/* ${slotCardTitle.disabled ? 'disabled aria-disabled="true"' : 'aria-disabled="false"'} */
+		}
+		return html`
+			<correos-ui-card style="width:192px" disabled=${slot.disabled}>
+				<i slot="icon" class="${slot.iconClassName}"></i>
+				<p slot="text">${slot.text}</p>
+			</correos-ui-card>
+		`;
+	}}
+</Story>
+
+Preview of default state tools card link.
+
+<Story name="Develop direct access link">
+	{() => {
+		const slot = {
+			text: text("[SLOT] text", "Quiero hacer una devolución"),
+			iconClassName: optionsKnob(
+				"[SLOT] icon",
+				{
+					Default: "display-none",
+					"icon-almacen": "icon-almacen",
+					"icon-download": "icon-download"
+				},
+				"icon-almacen",
+				{ display: "select" }
+			),
+			href: text("href", "/ejemplo")
+		};
+		{
+			/* ${slotCardTitle.disabled ? 'disabled aria-disabled="true"' : 'aria-disabled="false"'} */
+		}
+		return html`
+			<correos-ui-card style="width:192px" href-link=${slot.href}>
+				<i slot="icon" class="${slot.iconClassName}"></i>
+				<p slot="text">${slot.text}</p>
+			</correos-ui-card>
+		`;
+	}}
+</Story>
+
+## API
+
+<Props of="correos-ui-card" />
+
+## Examples
+
+Example tools card
+
+<Preview>
+	<Story name="Tools card button">
+		{html`
+			<correos-ui-card tools>
+				<img slot="image" src="/images/tool_menu.svg" alt="" />
+				<p slot="text">
+					Localiza oficinas, buzones y Citypaq
+				</p>
+			</correos-ui-card>
+		`}
+	</Story>
+</Preview>
+
+Example horizontal card large
+
+<Preview>
+	<Story name="Direct access card button">
+		{html`
+			<correos-ui-card>
+				<i slot="icon" class="icon-almacen"></i>
+				<p slot="text">
+					Quiero hacer una devolución
+				</p>
+			</correos-ui-card>
+		`}
+	</Story>
+</Preview>
+
+Example horizontal card large -- link
+
+
+<Preview>
+	<Story name="Direct access link">
+		{html`
+			<correos-ui-card style="width:192px" href-link="/ejemplo">
+				<i slot="icon" class="icon-almacen"></i>
+				<p slot="text">Quiero hacer una devolución</p>
+			</correos-ui-card>
+		`}
+</Story>
+</Preview>

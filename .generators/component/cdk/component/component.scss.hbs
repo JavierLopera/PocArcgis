@@ -1,0 +1,44 @@
+.cdk-{{dashCase name}}-root {
+  display: block;
+  background-color: var(--_cdk-{{dashCase name}}-background-color);
+  /** Para funcionar correctamente los <slots> requiere que estén dentro de un elemento y no inmediatamente en el host */
+}
+
+::slotted([slot="example-slot"]) {
+  @include reset-text;
+  margin-bottom: 1rem ;
+  color: red;
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--_cdk-tracking-card-text-color);
+}
+
+.cdk-element {
+  /** Elemento del dom. El prefijo es necesario para protegerlo de estilos globales llamados igual */
+  
+  &--is-active {
+    /** Para modificadores, se generará como ".cdk-element--is-active" */
+  }
+
+}
+
+/** Breakpoints */
+:host {
+
+  /** Para el tamaño más pequeño */
+  &[size="sm"] {
+
+  }
+
+  /** Mediano y grande */
+  &[size="md"],
+  &[size="lg"] {
+
+  }
+
+  /** Solo grande */
+  &[size="lg"] {
+
+  }
+
+}

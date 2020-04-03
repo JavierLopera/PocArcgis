@@ -1,0 +1,54 @@
+import { Story, Preview, Meta, Props } from '@storybook/addon-docs/blocks';
+import { html } from 'lit-html';
+
+import { text, array, boolean } from "@storybook/addon-knobs";
+import { action } from '@storybook/addon-actions';
+
+# Storybook Docs for Menu
+
+<Meta title="DESIGN SYSTEM/menu" />
+
+## Story definition
+
+Preview of default state.
+
+<Story name="Develop">
+  {() => {
+	  	const options = [
+			"ola",
+			"adios",
+			"madrid"
+		];		
+		return html`
+			<correos-ui-menu
+				name="${text('name', 'identificador', 'Value Properties')}"
+				value="${text('value', 'ad', 'Value Properties')}"
+				options="${array('options', options, ',', 'Value Properties')}"
+				opened="${boolean('opened', true, 'Value Properties')}"
+			/>
+		`}
+	}
+</Story>
+
+## API
+
+<Props of="correos-ui-menu" />
+
+## Examples
+
+Basic example
+
+<Preview withToolbar>
+  <Story name="Example">
+	{() => {		
+			return html`
+				<correos-ui-menu
+					name="identificador"
+					value="ad"
+					options="ola,adios,madrid"
+					opened="true"
+				/>
+			`}
+		}
+  </Story>
+</Preview>

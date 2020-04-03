@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>atoms/ico/24px/ico_search</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M11.5,16 C14.5375661,16 17,13.5375661 17,10.5 C17,7.46243388 14.5375661,5 11.5,5 C8.46243388,5 6,7.46243388 6,10.5 C6,13.5375661 8.46243388,16 11.5,16 Z M11.5,3 C15.6421356,3 19,6.35786438 19,10.5 C19,12.5126302 18.2072386,14.3401011 16.9169447,15.6871837 L19.7549329,19.2384967 C20.1054602,19.6693553 20.0765037,20.3356142 19.6902568,20.7266275 C19.3040099,21.1176409 18.7067364,21.0853399 18.3562091,20.6544813 L15.3749466,16.9227316 C14.2440358,17.6064955 12.9179718,18 11.5,18 C7.35786438,18 4,14.6421356 4,10.5 C4,6.35786438 7.35786438,3 11.5,3 Z" id="path-1"></path>
+    </defs>
+    <g id="atoms/ico/24px/ico_search" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="Combined-Shape" fill="#002453" xlink:href="#path-1"></use>
+    </g>
+</svg>

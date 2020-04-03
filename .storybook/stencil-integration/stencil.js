@@ -10,7 +10,11 @@ import { stencil } from '../../config.json';
 const { host, port, protocol, buildDir } = stencil;
 
 // Fix for scoped package names
-const normalizedPkgName = kebabCase(name);
+const normalizedPkgName = ((name) => {
+	let _name = name.replace(/\@/g, '');
+	_name = _name.replace(/\//, '-');
+	return kebabCase(_name)
+})(name);
 
 /**
  * Function to get the stencil resources

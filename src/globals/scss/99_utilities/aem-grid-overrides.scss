@@ -1,0 +1,87 @@
+
+.root {
+  & > .aem-Grid--12 {
+    display: block;
+  } 
+  & > .aem-Grid--12 > .responsivegrid > .aem-Grid {
+    display: block;
+  } 
+}
+
+.aem-Grid-newComponent {
+  grid-column-end: span 12;
+}
+
+.aem-GridColumn.aem-GridColumn--default--12.cq-Editable-dom.cq-Editable-dom--container {
+  padding-top: 0rem !important;
+  padding-bottom: 0rem !important;
+}
+
+.aem-Grid--12 {
+  display: grid;
+  flex-wrap: wrap;
+  grid-template-columns: repeat(12, [col-start] 1fr);
+  grid-gap: map-get($layout-grid-gap, lg);
+  grid-column-end: span 12;
+  grid-gap: map-get($layout-grid-gap, sm);
+  @include tablet {
+    grid-gap: map-get($layout-grid-gap, md);
+  }
+  @include desktop {
+    grid-gap: map-get($layout-grid-gap, lg);
+  }
+}
+
+@for $i from 1 through 12 {
+  .aem-GridColumn.aem-GridColumn--default--#{$i} {
+    grid-column-end: span #{$i};
+  }
+  
+  .aem-GridColumn--offset--default--#{$i} {
+    @media (min-width: #{map-get($layout-breakpoints, lg)}) {
+      grid-column-start: #{$i + 1};
+    }
+  }
+}
+
+@for $i from 1 through 12 {
+  .aem-GridColumn.aem-GridColumn--phone--#{$i} {
+    @media (max-width: #{map-get($layout-breakpoints, md) - 1px}) {
+      grid-column-end: span #{$i};
+    }
+  }
+  .aem-GridColumn--offset--phone--#{$i} {
+    @media (max-width: #{map-get($layout-breakpoints, md) - 1px}) {
+      grid-column-start: #{$i + 1};
+    }
+  }
+}
+
+@for $i from 1 through 12 {
+  .aem-GridColumn.aem-GridColumn--tablet--#{$i} {
+    @media (min-width: #{map-get($layout-breakpoints, md)}) and (max-width: #{map-get($layout-breakpoints, lg) - 1px}) {
+      grid-column-end: span #{$i};
+    } 
+  }
+  .aem-GridColumn--offset--tablet--#{$i} {
+    @media (min-width: #{map-get($layout-breakpoints, md)}) and (max-width: #{map-get($layout-breakpoints, lg) - 1px}) {
+      grid-column-start: #{$i + 1};
+    }
+  }
+}
+
+.aem-GridColumn--default--hide {
+  display: none;
+}
+
+.aem-GridColumn--phone--hide {
+  @media (max-width: #{map-get($layout-breakpoints, md) - 1px}) {
+    display: none;
+  }
+}
+
+.aem-GridColumn--tablet--hide {
+  @media (min-width: #{map-get($layout-breakpoints, md)}) and (max-width: #{map-get($layout-breakpoints, lg) - 1px}) {
+    display: none;
+  }
+}

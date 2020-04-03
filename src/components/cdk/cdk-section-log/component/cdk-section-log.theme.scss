@@ -1,0 +1,9 @@
+:host {
+  /** Las variables deberán ser mapeadas a una con el mismo nombre pero privada (_) */
+	--_cdk-section-log-background-color: 				var(--cdk-section-log-background-color, red);
+	--_cdk-section-log-box-shadow: 				      0 10px 20px 0 rgba(0, 0, 0, 0.1);
+	--_cdk-section-log-border-color: 				    var(--cdk-section-log-border-color, magenta);
+	--_cdk-section-log-border-radius: 				  var(--cdk-section-log-border-radius, 0px);
+	--_cdk-section-log-color-text-link: 				  var(--cdk-section-log-color-text-link, yellow);
+	--_cdk-section-log-color-text-inf: 				  var(--cdk-section-log-color-text-inf, green);
+}

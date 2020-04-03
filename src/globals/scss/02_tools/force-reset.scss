@@ -1,20 +1,48 @@
 @mixin reset-button {
-    border: unset;
-    margin: 0;
-    padding: 0;
-    width: unset;
-    overflow: unset;
-    background: unset;
-    text-align: start;
-    color: inherit;
-    font: inherit;
-    line-height: inherit;
-    -webkit-font-smoothing: inherit;
-    -moz-osx-font-smoothing: inherit;
-    -webkit-appearance: none;
+  border: unset;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  width: unset;
+  overflow: unset;
+  background: unset;
+  text-align: start;
+  color: inherit;
+  font: inherit;
+  line-height: inherit;
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  -webkit-appearance: none;
   &::-moz-focus-inner {
       border: 0;
       padding: 0;
   }
-  
+}
+
+@mixin reset-text {
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+@mixin reset-a {
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  color: initial;
+}
+
+@mixin reset-fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+
+@mixin reset-ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }

@@ -1,0 +1,7 @@
+:host {
+  --_cdk-tracking-card-bg-color:          var(--cdk-tracking-card-bg-color, white);
+  --_cdk-tracking-card-text-color:        var(--cdk-tracking-card-text-color, #333);
+  --_cdk-tracking-card-text-color-link:   var(--cdk-tracking-card-text-color-link, #000066);
+  --_cdk-tracking-card-border-radius:     var(--cdk-tracking-card-border-radius, 8px);
+  --_cdk-tracking-card-box-shadow:        var(--cdk-tracking-card-box-shadow, 0 10px 20px 0 rgba(0, 0, 0, 0.1));
+}

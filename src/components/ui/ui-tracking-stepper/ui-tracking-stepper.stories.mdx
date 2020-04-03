@@ -1,0 +1,233 @@
+import { Story, Preview, Meta, Props } from '@storybook/addon-docs/blocks';
+import { html } from 'lit-html';
+
+import { text, optionsKnob } from "@storybook/addon-knobs";
+import { action } from '@storybook/addon-actions';
+
+# Storybook Docs for Tracking stepper
+
+<Meta title="DESIGN SYSTEM/tracking-stepper" />
+
+## Story definition
+
+Preview of default state.
+
+<Story name="Develop">
+  {() => {
+		const points = [
+			{ done: true, icon: 'icon-notif_ok', type: 'secondary', title: 'Preadmisión', date: '27 de Mayo, 2019 · 10:30', childs: [
+                {
+                    done: true, icon: false, type: 'default', title: 'Asignación correcta', date: '27 de Mayo, 2019 · 10:31', desc: 'Identificado al remitente'
+                }
+            ] },
+			{ done: true, icon: 'icon-notif_ok', type: 'secondary', title: 'En camino', date: '28 de Mayo, 2019 · 09:00' },
+			{ done: true, icon: 'icon-entrega', type: 'primary', title: 'En entrega', desc: "El envío está en reparto", date: '28 de Mayo, 2019 · 14:31', childs: [
+                {
+                    done: true, icon: false, type: 'default', title: 'Alta en unidad de reparto', date: '28 de Mayo, 2019 · 14:35', desc: 'Envio en reparto'
+                },
+                {
+                    done: false, icon: false, type: 'default', title: 'En reparto', desc: 'Pendiente de salida a reparto'
+                },
+            ] },
+			{ done: false, icon: false, type: 'default', title: 'Entregado' }
+        ];
+		const knobs = {
+			size: optionsKnob('Tamaño',
+					{
+						'Computer': 'lg',
+						'Tablet': 'md',
+						'Phone': 'sm'
+					},
+					'sm',
+					{ display: 'select' }
+			),
+			type: optionsKnob('Tipo',
+					{
+						'Horizontal': 'horizontal',
+						'Vertical': 'vertical'
+					},
+					'horizontal',
+					{ display: 'select' }
+			),
+			points: text('Puntos', JSON.stringify(points))
+		};
+		return html`
+			<correos-ui-tracking-stepper
+				type='${knobs.type}'
+				points='${knobs.points}'
+			/>
+		`}
+	}
+</Story>
+
+## API
+
+<Props of="correos-ui-tracking-stepper" />
+
+## Examples
+
+Basic example
+
+<Preview withToolbar>
+	<Story name="Horizontal">
+		{html`
+			<correos-ui-tracking-stepper
+				type='horizontal'
+				points='${JSON.stringify(
+					[
+						{ done: true, icon: 'icon-notif_ok', type: 'secondary', title: 'Preadmisión', date: '27 de Mayo, 2019 · 10:30', childs: [
+							{
+								done: true, icon: false, type: 'default', title: 'Asignación correcta', date: '27 de Mayo, 2019 · 10:31', desc: 'Identificado al remitente'
+							}
+						] },
+						{ done: true, icon: 'icon-notif_ok', type: 'secondary', title: 'En camino', date: '28 de Mayo, 2019 · 09:00' },
+						{ done: true, icon: 'icon-entrega', type: 'primary', title: 'En entrega', desc: "El envío está en reparto", date: '28 de Mayo, 2019 · 14:31', childs: [
+							{
+								done: true, icon: false, type: 'default', title: 'Alta en unidad de reparto', date: '28 de Mayo, 2019 · 14:35', desc: 'Envio en reparto'
+							},
+							{
+								done: false, icon: false, type: 'default', title: 'En reparto', desc: 'Pendiente de salida a reparto'
+							},
+						] },
+						{ done: false, icon: false, type: 'default', title: 'Entregado' }
+					]
+				)}'
+			/>
+		`}
+	</Story>
+</Preview>
+
+<Preview withToolbar>
+	<Story name="Vertical">
+		{html`
+			<correos-ui-tracking-stepper
+				type='vertical'
+				points='${JSON.stringify(
+					[
+						{ done: true, icon: 'icon-notif_ok', type: 'secondary', title: 'Preadmisión', date: '27 de Mayo, 2019 · 10:30', childs: [
+							{
+								done: true, icon: false, type: 'default', title: 'Asignación correcta', date: '27 de Mayo, 2019 · 10:31', desc: 'Identificado al remitente'
+							}
+						] },
+						{ done: true, icon: 'icon-notif_ok', type: 'secondary', title: 'En camino', date: '28 de Mayo, 2019 · 09:00' },
+						{ done: true, icon: 'icon-entrega', type: 'primary', title: 'En entrega', desc: "El envío está en reparto", date: '28 de Mayo, 2019 · 14:31', childs: [
+							{
+								done: true, icon: false, type: 'default', title: 'Alta en unidad de reparto', date: '28 de Mayo, 2019 · 14:35', desc: 'Envio en reparto'
+							},
+							{
+								done: false, icon: false, type: 'default', title: 'En reparto', desc: 'Pendiente de salida a reparto'
+							},
+						] },
+						{ done: false, icon: false, type: 'default', title: 'Entregado' }
+					]
+				)}'
+			/>
+		`}
+	</Story>
+</Preview>
+
+<Preview withToolbar>
+	<Story name="Finished">
+		{html`
+			<correos-ui-tracking-stepper
+				type='horizontal'
+				points='${JSON.stringify(
+					[
+						{ done: true, icon: 'icon-notif_ok', type: 'secondary', title: 'Preadmisión', date: '27 de Mayo, 2019 · 10:30', childs: [
+							{
+								done: true, icon: false, type: 'default', title: 'Asignación correcta', date: '27 de Mayo, 2019 · 10:31', desc: 'Identificado al remitente'
+							}
+						] },
+						{ done: true, icon: 'icon-notif_ok', type: 'secondary', title: 'En camino', date: '28 de Mayo, 2019 · 09:00' },
+						{ done: true, icon: 'icon-notif_ok', type: 'secondary', title: 'En entrega', desc: "El envío está en reparto", date: '28 de Mayo, 2019 · 14:31', childs: [
+							{
+								done: true, icon: false, type: 'default', title: 'Alta en unidad de reparto', date: '28 de Mayo, 2019 · 14:35', desc: 'Envio en reparto'
+							},
+							{
+								done: true, icon: false, type: 'default', title: 'En reparto', desc: 'Pendiente de salida a reparto'
+							},
+						] },
+						{ done: true, icon: 'icon-checkmark', type: 'primary', title: 'Entregado', childs: [
+							{
+								done: true, icon: false, type: 'default', title: 'Entregado', date: '29 de Mayo, 2019 · 08:01', desc: 'Entregado satisfactoriamente'
+							}
+						]}
+					]
+				)}'
+			></correos-ui-tracking-stepper>
+			<correos-ui-tracking-stepper
+				type='vertical'
+				points='${JSON.stringify(
+					[
+						{ done: true, icon: 'icon-notif_ok', type: 'secondary', title: 'Preadmisión', date: '27 de Mayo, 2019 · 10:30', childs: [
+							{
+								done: true, icon: false, type: 'default', title: 'Asignación correcta', date: '27 de Mayo, 2019 · 10:31', desc: 'Identificado al remitente'
+							}
+						] },
+						{ done: true, icon: 'icon-notif_ok', type: 'secondary', title: 'En camino', date: '28 de Mayo, 2019 · 09:00' },
+						{ done: true, icon: 'icon-notif_ok', type: 'secondary', title: 'En entrega', desc: "El envío está en reparto", date: '28 de Mayo, 2019 · 14:31', childs: [
+							{
+								done: true, icon: false, type: 'default', title: 'Alta en unidad de reparto', date: '28 de Mayo, 2019 · 14:35', desc: 'Envio en reparto'
+							},
+							{
+								done: true, icon: false, type: 'default', title: 'En reparto', desc: 'Pendiente de salida a reparto'
+							},
+						] },
+						{ done: true, icon: 'icon-checkmark', type: 'primary', title: 'Entregado' }
+					]
+				)}'
+			></correos-ui-tracking-stepper>
+		`}
+	</Story>
+</Preview>
+
+<Preview withToolbar>
+	<Story name="Error">
+		{html`
+			<correos-ui-tracking-stepper
+				type='horiztonal'
+				points='${JSON.stringify(
+					[
+						{ done: true, icon: 'icon-notif_ok', type: 'secondary', title: 'Preadmisión', date: '27 de Mayo, 2019 · 10:30', childs: [
+							{
+								done: true, icon: false, type: 'default', title: 'Asignación correcta', date: '27 de Mayo, 2019 · 10:31', desc: 'Identificado al remitente'
+							}
+						] },
+						{ done: true, icon: 'icon-notif_ok', type: 'secondary', title: 'En camino', date: '28 de Mayo, 2019 · 09:00' },
+						{ done: false, icon: 'icon-close', type: 'primary', title: 'En entrega', desc: "El envío está en reparto", date: '28 de Mayo, 2019 · 14:31', childs: [
+							{
+								done: true, icon: false, type: 'default', title: 'Alta en unidad de reparto', date: '28 de Mayo, 2019 · 14:35', desc: 'Envio en reparto'
+							},
+							{
+								done: false, icon: false, type: 'error', title: 'En reparto', desc: 'No hay repartidor'
+							},
+						] },
+						{ done: false, icon: false, type: 'default', title: 'Entregado' }
+					]
+				)}'
+			></correos-ui-tracking-stepper>
+			<correos-ui-tracking-stepper
+				type='vertical'
+				points='${JSON.stringify(
+					[
+						{ done: true, icon: 'icon-notif_ok', type: 'secondary', title: 'Preadmisión', date: '27 de Mayo, 2019 · 10:30', childs: [
+							{
+								done: true, icon: false, type: 'default', title: 'Asignación correcta', date: '27 de Mayo, 2019 · 10:31', desc: 'Identificado al remitente'
+							}
+						] },
+						{ done: true, icon: 'icon-notif_ok', type: 'secondary', title: 'En camino', date: '28 de Mayo, 2019 · 09:00' },
+						{ done: false, icon: 'icon-close', type: 'primary', title: 'En entrega', desc: "El envío está en reparto", date: '28 de Mayo, 2019 · 14:31', childs: [
+							{
+								done: true, icon: false, type: 'default', title: 'Alta en unidad de reparto', date: '28 de Mayo, 2019 · 14:35', desc: 'Envio en reparto'
+							},
+							{
+								done: false, icon: false, type: 'error', title: 'En reparto', desc: 'Pendiente de salida a reparto'
+							},
+						] },
+						{ done: false, icon: false, type: 'default', title: 'Entregado' }
+					]
+				)}'
+			></correos-ui-tracking-stepper>
+		`}
+	</Story>
+</Preview>

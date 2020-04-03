@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>atoms/ico/24px/ico_facebook</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M13.4985904,20 L13.4985904,12.7021832 L15.9950055,12.7021832 L16.3695414,9.85725059 L13.4985904,9.85725059 L13.4985904,8.04117598 C13.4985904,7.21775956 13.7307563,6.65661117 14.9359585,6.65661117 L16.4705882,6.65599237 L16.4705882,4.11138398 C16.2051956,4.07755626 15.2941965,4 14.2338878,4 C12.019794,4 10.5039858,5.32557255 10.5039858,7.75941575 L10.5039858,9.85725059 L8,9.85725059 L8,12.7021832 L10.5039858,12.7021832 L10.5039858,20 L13.4985904,20 Z" id="path-1"></path>
+    </defs>
+    <g id="atoms/ico/24px/ico_facebook" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="f_1_" fill="#002453" xlink:href="#path-1"></use>
+    </g>
+</svg>

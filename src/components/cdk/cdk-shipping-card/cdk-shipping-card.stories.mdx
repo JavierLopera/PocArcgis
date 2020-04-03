@@ -1,0 +1,75 @@
+import { Story, Preview, Meta, Props } from '@storybook/addon-docs/blocks';
+import { html } from 'lit-html';
+
+import { text, number, boolean } from "@storybook/addon-knobs";
+
+# Storybook Docs for Shipping card
+
+<Meta title="CDK/shipping-card" />
+
+## Story definition
+
+Preview of default state.
+
+<Story name="Develop">
+  {() => {
+	  	const points = [
+			{ done: true, icon: 'icon-notif_ok', type: 'secondary', title: 'Preadmisión', date: '27 de Mayo, 2019 · 10:30', childs: [
+                {
+                    done: true, icon: false, type: 'default', title: 'Asignación correcta', date: '27 de Mayo, 2019 · 10:31', desc: 'Identificado al remitente'
+                }
+            ] },
+			{ done: true, icon: 'icon-notif_ok', type: 'secondary', title: 'En camino', date: '28 de Mayo, 2019 · 09:00' },
+			{ done: true, icon: 'icon-entrega', type: 'primary', title: 'En entrega', desc: "El envío está en reparto", date: '28 de Mayo, 2019 · 14:31', childs: [
+                {
+                    done: true, icon: false, type: 'default', title: 'Alta en unidad de reparto', date: '28 de Mayo, 2019 · 14:35', desc: 'Envio en reparto'
+                },
+                {
+                    done: false, icon: false, type: 'default', title: 'En reparto', desc: 'Pendiente de salida a reparto'
+                },
+            ] },
+			{ done: false, icon: false, type: 'default', title: 'Entregado' }
+        ];
+		const knobs = {
+			track_number: text('Número seguimiento', 'PW427V0710145910128010E'),
+			company_name: text('Company Name', 'Amazon EU SL'),
+			delivery_date: text('Fecha de entrega', '12 Mayo'),
+			items: number('Número de bultos', 2),
+			favourite: boolean('En favoritos', false),
+			points: text('Puntos', JSON.stringify(points))
+		};
+		return html`
+			<correos-cdk-shipping-card class=""
+				track_number="${knobs.track_number}"
+				favourite="${knobs.favourite}"
+				company_name="${knobs.company_name}"
+				delivery_date="${knobs.delivery_date}"
+				items="${knobs.items}"
+				points='${knobs.points}'
+			/>
+		`}
+	}
+</Story>
+
+## API
+
+<Props of="correos-cdk-shipping-card" />
+
+## Examples
+
+Basic example
+
+<Preview withToolbar>
+  <Story name="Example">
+    {html`
+		    <correos-cdk-shipping-card style="min-width:1000px"
+				track_number="PW427V0710145910128010X"
+				favourite="${false}"
+				company_name="Amazon EU SL"
+				delivery_date="12 Mayo"
+				items="${2}"
+				points='[{"done":true,"icon":"icon-notif_ok","type":"secondary","title":"Preadmisión","date": "27 de Mayo, 2019 · 10:30","childs":[{"done": true, "icon": false, "type": "default", "title": "Asignación correcta", "date": "27 de Mayo, 2019 · 10:31", "desc": "Identificado al remitente"}]},{"done": true, "icon": "icon-notif_ok", "type": "secondary", "title": "En camino", "date": "28 de Mayo, 2019 · 09:00"},{ "done": true, "icon": "icon-entrega", "type": "primary", "title": "En entrega", "desc": "El envío está en reparto","date": "28 de Mayo, 2019 · 14:31", "childs": [{"done": true, "icon": false, "type": "default", "title": "Alta en unidad de reparto","date": "28 de Mayo, 2019 · 14:35", "desc": "Envio en reparto"},{"done": false, "icon": false, "type": "default", "title": "En reparto", "desc": "Pendiente de salida a reparto"}]},{"done": false, "icon": false, "type": "default", "title": "Entregado"}]'
+			/>
+		`}
+  </Story>
+</Preview>

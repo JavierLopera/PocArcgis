@@ -1,0 +1,12 @@
+{
+	"fontName": "correos-icons",
+	"template": "scss",
+	"dest": "./src/assets/fonts",
+	"destTemplate": "./src/globals/scss/99_utilities",
+	"templateClassName": "icon",
+	"templateFontPath": "#{$font_path}",
+	"fontHeight": 800,
+	"normalize": true,
+	"centerHorizontally": false,
+	"fixedWidth": false
+}

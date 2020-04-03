@@ -1,0 +1,47 @@
+import { Story, Preview, Meta, Props } from "@storybook/addon-docs/blocks";
+import { html } from "lit-html";
+
+import { customEventAction } from "../../../docs/utils/decorators.js";
+import { action, decorate } from "@storybook/addon-actions";
+import { text } from "@storybook/addon-knobs";
+
+# Storybook Docs for Core footer
+
+<Meta title="CDK/core-footer" />
+
+## API
+
+<Props of="correos-cdk-core-footer" />
+
+## Examples
+
+Basic example
+
+<Preview withToolbar>
+	<Story name="Example">
+		{() => {
+			return html`
+				<correos-cdk-core-footer>
+					<img slot="iconcorreos" src="/images/ico-splash.svg" alt="herramienta"/>
+					<div slot="social">
+						<i href="" class="icon-facebook"></i>
+						<i href="" class="icon-instagram"></i>
+						<i href="" class="icon-twitter"></i>
+						<i href="" class="icon-linkedin"></i>
+						<i href="" class="icon-youtube"></i>
+					</div>
+					<div slot="links">
+						<a href=""> Política de cookies </a>
+						<a href=""> Aviso legal </a>
+						<a href=""> Política de protección de datos </a>
+						<a href=""> Condiciones del servicio </a>
+					</div>
+					<p slot="footer">
+						SOCIEDAD ESTATAL DE CORREOS Y TELÉGRAFOS, S.A., S.M.E. Todos los
+						derechos reservados
+					</p>
+				</correos-cdk-core-footer>
+			`;
+		}}
+	</Story>
+</Preview>

@@ -1,0 +1,89 @@
+@import "force-reset.scss";
+
+:host {
+  background: var(--_cdk-text-block-bg-color);
+  height: auto;
+  display: block;
+  background: transparent;
+
+  ::slotted([slot="title"]) {
+    @include reset-text();
+    max-width: 40rem;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+    font-size: 1.75rem;
+    line-height: 1.3;
+    color: var(--_cdk-text-block-text-color-title);
+  }
+
+  .cdk-line {
+    width: 100%;
+    height: 1px;
+    margin-bottom: 1rem;
+    background-color: var(--_cdk-text-block-color-line);
+  }
+
+  .cdk {
+
+    &-container {
+      margin-left: -0.5rem;
+      margin-right: -0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    &-notice {
+      margin-bottom: 1.5rem;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+
+    &-notice-title,
+    &-notice-text {
+      @include reset-text();
+    }
+
+    &-notice-title {
+      font-size: 1rem;
+      line-height: 1.5;
+      color: var(--_cdk-text-block-text-color-title-body);
+      margin-bottom: 8px;
+    }
+
+    &-notice-text {
+      font-size: 0.875rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--_cdk-text-block-text-color-body);
+    }
+  }
+
+  &[size="md"],
+  &[size="lg"] {
+    .cdk {
+
+      &-container {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      &-notice {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      &-notice-title {
+        font-size: 1.5rem;
+      }
+
+      &-notice-text {
+        font-size: 1rem;
+      }
+    }
+
+    ::slotted([slot="title"]) {
+      font-size: 3rem;
+    }
+  }
+}

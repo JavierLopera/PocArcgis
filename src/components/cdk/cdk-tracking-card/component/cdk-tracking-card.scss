@@ -1,0 +1,124 @@
+:host {
+  display: block;
+  padding: 16px;
+  background-color: var(--_cdk-tracking-card-bg-color);
+  box-shadow: var(--_cdk-tracking-card-box-shadow);
+  border-radius: var(--_cdk-tracking-card-border-radius);
+}
+
+.cdk-container-form {
+  display: flex;
+  width: 100%;
+}
+
+.cdk-form-container {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+::slotted([slot="title"]) {
+  @include reset-text;
+  margin-bottom: 1rem;
+  color: red;
+  font-size: 1rem;
+  // font-weight: 300;
+  color: var(--_cdk-tracking-card-text-color);
+}
+
+.cdk-control {
+  width: 100%;
+}
+
+.cdk-fieldset {
+  @include reset-fieldset;
+  flex: 1 1 auto;
+}
+
+.cdk-submit {
+  margin-left: 8px;
+}
+
+.cdk-help-text-container {
+  color: var(--_cdk-tracking-card-text-color-link);
+  margin-top: 8px;
+}
+
+::slotted([slot="help-text"]) {
+  @include reset-text;
+  @include reset-a;
+  color: var(--_cdk-tracking-card-text-color-link);
+  text-decoration: underline;
+}
+
+.cdk-help-text-icon {
+  display: inline-block;
+  margin-left: 0.25rem;
+  position: relative;
+  top: 6px;
+  line-height: 0;
+}
+
+.cdk-tools {
+  width: 100%;
+}
+
+::slotted([slot^="tool-"]) {
+  width: 100%;
+}
+
+/** Breakpoints */
+:host {
+
+  &[size="sm"] {
+    ::slotted([slot^="tool-"]) {
+      margin-bottom: 16px;
+      &:last-child { margin-bottom: unset; }
+    }
+  }
+
+  &[size="md"],
+  &[size="lg"] {
+
+    ::slotted([slot="title"]) {
+      font-size: 1.5rem;
+    }
+
+    .cdk-submit {
+      margin-left: 16px;
+    }
+
+    .cdk-tools {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: 528px;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    ::slotted([slot^="tool-"]) {
+      width: 100%;
+      margin-right: 16px;
+      &:last-child { margin-right: unset; }
+    }
+
+  }
+
+  &[size="lg"] {
+
+    .cdk-form-container {
+      margin-bottom: 0px;
+    }
+
+    .cdk-tracking-card { 
+      display: flex;
+      & > * {
+        margin-right: 40px;
+        &:last-child { margin-right: unset; }
+      }
+    }
+
+  }
+
+}

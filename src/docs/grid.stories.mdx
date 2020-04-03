@@ -1,0 +1,41 @@
+import { Story, Preview, Meta, Props } from "@storybook/addon-docs/blocks";
+import { html } from "lit-html";
+
+import { text, color, number } from "@storybook/addon-knobs";
+
+# Storybook Docs for Grid
+
+<Meta title="DOCS" />
+
+## Homepage
+
+Homepage -- wrapper-main permite centrar el contenido respetando el ancho máximo definido
+
+
+<Preview withToolbar>
+	<Story name="Grid">
+		{html`
+            <div class="wrapper-main">
+			    <div class="row mt-4x">
+				    <div class="col-4 p-2x" style="background-color:#ffcd00">col-4</div>
+                    <div class="col-3 p-2x" style="background-color:#ffcd00">col-3</div>
+                    <div class="col-3 p-2x" style="background-color:#ffcd00">col-3</div>
+                    <div class="col-1 p-2x" style="background-color:#ffcd00">col-1</div>
+                    <div class="col-1 p-2x" style="background-color:#ffcd00">col-1</div>
+                </div>
+                <div class="row mt-4x">
+                    <div class="col-offset-2 p-2x col-2" style="background-color:#ffcd00">col-offset-2 col-2</div>
+                    <div class="col-2 p-2x" style="background-color:#ffcd00">col-2</div>
+                    <div class="col-2 p-2x" style="background-color:#ffcd00">col-2</div>
+                    <div class="col-2 p-2x" style="background-color:#ffcd00">col-2</div>
+                </div>
+                <div class="row mt-4x">
+                    <div class="col-12 md:col-6 lg:col-3 p-2x" style="background-color:#ffcd00">col-6</div>
+                    <div class="col-12 md:col-6 lg:col-3 p-2x" style="background-color:#ffcd00">col-6</div>
+                    <div class="col-12 md:col-6 lg:col-3 p-2x" style="background-color:#ffcd00">col-6</div>
+                    <div class="col-12 md:col-6 lg:col-3 p-2x" style="background-color:#ffcd00">col-6</div>
+                </div>
+		    </div>
+		`}
+	</Story>
+</Preview>

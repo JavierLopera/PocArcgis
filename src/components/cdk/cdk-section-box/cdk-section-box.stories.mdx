@@ -1,0 +1,77 @@
+import { Story, Preview, Meta, Props } from "@storybook/addon-docs/blocks";
+import { html } from "lit-html";
+
+import { customEventAction } from '../../../docs/utils/decorators.js';
+import { action, decorate } from '@storybook/addon-actions';
+import {  optionsKnob } from "@storybook/addon-knobs";
+
+# Storybook Docs for Section box
+
+<Meta title="CDK/section-box" />
+
+## Story definition
+
+Preview of default state.
+<Preview withToolbar>
+	<Story name="Develop">
+		{() => {
+			const colors = {
+				'white': 'var(--theme-color-white)',
+				'cool-grey': 'var(--theme-color-coolGrey)',
+				'ice-blue': 'var(--theme-color-iceBlue)'
+			}
+			const images = {
+				'none': '',
+				'decoration-1': '/images/bg-decoration-1.png',
+				'decoration-2': '/images/bg-decoration-2.png'
+			}
+			const knobs = {
+				background: optionsKnob('Background', colors, 'var(--theme-color-coolGrey)', { display: 'radio' }),
+				top: optionsKnob('Background Top', colors, 'var(--theme-color-white)', { display: 'radio' }),
+				bottom: optionsKnob('Background Bottom', colors, 'var(--theme-color-iceBlue)', { display: 'radio' }),
+				image: optionsKnob('Background image', images, '/images/bg-decoration-1.png', { display: 'radio' })
+			};
+			return html`
+				<correos-cdk-section-box
+					bg-color='${knobs.background}'
+					before-bg-color='${knobs.top}'
+					after-bg-color='${knobs.bottom}'
+					bg-image='${knobs.image}'
+				>
+					<div slot="block">
+						<!-- Reemplazar por el Layout de AEM o de la SPA -->
+							<div class="AEM-grid-placeholder" style="height: 32rem"></div>
+						<!-- / -->
+					</div>
+				</correos-cdk-section-box>
+			`}
+		}
+	</Story>
+</Preview>
+
+## API
+
+<Props of="correos-cdk-section-box" />
+
+## Examples
+
+Basic example
+
+<Preview withToolbar>
+  <Story name="Example">
+    {html`
+			<correos-cdk-section-box
+				bg-color='var(--theme-color-white)'
+				before-bg-color='var(--theme-color-coolGrey)'
+				after-bg-color='var(--theme-color-iceBlue)'
+				bg-image='/images/bg-decoration-1.png'
+			>
+				<div slot="block">
+					<!-- Reemplazar por el Layout de AEM o de la SPA -->
+						<div class="p-4x AEM-grid-placeholder" style="height: 32rem"></div>
+					<!-- / -->
+				</div>
+			</correos-cdk-section-box>
+		`}
+  </Story>
+</Preview>

@@ -1,0 +1,13 @@
+:root {
+  --ui-input-bg-color: var(--theme-color-coolGrey);
+  --ui-input-bg-light-color: var(--theme-color-white);
+  --ui-input-border-radius: 8px;
+  --ui-input-border-color: var(--theme-color-sendGrey);
+  --ui-input-line-color: var(--theme-color-yellow);
+  --ui-input-line-color-ripple: var(--theme-color-blue);
+  --ui-input-label-color: var(--theme-color-blue);
+  --ui-input-field-color: var(--theme-color-strongGrey);
+  --ui-input-field-color-empty: var(--theme-color-lightGrey);
+  --ui-input-error-color: var(--theme-color-red);
+  --ui-input-valid-color: var(--theme-color-green);
+}

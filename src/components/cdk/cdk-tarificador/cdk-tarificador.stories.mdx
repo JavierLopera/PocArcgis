@@ -1,0 +1,48 @@
+import { Story, Preview, Meta, Props } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions';
+import { html } from 'lit-html';
+import { customEventAction } from '../../../docs/utils/decorators.js';
+import { text, boolean } from "@storybook/addon-knobs";
+
+# Storybook Docs for Tarificador
+
+<Meta title="CDK/tarificador" />
+
+## Story definition
+
+Preview of default state.
+
+<Preview withToolbar>
+  <Story name="example">
+    {() => {
+      return html`
+        <correos-cdk-tarificador literals='{"inputLabelOrigin":"Desde","inputLabelDestination":"Destino","inputLabelContent":"Qué","inputLabelQuantity":"Cuantos","buttonText":"CALCULA TU TARIFA"}'>
+            <h3 slot="title"> Quiero enviar</h3>
+            <p slot="text"> A partir de: <strong>0.80€</strong></p>
+        </correos-cdk-tarificador>
+      `;
+    }}
+  </Story>
+</Preview>
+
+Preview of href state.
+
+<Preview withToolbar>
+  <Story name="example href">
+    {() => {
+      return html`
+        <correos-cdk-tarificador 
+          url-form="www.correos.es" 
+          literals='{"inputLabelOrigin":"Desde","inputLabelDestination":"Destino","inputLabelContent":"Qué","inputLabelQuantity":"Cuantos","buttonText":"CALCULA TU TARIFA"}' class="height-100"
+        >
+            <h3 slot="title"> Quiero enviar</h3>
+            <p slot="text"> A partir de: <strong>0.80€</strong></p>
+        </correos-cdk-tarificador>
+      `;
+    }}
+  </Story>
+</Preview>
+
+## API
+
+<Props of="correos-cdk-tarificador" />

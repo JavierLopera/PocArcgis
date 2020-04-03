@@ -1,0 +1,10 @@
+:host {
+  --_ui-card-bg-color: var(--ui-card-bg-color, magenta);
+  --_ui-card-border-radius: var(--ui-card-border-radius, 0px);
+  --_ui-card-bg-color-disabled: var(--ui-card-bg-color-disabled, red);
+  --_ui-card-border-color: var(--ui-card-border-color, blue);
+  --_ui-card-icon-bg-color: var(--ui-card-icon-bg-color, green);
+  --_ui-card-border-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.1);
+  --_ui-card-border-shadow-hover: 0 10px 20px 0 rgba(0, 0, 0, 0.25);
+  --_ui-card-text-color: var(--ui-card-text-color);
+}

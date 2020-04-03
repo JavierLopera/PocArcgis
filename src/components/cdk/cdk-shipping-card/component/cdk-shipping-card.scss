@@ -1,0 +1,225 @@
+
+// TODO: Refactorizar css
+
+:host {
+  font-family: var(--_cdk-shipping-card-font-family);
+  display: block;
+  border-radius: var(--_cdk-shipping-card-border-radius);
+  box-shadow: var(--_cdk-shipping-card-box-shadow);
+  background-color: var(--_cdk-shipping-card-bg-color);
+  border: solid 1px var(--_cdk-shipping-card-border-color);
+
+  .cdk-shipping-card-header {
+    display: flex;
+    border-bottom: solid 1px var(--_cdk-shipping-card-header-border-bottom);
+    justify-content: space-between;
+    padding: 16px 24px 16px 24px;
+    align-items: center;
+
+    &__tracking_number {
+      display: flex;
+      align-items: center;
+
+      &--icon {
+        margin-right: 16px;
+
+        &:hover {
+          cursor: pointer;
+        }
+
+        &:focus {
+          outline: none;
+          outline-width: 0;
+        }
+      }
+
+      &_block {
+        display: flex;
+        align-items: center;
+        &--id {
+          margin-right: 1rem;
+          font-size: 1.5rem;
+          color: var(--_cdk-shipping-card-header-color-text-id);
+        }
+
+        &--company {
+          padding-left: 16px;
+          border-left: 1px solid #f3f2f2;
+          font-size: 1rem;
+          font-weight: bold;
+          line-height: 1.5;
+          color: var(--_cdk-shipping-card-header-color-text-company);
+        }
+      }
+    }
+
+    &__manage {
+      font-size: 1rem;
+      font-weight: bold;
+      color: var(--_cdk-shipping-card-header-color-text-manage);
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &:focus {
+        outline: none;
+        outline-width: 0;
+      }
+    }
+  }
+
+  .cdk-shipping-card-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 24px 16px 24px;
+    align-items: center;
+
+    &__dateitems {
+      display: flex;
+      align-items: center;
+
+      &--date {
+        padding-left: 1rem;
+        border-left: 1px solid #949494;
+        display: flex;
+        flex-direction: column;
+
+        &-title {
+          font-size: 0.75rem;
+          font-weight: 300;
+          line-height: 2;
+          color: var(--_cdk-shipping-card-container-color-text-title);
+        }
+
+        &-value {
+          font-size: 1rem;
+          font-weight: bold;
+          line-height: 1.5;
+          color: var(--_cdk-shipping-card-container-color-text-value);
+        }
+      }
+
+      &--items {
+        margin-left: 16px;
+        padding-left: 16px;
+        border-left: 1px solid #949494;
+        display: flex;
+        align-self: stretch;
+        align-items: center;
+
+        &__bundle {
+          display: flex;
+        }
+
+        &-packages {
+          font-size: 1rem;
+          font-weight: bold;
+          color: var(--_cdk-shipping-card-container-color-text-packages);
+          margin-left: 8px;
+          margin-right: 8px;
+        }
+
+        &-box_icon {
+          width: 24px;
+        }
+
+        &-icon {
+          margin-left: 40px;
+          transition: transform .3s ease-in-out;
+          background-color: #002453;
+          color: #ffffff;
+          border-radius: 50%;
+
+          &:hover {
+            cursor: pointer;
+          }
+
+          &:focus {
+            outline: none;
+            outline-width: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .transform {
+    transform: rotate(180deg);
+  }
+
+  .cdk-shipping-card-detail {
+    padding: 16px 24px 16px 24px;
+    display: none;
+    opacity: 0;
+  }
+}
+
+:host(.detailSectionOpened) {
+  .cdk-shipping-card-container {
+    border-bottom: solid 1px #949494;
+  }
+  .cdk-shipping-card-detail {
+    display: block;
+    opacity: 1;
+  }
+}
+
+:host([size="sm"]) {
+  .cdk-shipping-card-header {
+    &__tracking_number {
+      &_block {
+        &--id {
+          font-size: 1.125rem;
+        }
+      }
+    }
+  }
+
+  .cdk-shipping-card-header__tracking_number {
+    display: flex;
+    &_block {
+      flex-direction: column;
+      align-items: flex-start;
+      &--company {
+        padding-left: 0;
+        border-left: 0;
+      }
+    }
+  }
+
+  .cdk-shipping-card-header__manage {
+    display: none;
+  }
+
+  .cdk-shipping-card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    .correos-ui-tracking-stepper__root {
+      flex-direction: column;
+    }
+  }
+
+  .cdk-shipping-card-container__dateitems {
+    margin-top: 16px;
+  }
+
+  .cdk-shipping-card-container__dateitems--date {
+    padding-left: 0px;
+    border-left: none;
+    min-width: 132px;
+  }
+
+  .cdk-shipping-card-container__dateitems--items {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .cdk-stepper {
+    border-bottom: 1px solid #cbcbcb;
+    padding-bottom: 16px;
+    width: 100%;
+  }
+  
+}
