@@ -1,0 +1,77 @@
+import { Story, Preview, Meta, Props } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions';
+import { html } from 'lit-html';
+
+import { text} from "@storybook/addon-knobs";
+
+# Storybook Docs for TemplateComponentName
+
+<Meta title="CDK/TemplateComponentName" />
+
+## Story definition
+
+A story can be a simple return of `html`
+
+<Story name="simple">
+  {html`
+    <tag-template-component
+			first='${text("first", "Jon")}'
+			last='${text("last", "Snow")}'>
+		</tag-template-component>
+  `}
+</Story>
+
+## API
+
+You can show the api table of a web component at any point in your documentation.
+
+<Props of="tag-template-component" />
+
+## Function stories
+
+Or a function
+
+<Story name="function">
+  {() => {
+    const data = { first: 'Jon', last: 'Snow' };
+    return html`
+      <tag-template-component
+				first='${text("first", data.first)}'
+				last='${text("last", data.last)}'>
+			</tag-template-component>
+    `;
+  }}
+</Story>
+
+## Wrapper
+
+You can also wrap your live demos in a nice little wrapper.
+
+<Preview withToolbar>
+  <Story name="wrapper">
+    {html`
+		  <tag-template-component
+		    first='${text("first", "Jon")}'
+		    last='${text("last", "Snow")}'>
+		  </tag-template-component>
+		`}
+  </Story>
+</Preview>
+
+## Story reference
+
+You can also reference an existing story from within your MDX file.
+
+<Preview>
+  <Story id="welcome--welcome" inline={false} />
+</Preview>
+
+## Stories not inline
+
+By default stories are rendered inline.
+For web components that is usually fine as they are style encapsulated via shadow dom.
+However when you have a style tag in you template it might be best to show them in an iframe.
+
+```
+<Story inline={false} />
+```

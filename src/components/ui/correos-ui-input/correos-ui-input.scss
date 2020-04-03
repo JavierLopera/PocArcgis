@@ -1,0 +1,107 @@
+@import '@material/textfield/mdc-text-field';
+@import '@material/textfield/helper-text/mdc-text-field-helper-text';
+
+//@function useCustomPropertyValue($customProperty) {
+//	@if variable-exists($customProperty) {
+//		@return var($customProperty);
+//	}
+//	@return var(#{$customProperty}--default);
+//}
+
+/** Use ":host" to set styles and dont use additional div as wrapper to prevent innecesary DOM depth  */
+:host {
+	--ui-input-bg-color: #F3F2F2;
+    --ui-input-border-radius: 8px;
+    --ui-input-error-color: rgb(243, 39, 192);
+    --ui-input-field-color: #329b43;
+    --ui-input-field-color-empty: #666666;
+	--ui-input-icon-size: 24px;
+	--ui-input-icon-margin-right: 16px;
+    --ui-input-label-color: #000066;
+    --ui-input-line-color: rgb(0, 247, 255);
+    --ui-input-line-color-ripple: #000066;
+    --ui-input-valid-color: #348F41;
+
+	::slotted([slot="icon"]) {
+		color: var(--ui-input-label-color);
+		fill: var(--ui-input-label-color);
+		margin-right: var(--ui-input-icon-margin-right);
+		height: var(--ui-input-icon-size);
+		width: var(--ui-input-icon-size);
+	}	
+}
+
+//@function swatch($swatch-color, $swatch-alpha:1) {
+//	@return unquote("rgba(var(--#{$swatch-color}), #{$swatch-alpha})");
+//}
+
+/** Theme overrides
+ * Try to use  the component custom properties API
+ */
+slot[name="icon"] {
+	display: inline-block;
+}
+.correos-ui-input_root {
+	// display: flex;
+	 
+	.mdc-text-field {
+		width: 100%;
+		display: flex;  
+		align-items: stretch;	
+		@include mdc-text-field-ink-color(var(--ui-input-field-color-empty));
+		@include mdc-text-field-shape-radius(var(--ui-input-border-radius));
+		@include mdc-text-field-bottom-line-color(var(--ui-input-line-color));
+		@include mdc-text-field-fill-color(var(--ui-input-bg-color));
+		@include mdc-text-field-line-ripple-color(var(--ui-input-line-color-ripple));
+		@include mdc-text-field-hover-bottom-line-color(var(--ui-input-line-color));
+		&.mdc-text-field--with-preppend-icon {
+			width: calc(100% - #{var(--ui-input-icon-size)} - #{var(--ui-input-icon-margin-right)});
+		}
+		&:hover input,&:focus input{
+			border-bottom: 2px solid;
+			padding-bottom: 5px;
+		}
+		&:hover:not(:focus):not(.mdc-text-field--focused):not(.mdc-text-field--invalid) {
+			@include mdc-text-field-label-color(var(--ui-input-field-color));
+		}
+		&.mdc-text-field--focused {
+			@include mdc-text-field-label-color(var(--ui-input-label-color));
+			@include mdc-text-field-ink-color(var(--ui-input-field-color));
+		}
+		&.mdc-text-field--invalid {
+			@include mdc-text-field-label-color(var(--ui-input-error-color));
+			@include mdc-text-field-bottom-line-color(var(--ui-input-error-color));
+			@include mdc-text-field-line-ripple-color(var(--ui-input-error-color));
+		}
+		&.mdc-text-field--filled:not(:hover):not(:focus):not(.mdc-text-field--focused):not(.mdc-text-field--invalid) {
+			@include mdc-text-field-label-color(var(--ui-input-label-color));
+			//@include mdc-text-field-icon-color(var(--ui-input-label-color));
+		}
+	}
+
+	.mdc-text-field-helper-line .mdc-text-field--with-preppend-icon {
+		margin-left: calc(#{var(--ui-input-icon-size)} + #{var(--ui-input-icon-margin-right)});
+	}
+}
+
+@font-face {
+	font-family: "Material Icons";
+	font-style: normal;
+	font-weight: 400;
+	src: url(https://fonts.gstatic.com/s/materialicons/v48/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format("woff2");
+}   
+.material-icons {
+	font-family: "Material Icons";
+	font-weight: normal;
+	font-style: normal;
+	font-size: 24px;
+	line-height: 1;
+	letter-spacing: normal;
+	text-transform: none;
+	display: inline-block;
+	white-space: nowrap;
+	word-wrap: normal;
+	direction: ltr;
+	-webkit-font-feature-settings: "liga";
+	-webkit-font-smoothing: antialiased;
+}

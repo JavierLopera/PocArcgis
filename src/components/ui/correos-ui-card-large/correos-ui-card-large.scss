@@ -1,0 +1,77 @@
+@import "src/globals/scss/02_tools/force-reset";
+
+:host {
+  --ui-card-large-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.1);
+  --ui-card-large-shadow-hover: 0 10px 20px 0 rgba(0, 0, 0, 0.25);
+
+  --ui-card-large-bg-color: white;
+  --ui-card-large-bg-color-disabled: grey;
+
+  --ui-card-large-border-radius: 0px;
+  --ui-card-large-border-color: grey;
+
+  --ui-card-large-bg-color-line: magenta;
+}
+
+.card {
+  @include reset-button();
+  display: flex;
+  width: 100%;
+  height: auto;
+  min-height: 240px;
+  padding: 24px;
+  background-color: var(--ui-card-large-bg-color);
+  box-shadow: var(--ui-card-large-shadow);
+  border: solid 1px var(--ui-card-large-border-color);
+  border-radius: var(--ui-card-large-border-radius);
+  transition: box-shadow 0.3s linear;
+
+  &:hover {
+    box-shadow: var(--ui-card-large-shadow-hover);
+    cursor: pointer;
+  }
+
+  &:focus {
+    outline: none;
+    outline-width: 0;
+  }
+
+  &:disabled {
+    background: var(--ui-card-large-bg-color-disabled);
+    .content {
+      opacity: 0.3;
+    }
+    ::slotted([slot="image"]) {
+      opacity: 0.3;
+    }
+    box-shadow: none;
+  }
+}
+
+::slotted([slot="image"]) {
+  margin-right: 24px;
+  display: block;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.divisor {
+  width: 100%;
+  height: 1px;
+  background-color: var(--ui-card-large-bg-color-line);
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+::slotted([slot="body-text"]) {
+  margin-bottom: 1.5rem;
+}
+
+::slotted([slot="footer"]) {
+  // background: red !important;
+  margin-top: auto;
+}

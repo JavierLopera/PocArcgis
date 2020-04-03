@@ -1,0 +1,20 @@
+@mixin reset-button {
+    border: unset;
+    margin: 0;
+    padding: 0;
+    width: unset;
+    overflow: unset;
+    background: unset;
+    text-align: start;
+    color: inherit;
+    font: inherit;
+    line-height: inherit;
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+    -webkit-appearance: none;
+  &::-moz-focus-inner {
+      border: 0;
+      padding: 0;
+  }
+  
+}

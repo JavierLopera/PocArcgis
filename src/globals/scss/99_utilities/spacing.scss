@@ -1,0 +1,42 @@
+.width-100 {
+  width: 100%;
+}
+
+.height-100 {
+  height: 100%;
+}
+
+$spacing-positions: (
+  t: "top",
+	b: "bottom",
+	r: "right",
+	l: "left"
+);
+
+$spacing-properties: (
+  m: "margin",
+	p: "padding"
+);
+
+@each $unit-name, $unit-value in $layout-spacing {
+  @each $property-key, $property-name in $spacing-properties {
+    .#{$property-key}-#{$unit-name} {
+      #{$property-name}: $unit-value;
+    }
+    @each $position-key, $position-name in $spacing-positions {
+      .#{$property-key}#{$position-key}-#{$unit-name} {
+        #{$property-name}-#{$position-name}: $unit-value;
+      }
+      .md\:#{$property-key}#{$position-key}-#{$unit-name} {
+        @include tablet {
+          #{$property-name}-#{$position-name}: $unit-value;
+        }
+      }
+      .lg\:#{$property-key}#{$position-key}-#{$unit-name} {
+        @include desktop {
+          #{$property-name}-#{$position-name}: $unit-value;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+.row {
+  display: grid;
+  grid-template-columns: repeat(12, [col-start] 1fr);
+  grid-gap: $layout-grid-gap;
+}
+
+@for $i from 1 through 12 {
+  .col-#{$i} {
+    grid-column-end: span #{$i};
+  }
+  .col-offset-#{$i} {
+    grid-column-start: #{$i + 1};
+  }
+}
+
+@for $i from 1 through 12 {
+  .md\:col-#{$i} {
+    @include tablet { 
+      grid-column-end: span #{$i};
+    } 
+  }
+  .md\:col-offset-#{$i} {
+    @include tablet { 
+      grid-column-start: #{$i + 1};
+    } 
+  }
+}
+
+@for $i from 1 through 12 {
+  .lg\:col-#{$i} {
+    @include desktop { 
+      grid-column-end: span #{$i};
+    } 
+  }
+  .lg\:col-offset-#{$i} {
+    @include desktop { 
+      grid-column-start: #{$i + 1};
+    } 
+  }
+}

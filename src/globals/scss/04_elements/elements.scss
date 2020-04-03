@@ -1,0 +1,67 @@
+
+body {
+  font-family: var(--theme-fontFamily-main);
+  color: var(--theme-color-strongGrey);
+  font-weight: normal;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+ol,
+ul,
+dl {
+  margin: 0;
+  padding: 0;
+}
+
+blockquote {
+  margin: 0;
+  p {
+    &:before {
+      content: open-quote;
+    }
+    &:after {
+      content: close-quote;
+    }
+  }
+}
+
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  display: block;
+}
+
+figure {
+  margin: 0;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+img[width],
+img[height] {
+  max-width: none;
+}
+
+p {
+  margin-top: 0;
+}
+
+table {
+  width: 100%;
+  border-spacing: 0;
+}
+
+th {
+  text-align: inherit;
+}

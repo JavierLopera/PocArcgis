@@ -1,0 +1,31 @@
+correos-ui-icon-button {
+    --ui-floating-buttton-bg-color: var(--theme-color-lightGrey);
+    --ui-floating-buttton-bg-color-hover: var(--theme-color-strongGrey);
+    --ui-floating-buttton-bg-color-disabled: var(--theme-color-coolGrey);
+    --ui-floating-buttton-icon-bg-color: var(--theme-color-white);
+    --ui-floating-buttton-icon-bg-color-disabled: var(--theme-color-lightGrey);
+  }
+
+  correos-ui-icon-button[primary] {
+    --ui-floating-buttton-bg-color: var(--theme-color-yellow);
+    --ui-floating-buttton-bg-color-hover: var(--theme-color-hoverYellow);
+    --ui-floating-buttton-bg-color-disabled: var(--theme-color-coolGrey);
+    --ui-floating-buttton-icon-bg-color: var(--theme-color-blue);
+    --ui-floating-buttton-icon-bg-color-disabled: var(--theme-color-lightGrey);
+  }
+
+  correos-ui-icon-button[secondary] {
+    --ui-floating-buttton-bg-color: var(--theme-color-blue);
+    --ui-floating-buttton-bg-color-hover: var(--theme-color-hoverBlue);
+    --ui-floating-buttton-bg-color-disabled: var(--theme-color-coolGrey);
+    --ui-floating-buttton-icon-bg-color: var(--theme-color-white);
+    --ui-floating-buttton-icon-bg-color-disabled: var(--theme-color-lightGrey);
+  }
+
+  correos-ui-icon-button[ghost] {
+    --ui-floating-buttton-bg-color: var(--theme-color-white);
+    --ui-floating-buttton-bg-color-hover: var(--theme-color-softGrey);
+    --ui-floating-buttton-bg-color-disabled: var(--theme-color-coolGrey);
+    --ui-floating-buttton-icon-bg-color: var(--theme-color-strongGrey);
+    --ui-floating-buttton-icon-bg-color-disabled: var(--theme-color-lightGrey);
+  }

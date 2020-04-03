@@ -1,0 +1,61 @@
+html {
+  cursor: default; /* 1 */
+  line-height: 1.49; /* 2 */
+  -moz-tab-size: 4; /* 3 */
+  tab-size: 4; /* 3 */
+  -webkit-tap-highlight-color: transparent /* 4 */;
+  -ms-text-size-adjust: 100%; /* 5 */
+  -webkit-text-size-adjust: 100%; /* 5 */
+  word-break: break-word; /* 6 */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Accessibility
+ * ========================================================================== */
+
+/**
+ * Change the cursor on busy elements in all browsers (opinionated).
+ */
+
+[aria-busy="true"] {
+  cursor: progress;
+}
+
+/*
+ * Change the cursor on control elements in all browsers (opinionated).
+ */
+
+[aria-controls] {
+  cursor: pointer;
+}
+
+/*
+ * Change the cursor on disabled, not-editable, or otherwise
+ * inoperable elements in all browsers (opinionated).
+ */
+
+[aria-disabled="true"],
+[disabled] {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/*
+ * Change the display on visually hidden accessible elements
+ * in all browsers (opinionated).
+ */
+
+[aria-hidden="false"][hidden] {
+  display: initial;
+}
+
+[aria-hidden="false"][hidden]:not(:focus) {
+  clip: rect(0, 0, 0, 0);
+  position: absolute;
+}

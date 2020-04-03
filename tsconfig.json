@@ -1,0 +1,38 @@
+{
+	"compilerOptions": {
+		"baseUrl": "./",
+		"allowSyntheticDefaultImports": true,
+		"allowUnreachableCode": true,
+		"declaration": true,
+		"experimentalDecorators": true,
+		"lib": [
+			"dom",
+			"es2017"
+		],
+		"moduleResolution": "node",
+		"module": "esnext",
+		"target": "es2017",
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"jsx": "react",
+		"jsxFactory": "h",
+		"resolveJsonModule": true,
+		"esModuleInterop": true,
+		"paths": {
+			"@app/utils": [
+				"src/utils/index"
+			]
+		}
+	},
+	"include": [
+		"src",
+		"types/jsx.d.ts",
+		"stencil.config.ts"
+	],
+	"exclude": [
+		"node_modules",
+		".generators",
+		".stencil",
+		".storybook"
+	]
+}

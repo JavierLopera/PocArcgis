@@ -1,0 +1,10 @@
+{
+	"stencil": {
+		"prefix": "correos",
+		"protocol": "http",
+		"host": "localhost",
+		"port": 4300,
+		"buildDir": "build",
+		"bundles": []
+	}
+}
