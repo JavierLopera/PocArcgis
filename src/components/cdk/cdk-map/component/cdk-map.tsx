@@ -19,7 +19,7 @@ export class CDKMap {
 	 * topo, streets, satellite, hybrid, dark-gray, gray, national-geographic, oceans, osm, terrain, dark-gray-vector, gray-vector
 	 * streets-vector, streets-night-vector, streets-navigation-vector, topo-vector, streets-relief-vector
 	 */
-	@Prop() viewTypeMap = 'streets';
+	@Prop() viewTypeMap = 'streets-navigation-vector';
 
 	/* Zoom por defecto de la vista del mapa */
 	@Prop() viewZoomMap: number = 6;
@@ -43,6 +43,8 @@ export class CDKMap {
 	basemapGallery; // Permite cambiar mapas base de un grupo de Arcgis Online
 	graphicsLayer;
 	sketch;
+	locate;
+	search;
 
 	constructor() {
 		loadCss(`${this.esriMapOptions.url}/esri/css/main.css`);
@@ -95,14 +97,18 @@ export class CDKMap {
 			"esri/views/MapView",
 			"esri/widgets/BasemapToggle",
 			"esri/widgets/BasemapGallery",
-			"esri/widgets/Sketch"
+			"esri/widgets/Sketch",
+			"esri/widgets/Locate",
+			"esri/widgets/Search"
 		], this.esriMapOptions).then(
-			([EsriMapView, BasemapToggle, BasemapGallery, Sketch]:
+			([EsriMapView, BasemapToggle, BasemapGallery, Sketch, Locate, Search]:
 				[
 					__esri.MapViewConstructor,
 					__esri.BasemapToggleConstructor,
 					__esri.BasemapGalleryConstructor,
-					__esri.SketchConstructor
+					__esri.SketchConstructor,
+					__esri.LocateConstructor,
+					any
 				]) => {
 
 				const mapDiv = this.rippleLinkElement;
@@ -156,11 +162,59 @@ export class CDKMap {
 				polygonSymbol.color = fillColor;
 				polygonSymbol.outline = stroke;
 
+				this.locate = new Locate({
+					view: this.esriMapView,
+					useHeadingEnabled: false,
+					goToOverride: function (view, options) {
+						options.target.scale = 1500;  // Override the default map scale
+						return view.goTo(options.target);
+					}
+				});
+
+				this.search = new Search({
+					view: this.esriMapView
+				});
+
+				this.pointLocator();
+
 				this.esriMapView.ui.add(this.basemapToggle, "bottom-right");
-				this.esriMapView.ui.add(this.basemapGallery, "top-right");
+				// this.esriMapView.ui.add(this.basemapGallery, "top-right");
 				this.esriMapView.ui.add(this.sketch, "bottom-left");
+				this.esriMapView.ui.add(this.locate, "top-left");
+				this.esriMapView.ui.add(this.search, "top-left");
 			}
 		);
+	}
+
+	pointLocator() {
+
+		this.esriMapView.on("click", (evt) => {
+			this.search.clear();
+			this.esriMapView.popup.clear();
+			if (this.search.activeSource) {
+				var geocoder = this.search.activeSource.locator; // World geocode service
+				var params = {
+					location: evt.mapPoint
+				};
+				geocoder.locationToAddress(params)
+					.then(function (response) { // Show the address found
+						var address = response.address;
+						showPopup(address, evt.mapPoint);
+					}, (err) => { // Show no address found
+						console.log(err)
+						showPopup("No address found.", evt.mapPoint);
+					});
+			}
+		});
+
+		const showPopup = (address, pt) => {
+			this.esriMapView.popup.open({
+				title: + Math.round(pt.longitude * 100000) / 100000 + "," + Math.round(pt.latitude * 100000) / 100000,
+				content: address,
+				location: pt
+			});
+		}
+
 	}
 
 	render() {
