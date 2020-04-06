@@ -78,7 +78,16 @@ export namespace Components {
     'altImage': string;
     'urlImage': string;
   }
-  interface CorreosCdkMap {}
+  interface CorreosCdkMap {
+    'history': any;
+    'match': any;
+    'viewPositionMap': number[];
+    /**
+    * topo, streets, satellite, hybrid, dark-gray, gray, national-geographic, oceans, osm, terrain, dark-gray-vector, gray-vector streets-vector, streets-night-vector, streets-navigation-vector, topo-vector, streets-relief-vector
+    */
+    'viewTypeMap': string;
+    'viewZoomMap': number;
+  }
   interface CorreosCdkSectionBgimagecard {
     /**
     * Image src url
@@ -570,7 +579,16 @@ declare namespace LocalJSX {
     'altImage'?: string;
     'urlImage'?: string;
   }
-  interface CorreosCdkMap {}
+  interface CorreosCdkMap {
+    'history'?: any;
+    'match'?: any;
+    'viewPositionMap'?: number[];
+    /**
+    * topo, streets, satellite, hybrid, dark-gray, gray, national-geographic, oceans, osm, terrain, dark-gray-vector, gray-vector streets-vector, streets-night-vector, streets-navigation-vector, topo-vector, streets-relief-vector
+    */
+    'viewTypeMap'?: string;
+    'viewZoomMap'?: number;
+  }
   interface CorreosCdkSectionBgimagecard {
     /**
     * Image src url

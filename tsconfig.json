@@ -22,7 +22,10 @@
 			"@app/utils": [
 				"src/utils/index.ts"
 			]
-		}
+		},
+		"types": [
+			"arcgis-js-api"
+		]
 	},
 	"include": [
 		"src",

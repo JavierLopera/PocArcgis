@@ -85,6 +85,7 @@
 		"@material/menu-surface": "^4.0.0",
 		"@material/ripple": "^4.0.0",
 		"@material/textfield": "^4.0.0",
+		"@types/arcgis-js-api": "^4.14.0",
 		"detect-element-resize": "0.0.2",
 		"esri-loader": "^2.13.0",
 		"focus-trap": "^5.1.0",
