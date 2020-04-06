@@ -78,6 +78,7 @@ export namespace Components {
     'altImage': string;
     'urlImage': string;
   }
+  interface CorreosCdkMap {}
   interface CorreosCdkSectionBgimagecard {
     /**
     * Image src url
@@ -375,6 +376,12 @@ declare global {
     new (): HTMLCorreosCdkImageblockElement;
   };
 
+  interface HTMLCorreosCdkMapElement extends Components.CorreosCdkMap, HTMLStencilElement {}
+  var HTMLCorreosCdkMapElement: {
+    prototype: HTMLCorreosCdkMapElement;
+    new (): HTMLCorreosCdkMapElement;
+  };
+
   interface HTMLCorreosCdkSectionBgimagecardElement extends Components.CorreosCdkSectionBgimagecard, HTMLStencilElement {}
   var HTMLCorreosCdkSectionBgimagecardElement: {
     prototype: HTMLCorreosCdkSectionBgimagecardElement;
@@ -481,6 +488,7 @@ declare global {
     'correos-cdk-core-header': HTMLCorreosCdkCoreHeaderElement;
     'correos-cdk-heroscene': HTMLCorreosCdkHerosceneElement;
     'correos-cdk-imageblock': HTMLCorreosCdkImageblockElement;
+    'correos-cdk-map': HTMLCorreosCdkMapElement;
     'correos-cdk-section-bgimagecard': HTMLCorreosCdkSectionBgimagecardElement;
     'correos-cdk-section-box': HTMLCorreosCdkSectionBoxElement;
     'correos-cdk-section-log': HTMLCorreosCdkSectionLogElement;
@@ -562,6 +570,7 @@ declare namespace LocalJSX {
     'altImage'?: string;
     'urlImage'?: string;
   }
+  interface CorreosCdkMap {}
   interface CorreosCdkSectionBgimagecard {
     /**
     * Image src url
@@ -840,6 +849,7 @@ declare namespace LocalJSX {
     'correos-cdk-core-header': CorreosCdkCoreHeader;
     'correos-cdk-heroscene': CorreosCdkHeroscene;
     'correos-cdk-imageblock': CorreosCdkImageblock;
+    'correos-cdk-map': CorreosCdkMap;
     'correos-cdk-section-bgimagecard': CorreosCdkSectionBgimagecard;
     'correos-cdk-section-box': CorreosCdkSectionBox;
     'correos-cdk-section-log': CorreosCdkSectionLog;
@@ -870,6 +880,7 @@ declare module "@stencil/core" {
       'correos-cdk-core-header': LocalJSX.CorreosCdkCoreHeader & JSXBase.HTMLAttributes<HTMLCorreosCdkCoreHeaderElement>;
       'correos-cdk-heroscene': LocalJSX.CorreosCdkHeroscene & JSXBase.HTMLAttributes<HTMLCorreosCdkHerosceneElement>;
       'correos-cdk-imageblock': LocalJSX.CorreosCdkImageblock & JSXBase.HTMLAttributes<HTMLCorreosCdkImageblockElement>;
+      'correos-cdk-map': LocalJSX.CorreosCdkMap & JSXBase.HTMLAttributes<HTMLCorreosCdkMapElement>;
       'correos-cdk-section-bgimagecard': LocalJSX.CorreosCdkSectionBgimagecard & JSXBase.HTMLAttributes<HTMLCorreosCdkSectionBgimagecardElement>;
       'correos-cdk-section-box': LocalJSX.CorreosCdkSectionBox & JSXBase.HTMLAttributes<HTMLCorreosCdkSectionBoxElement>;
       'correos-cdk-section-log': LocalJSX.CorreosCdkSectionLog & JSXBase.HTMLAttributes<HTMLCorreosCdkSectionLogElement>;

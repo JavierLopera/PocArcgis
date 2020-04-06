@@ -1,0 +1,51 @@
+import { Story, Preview, Meta, Props } from '@storybook/addon-docs/blocks';
+import { html } from 'lit-html';
+
+import { customEventAction } from '../../../docs/utils/decorators.js';
+import { action, decorate } from '@storybook/addon-actions';
+import { text} from "@storybook/addon-knobs";
+
+# Storybook Docs for Map
+
+<Meta title="CDK/cdk-map" />
+
+## Story definition
+
+Preview of default state.
+
+<Story name="Develop">
+  {() => {
+		const knobs = {
+			first: text('First', 'Jon'),
+			last: text('Last', 'Snow')
+		};
+		return html`
+			<correos-cdk-map
+				first='${knobs.first}'
+				last='${knobs.last}'
+				@click=${action('Map click')}
+				@eventChange="${customEventAction('eventChange')}"
+			>
+			</correos-cdk-map>
+		`}
+	}
+</Story>
+
+## API
+
+<Props of="correos-cdk-map" />
+
+## Examples
+
+Basic example
+
+<Preview withToolbar>
+  <Story name="Basic">
+    {html`
+		  <correos-cdk-map
+		    first='Jon'
+		    last='Snow'>
+		  </correos-cdk-map>
+		`}
+  </Story>
+</Preview>

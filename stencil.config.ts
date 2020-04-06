@@ -34,6 +34,18 @@ export const config: Config = {
 	srcDir: 'src',
 	globalStyle: 'src/globals/scss/styles.scss',
 	globalScript: null,
+	commonjs: {
+		namedExports: {
+			"node_modules/esri-loader/dist/umd/esri-loader.js": [
+				"getScript",
+				"isLoaded",
+				"loadModules",
+				"loadScript",
+				"loadCss",
+				"utils"
+			]
+		}
+	},
 	plugins: [
 		env({
 			path: getEnvFile(),
