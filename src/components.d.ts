@@ -79,8 +79,6 @@ export namespace Components {
     'urlImage': string;
   }
   interface CorreosCdkMap {
-    'history': any;
-    'match': any;
     'viewPositionMap': number[];
     /**
     * topo, streets, satellite, hybrid, dark-gray, gray, national-geographic, oceans, osm, terrain, dark-gray-vector, gray-vector streets-vector, streets-night-vector, streets-navigation-vector, topo-vector, streets-relief-vector
@@ -580,8 +578,6 @@ declare namespace LocalJSX {
     'urlImage'?: string;
   }
   interface CorreosCdkMap {
-    'history'?: any;
-    'match'?: any;
     'viewPositionMap'?: number[];
     /**
     * topo, streets, satellite, hybrid, dark-gray, gray, national-geographic, oceans, osm, terrain, dark-gray-vector, gray-vector streets-vector, streets-night-vector, streets-navigation-vector, topo-vector, streets-relief-vector

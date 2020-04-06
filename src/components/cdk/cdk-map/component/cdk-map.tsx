@@ -11,9 +11,6 @@ import { loadCss, loadModules } from "esri-loader";
 export class CDKMap {
 
 	rippleLinkElement: HTMLDivElement;
-	// view;
-	@Prop() match;
-	@Prop() history;
 
 	/**
 	 * topo, streets, satellite, hybrid, dark-gray, gray, national-geographic, oceans, osm, terrain, dark-gray-vector, gray-vector
@@ -22,12 +19,10 @@ export class CDKMap {
 	@Prop() viewTypeMap = 'streets-navigation-vector';
 
 	/* Zoom por defecto de la vista del mapa */
-	@Prop() viewZoomMap: number = 6;
+	@Prop() viewZoomMap: number = 8;
 
 	/* Posicion en el globo terraqueo inicial ejemplo: [-4, 40] */
 	@Prop() viewPositionMap: number[] = [-4, 40];
-
-
 
 	/**
    	* esri-loader options
@@ -38,13 +33,61 @@ export class CDKMap {
 
 	esriMap: __esri.Map; // Instancia del mapa
 	esriMapView: __esri.MapView; // Instancia de la vista del mapa
-	municipalitiesFeatureLayer: __esri.FeatureLayer; // Caracteristicas del mapa
-	basemapToggle; // Permite alterna entre el modod satelite y Topografico
-	basemapGallery; // Permite cambiar mapas base de un grupo de Arcgis Online
 	graphicsLayer;
-	sketch;
-	locate;
-	search;
+
+	point = {
+		type: "point",
+		longitude: -3.691,
+		latitude: 40.415
+	};
+
+	symbol = {
+		type: "picture-marker",  // autocasts as new PictureMarkerSymbol()
+		url: "https://static.arcgis.com/images/Symbols/Shapes/BlackStarLargeB.png",
+		width: "40px",
+		height: "40px"
+	};
+
+	attributes = {
+		Name: "Mi ejemplo",  // The name of the
+		Location: " Ejemplo correos",  // The owner of the
+	};
+
+	// Create popup template
+	popupTemplate = {
+		title: this.attributes.Name,
+		content: `I am located at <b>${this.attributes.Location}</b>.`
+	};
+
+	simpleMarkerSymbol = {
+		type: "simple-marker",
+		color: [226, 119, 40],  // orange
+		outline: {
+			color: [255, 255, 255], // white
+			width: 1
+		}
+	};
+
+	// Vertices poligono
+	polygon = {
+		type: "polygon",
+		rings: [
+			[-3.669, 40.269],
+			[-3.664, 40.201],
+			[-3.568, 40.239],
+			[-3.583, 40.332],
+		]
+	};
+
+	// Estilo poligono
+	simpleFillSymbol = {
+		type: "simple-fill",
+		color: [227, 139, 79, 0.8],  // orange, opacity 80%
+		outline: {
+			color: [255, 255, 255],
+			width: 1
+		}
+	};
 
 	constructor() {
 		loadCss(`${this.esriMapOptions.url}/esri/css/main.css`);
@@ -52,169 +95,124 @@ export class CDKMap {
 		loadModules(
 			[
 				"esri/Map",
-				"esri/layers/FeatureLayer",
+				"esri/views/MapView",
+				"esri/Graphic",
 				"esri/layers/GraphicsLayer"
 			],
 			this.esriMapOptions
 		).then(
-			([EsriMap, FeatureLayer, GraphicsLayer]: [
+			([Map, MapView, Graphic, GraphicsLayer]: [
 				__esri.MapConstructor,
-				__esri.FeatureLayerConstructor,
+				__esri.MapViewConstructor,
+				any,
 				__esri.GraphicsLayerConstructor
 			]) => {
+				const mapDiv = this.rippleLinkElement;
 				this.graphicsLayer = new GraphicsLayer();
 
-				this.esriMap = new EsriMap({
-					basemap: this.viewTypeMap,
-					layers: [this.graphicsLayer]
+				this.esriMap = new Map({
+					basemap: this.viewTypeMap
 				});
 
-				this.municipalitiesFeatureLayer = new FeatureLayer({
-					url: 'https://services.arcgis.com/Li1xnxaTwJ2lGrgz/arcgis/rest/services/Kommuner/FeatureServer/0'
-				});
-
-				this.esriMap.add(this.municipalitiesFeatureLayer);
-			}
-		);
-	}
-
-	componentDidUpdate() {
-		console.log("component update");
-		// this.zoomToUrlObjectId(600);
-	}
-
-	componentDidLoad() {
-		this.createEsriMapView()
-		// .then(() => this.zoomToUrlObjectId())
-		// .then(() => this.addZoomOnClickAndUrlUpdate());
-	}
-
-	/**
-	* Inicializa la vista del mapa
-	*/
-	createEsriMapView() {
-		return loadModules([
-			"esri/views/MapView",
-			"esri/widgets/BasemapToggle",
-			"esri/widgets/BasemapGallery",
-			"esri/widgets/Sketch",
-			"esri/widgets/Locate",
-			"esri/widgets/Search"
-		], this.esriMapOptions).then(
-			([EsriMapView, BasemapToggle, BasemapGallery, Sketch, Locate, Search]:
-				[
-					__esri.MapViewConstructor,
-					__esri.BasemapToggleConstructor,
-					__esri.BasemapGalleryConstructor,
-					__esri.SketchConstructor,
-					__esri.LocateConstructor,
-					any
-				]) => {
-
-				const mapDiv = this.rippleLinkElement;
-
-				this.esriMapView = new EsriMapView({
+				this.esriMapView = new MapView({
 					container: mapDiv,
 					zoom: this.viewZoomMap,
 					center: this.viewPositionMap,
 					map: this.esriMap
 				});
 
-				this.basemapToggle = new BasemapToggle({
-					view: this.esriMapView,
-					nextBasemap: "satellite"
-				});
+				// const pointGraphic = new Graphic({
+				// 	geometry: this.point,
+				// 	symbol: this.symbol
+				// });
 
-				this.basemapGallery = new BasemapGallery({
-					view: this.esriMapView,
-					source: {
-						portal: {
-							url: "https://www.arcgis.com",
-							useVectorBasemaps: false  // Load vector tile basemaps
-						}
-					}
-				});
+				// Localizador
+				const coordsWidget = document.createElement("div");
+				coordsWidget.id = "coordsWidget";
+				coordsWidget.className = "esri-widget esri-component";
+				coordsWidget.style.padding = "7px 15px 5px";
 
-				this.sketch = new Sketch({
-					view: this.esriMapView,
-					layer: this.graphicsLayer
-				});
-
-				const stroke = {
-					color: [255, 0, 0],
-					width: 1
+				const showCoordinates = (pt) => {
+					var coords = "Lat/Lon " + pt.latitude.toFixed(3) + " " + pt.longitude.toFixed(3) +
+						" | Scale 1:" + Math.round(this.esriMapView.scale * 1) / 1 +
+						" | Zoom " + this.esriMapView.zoom;
+					coordsWidget.innerHTML = coords;
 				}
 
-				//*** White fill color with 50% transparency ***//
-				const fillColor = [255, 255, 255, .5];
+				this.esriMapView.watch("stationary", () => {
+					showCoordinates(this.esriMapView.center);
+				});
 
-				//*** Override all of the default symbol colors and sizes ***//
-				const pointSymbol = this.sketch.viewModel.pointSymbol;
-				pointSymbol.color = fillColor;
-				pointSymbol.outline = stroke;
-				pointSymbol.size = 8;
+				this.esriMapView.on("pointer-move", (evt) => {
+					showCoordinates(this.esriMapView.toMap({ x: evt.x, y: evt.y }));
+				});
 
-				const polylineSymbol = this.sketch.viewModel.polylineSymbol;
-				polylineSymbol.color = stroke.color;
-				polylineSymbol.width = stroke.width;
+				//Poligonos
+				const polygonGraphic = new Graphic({
+					geometry: this.polygon,
+					symbol: this.simpleFillSymbol
+				});
 
-				const polygonSymbol = this.sketch.viewModel.polygonSymbol;
-				polygonSymbol.color = fillColor;
-				polygonSymbol.outline = stroke;
+				// Pop up
+				const pointGraphic = new Graphic({
+					geometry: this.point,
+					symbol: this.symbol,
+					//*** ADD ***//
+					attributes: this.attributes,
+					popupTemplate: this.popupTemplate
+				});
 
-				this.locate = new Locate({
-					view: this.esriMapView,
-					useHeadingEnabled: false,
-					goToOverride: function (view, options) {
-						options.target.scale = 1500;  // Override the default map scale
-						return view.goTo(options.target);
+
+				// Add
+
+				this.graphicsLayer.add(pointGraphic);
+				this.graphicsLayer.add(polygonGraphic);
+				this.graphicsLayer.add(pointGraphic);
+
+				this.esriMap.add(this.graphicsLayer);
+
+				// Localizador
+				this.esriMapView.ui.add(coordsWidget, "bottom-right");
+
+				const pictureGraphic = new Graphic({
+					geometry: {
+						type: "point",
+						longitude: -3.491,
+						latitude: 40.480
+					},
+					symbol: {
+						type: "picture-marker",
+						url: "https://developers.arcgis.com/labs/images/bluepin.png",
+						width: "14px",
+						height: "26px"
 					}
 				});
 
-				this.search = new Search({
-					view: this.esriMapView
-				});
+				const textGraphic = new Graphic({
+					geometry: {
+					  type: "point",
+					  longitude: -3.291,
+					  latitude: 40.480
+					},
+					symbol: {
+					   type: "text",
+					   color: [25,25,25],
+					   haloColor: [255,255,255],
+					   haloSize: "1px",
+					   text: "This is my location!",
+					   xoffset: 0,
+					   yoffset: -25,
+					   font: {
+						 size: 12
+					  }
+					}
+				  });
+			 
+				  this.graphicsLayer.add(textGraphic);
 
-				this.pointLocator();
-
-				this.esriMapView.ui.add(this.basemapToggle, "bottom-right");
-				// this.esriMapView.ui.add(this.basemapGallery, "top-right");
-				this.esriMapView.ui.add(this.sketch, "bottom-left");
-				this.esriMapView.ui.add(this.locate, "top-left");
-				this.esriMapView.ui.add(this.search, "top-left");
+				this.graphicsLayer.add(pictureGraphic);
 			}
 		);
-	}
-
-	pointLocator() {
-
-		this.esriMapView.on("click", (evt) => {
-			this.search.clear();
-			this.esriMapView.popup.clear();
-			if (this.search.activeSource) {
-				var geocoder = this.search.activeSource.locator; // World geocode service
-				var params = {
-					location: evt.mapPoint
-				};
-				geocoder.locationToAddress(params)
-					.then(function (response) { // Show the address found
-						var address = response.address;
-						showPopup(address, evt.mapPoint);
-					}, (err) => { // Show no address found
-						console.log(err)
-						showPopup("No address found.", evt.mapPoint);
-					});
-			}
-		});
-
-		const showPopup = (address, pt) => {
-			this.esriMapView.popup.open({
-				title: + Math.round(pt.longitude * 100000) / 100000 + "," + Math.round(pt.latitude * 100000) / 100000,
-				content: address,
-				location: pt
-			});
-		}
-
 	}
 
 	render() {
