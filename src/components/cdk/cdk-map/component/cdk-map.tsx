@@ -11,6 +11,8 @@ import { loadCss, loadModules } from "esri-loader";
 export class CDKMap {
 
 	rippleLinkElement: HTMLDivElement;
+	rippleLinkElement2: HTMLDivElement;
+	rippleButtonElement: HTMLButtonElement;
 
 	/**
 	 * topo, streets, satellite, hybrid, dark-gray, gray, national-geographic, oceans, osm, terrain, dark-gray-vector, gray-vector
@@ -41,87 +43,172 @@ export class CDKMap {
 			[
 				"esri/Map",
 				"esri/views/MapView",
-				"esri/layers/FeatureLayer"
+				"esri/layers/FeatureLayer",
+				"esri/layers/GeoJSONLayer",
+				"esri/widgets/Legend",
+				"esri/widgets/Expand",
+				"esri/widgets/Home"
 			],
 			this.esriMapOptions
 		).then(
-			([Map, MapView, FeatureLayer]: [
-				__esri.MapConstructor,
-				__esri.MapViewConstructor,
-				any
-			]) => {
+			([
+				Map,
+				MapView,
+				FeatureLayer,
+				GeoJSONLayer,
+				// Legend,
+				Expand,
+				Home
+			]: [
+					__esri.MapConstructor,
+					__esri.MapViewConstructor,
+					any,
+					any,
+					// __esri.LegendConstructor,
+					__esri.ExpandConstructor,
+					__esri.HomeConstructor
+				]) => {
 				const mapDiv = this.rippleLinkElement;
 
-				this.esriMap = new Map({
-					basemap: this.viewTypeMap
+				/* Configura el agrupamiento en la capa. Un radio de clúster de 100 px indica un área que comprende 
+				* un espacio de pantalla de 100 px de longitud desde el centro del clúster.
+				*/
+				const clusterConfig = {
+					type: "cluster",
+					clusterRadius: "100px",
+					// {cluster_count} es un campo agregado que contiene la cantidad de características que comprende el clúster
+					popupTemplate: {
+						content: "This cluster represents {cluster_count} earthquakes."
+					}
+				};
+
+				const layer = new GeoJSONLayer({
+					title: "Terremotos en el último mes",
+					url:
+						"https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson",
+					copyright: "USGS Earthquakes",
+					featureReduction: clusterConfig,
+					popupTemplate: {
+						title: "Earthquake Info",
+						content: "Magnitude {mag} {type} hit {place} on {time}",
+						fieldInfos: [
+							{
+								fieldName: "time",
+								format: {
+									dateFormat: "short-date-short-time"
+								}
+							}
+						]
+					},
+					renderer: {
+						type: "simple",
+						field: "mag",
+						symbol: {
+							type: "simple-marker",
+							size: 4,
+							color: "#fc3232",
+							outline: {
+								color: [50, 50, 50]
+							}
+						}
+					}
 				});
 
+				const baseLayer = new FeatureLayer({
+					portalItem: {
+						id: "2b93b06dc0dc4e809d3c8db5cb96ba69"
+					},
+					legendEnabled: false,
+					popupEnabled: false,
+					renderer: {
+						type: "simple",
+						symbol: {
+							type: "simple-fill",
+							color: [50, 50, 50, 0.75],
+							outline: {
+								color: "white",
+								width: 0.5
+							}
+						}
+					},
+					spatialReference: {
+						wkid: 5936
+					}
+				});
+
+				this.esriMap = new Map({
+					basemap: this.viewTypeMap,
+					layers: [baseLayer, layer]
+				});
+
+
+				// this.esriMapView = new MapView({
+				// 	container: mapDiv,
+				// 	zoom: this.viewZoomMap,
+				// 	center: this.viewPositionMap,
+				// 	map: this.esriMap
+				// });
+
 				this.esriMapView = new MapView({
+					// container: "viewDiv",
 					container: mapDiv,
 					zoom: this.viewZoomMap,
-					center: this.viewPositionMap,
+					extent: {
+						xmin: 396381,
+						ymin: -2099670,
+						xmax: 3393803,
+						ymax: 148395,
+						spatialReference: {
+							wkid: 5936
+						}
+					},
+					spatialReference: {
+						// WGS_1984_EPSG_Alaska_Polar_Stereographic
+						wkid: 5936
+					},
+					constraints: {
+						minScale: 15469455
+					},
 					map: this.esriMap
 				});
 
-				// Trailheads feature layer (points)
-				const trailheadsLayer = new FeatureLayer({
-					url: "https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Trailheads/FeatureServer/0"
+				this.esriMapView.ui.add(
+					new Home({
+						view: this.esriMapView
+					}),
+					"top-left"
+				);
+
+				// const legend = new Legend({
+				// 	view: this.esriMapView,
+				// 	container: mapDiv
+				// });
+
+				const infoDiv = this.rippleLinkElement2;
+
+				this.esriMapView.ui.add(
+					new Expand({
+						view: this.esriMapView,
+						content: infoDiv,
+						expandIconClass: "esri-icon-layer-list",
+						expanded: true
+					}),
+					"top-left"
+				);
+
+				const toggleButton = this.rippleButtonElement;
+
+				// Para desactivar la agrupación de contenido en la capa,
+				// establezca la propiedad featureReduction  en null
+				toggleButton.addEventListener("click", function () {
+					let fr = layer.featureReduction;
+					layer.featureReduction =
+						fr && fr.type === "cluster" ? null : clusterConfig;
+					toggleButton.innerText =
+						toggleButton.innerText === "Enable Clustering"
+							? "Disable Clustering"
+							: "Enable Clustering";
 				});
-
-				// trailheadsLayer.setFeatureReduction({
-				// 	type: "cluster",
-				// 	clusterRadius: 60
-				// });
-
-				this.esriMap.add(trailheadsLayer);
-
-				// symbol
-				// const trailheadsRenderer = {
-				// 	type: "simple",
-				// 	symbol: {
-				// 		type: "picture-marker",
-				// 		url: "http://static.arcgis.com/images/Symbols/NPS/npsPictograph_0231b.png",
-				// 		width: "18px",
-				// 		height: "18px"
-				// 	}
-				// }
-
-				// const trailheadsLabels = {
-				// 	symbol: {
-				// 		type: "text",
-				// 		color: "#FFFFFF",
-				// 		haloColor: "#5E8D74",
-				// 		haloSize: "2px",
-				// 		font: {
-				// 			size: "12px",
-				// 			family: "Noto Sans",
-				// 			style: "italic",
-				// 			weight: "normal"
-				// 		}
-				// 	},
-				// 	labelPlacement: "above-center",
-				// 	labelExpressionInfo: {
-				// 		expression: "$feature.TRL_NAME"
-				// 	}
-				// };
-
-				// const trailheads = new FeatureLayer({
-				// 	url:
-				// 		"https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Trailheads/FeatureServer/0",
-				// 	renderer: trailheadsRenderer,
-				// 	labelingInfo: [trailheadsLabels],
-				// 	popupTemplate: {
-				// 		title: "Hola Mundo",
-				// 		content: "Esto es una prueba de texto de un popup"
-				// 	}
-				// });
-
-				// trailheads.setFeatureReduction({
-				// 	type: "cluster",
-				// 	clusterRadius: 60
-				//   });
-
-				// this.esriMap.add(trailheads);
 
 			}
 		);
@@ -131,7 +218,14 @@ export class CDKMap {
 
 		return (
 			<Host>
-				<div class="app-map" ref={el => this.rippleLinkElement = el as HTMLDivElement} />
+				<div class="app-map" ref={el => this.rippleLinkElement = el as HTMLDivElement} >
+					<div id="infoDiv" class="esri-widget" ref={el => this.rippleLinkElement2 = el as HTMLDivElement}>
+						<button id="cluster" class="esri-button" ref={el => this.rippleButtonElement = el as HTMLButtonElement}>
+							Disable Clustering
+						</button>
+						<div id="legendDiv"></div>
+					</div>
+				</div>
 			</Host>
 		);
 	}
