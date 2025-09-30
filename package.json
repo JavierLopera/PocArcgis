@@ -89,7 +89,7 @@
 		"detect-element-resize": "0.0.2",
 		"esri-loader": "^2.13.0",
 		"focus-trap": "^5.1.0",
-		"lodash": "^4.17.15",
+		"lodash": "^4.17.21",
 		"resize-observer-polyfill": "^1.5.1",
 		"sass-rem": "^2.0.1",
 		"tiny-slider": "^2.9.2"
